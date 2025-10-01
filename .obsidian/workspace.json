@@ -11,13 +11,32 @@
             "id": "55c635f16944652c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "test.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "test"
+            }
+          },
+          {
+            "id": "939f8733dfb66e4a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "test2.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "test2"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -109,6 +128,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "test2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +138,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for test2"
             }
           },
           {
@@ -200,10 +220,14 @@
       "pomodoro-timer:Toggle timer panel": false
     }
   },
-  "active": "f4a0cea9598da94a",
+  "active": "939f8733dfb66e4a",
   "lastOpenFiles": [
-    "repo/0 Templates/Leetcode problem template.md",
     "test.md",
+    "test2.md",
+    "README.md",
+    "0 Templates/School note template.md",
+    "repo/Assets/Pasted image 20250821003424.png",
+    "repo/0 Templates/Leetcode problem template.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/3 Voice Endpoints.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/1 Audio Recording.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/2 Whisper Integration.md",
@@ -234,14 +258,10 @@
     "Lecture Notes/CO1103/Basics On Sets.md",
     "Assets/Pasted image 20250821003424.png",
     "Assets/LC 876.png",
-    "0 Templates/School note template.md",
     "0 Templates/Project lesson note template.md",
     "0 Templates/Personal Learning template.md",
     "0 Templates/Leetcode problem template.md",
-    "repo/Assets/Pasted image 20250821003424.png",
     "repo/Assets/LC 876.png",
-    "README.md",
-    "repo/Programming/Personal Projects/Jarvis/Lesson 3/3 Voice Endpoints.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Assets/Pasted image 20250820233920.png",
