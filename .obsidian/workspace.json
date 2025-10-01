@@ -11,10 +11,14 @@
             "id": "55c635f16944652c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "test.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "test"
             }
           }
         ]
@@ -109,6 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "test.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +123,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for test"
             }
           },
           {
@@ -200,7 +205,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f4a0cea9598da94a",
+  "active": "55c635f16944652c",
   "lastOpenFiles": [
     "repo/0 Templates/Leetcode problem template.md",
     "test.md",
