@@ -13,20 +13,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lecture Notes/CO1103/Basics On Sets.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Basics On Sets"
-            }
-          },
-          {
-            "id": "be78965493ba9e1c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "test3.md",
                 "mode": "source",
                 "source": false
@@ -35,8 +21,7 @@
               "title": "test3"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -48,7 +33,7 @@
       {
         "id": "dc9bba424bf0f73b",
         "type": "tabs",
-        "dimension": 80.67632850241546,
+        "dimension": 66.76328502415458,
         "children": [
           {
             "id": "f4a0cea9598da94a",
@@ -95,7 +80,7 @@
       {
         "id": "4e75ab28ce678a47",
         "type": "tabs",
-        "dimension": 19.32367149758454,
+        "dimension": 33.23671497584541,
         "children": [
           {
             "id": "d1f0039aa10dcde1",
@@ -216,17 +201,20 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "pomodoro-timer:Toggle timer panel": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "pomodoro-timer:Toggle timer panel": false
     }
   },
-  "active": "be78965493ba9e1c",
+  "active": "55c635f16944652c",
   "lastOpenFiles": [
-    "Lecture Notes/CO1103/Basics On Sets.md",
+    "Assets/Pasted image 20250821003424.png",
     "test3.md",
-    "conflict-files-obsidian-git.md",
+    "README.md",
     "test2.md",
     "test.md",
+    "conflict-files-obsidian-git.md",
+    "0 Templates/School note template.md",
+    "repo/Assets/Pasted image 20250821003424.png",
     "repo/0 Templates/Leetcode problem template.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/3 Voice Endpoints.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/1 Audio Recording.md",
@@ -255,12 +243,8 @@
     "Programming",
     "Lecture Notes/CO1104/Data Paths.md",
     "Lecture Notes/CO1103/Set Comprehension.md",
-    "Assets/Pasted image 20250821003424.png",
+    "Lecture Notes/CO1103/Basics On Sets.md",
     "Assets/LC 876.png",
-    "0 Templates/School note template.md",
-    "0 Templates/Project lesson note template.md",
-    "0 Templates/Personal Learning template.md",
-    "repo/Assets/Pasted image 20250821003424.png",
     "repo/Assets/LC 876.png",
     "Untitled 1.canvas",
     "Untitled.canvas",
