@@ -13,20 +13,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "test.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "test"
-            }
-          },
-          {
-            "id": "939f8733dfb66e4a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "test2.md",
                 "mode": "source",
                 "source": false
@@ -35,8 +21,7 @@
               "title": "test2"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -220,10 +205,11 @@
       "pomodoro-timer:Toggle timer panel": false
     }
   },
-  "active": "939f8733dfb66e4a",
+  "active": "55c635f16944652c",
   "lastOpenFiles": [
     "test.md",
     "test2.md",
+    "conflict-files-obsidian-git.md",
     "README.md",
     "0 Templates/School note template.md",
     "repo/Assets/Pasted image 20250821003424.png",
@@ -260,7 +246,6 @@
     "Assets/LC 876.png",
     "0 Templates/Project lesson note template.md",
     "0 Templates/Personal Learning template.md",
-    "0 Templates/Leetcode problem template.md",
     "repo/Assets/LC 876.png",
     "Untitled 1.canvas",
     "Untitled.canvas",
