@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "test2.md",
+                "file": "Lecture Notes/CO1103/Basics On Sets.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "test2"
+              "title": "Basics On Sets"
             }
           }
         ]
@@ -113,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "test2.md",
+                "file": "Lecture Notes/CO1103/Basics On Sets.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +123,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for test2"
+              "title": "Backlinks for Basics On Sets"
             }
           },
           {
@@ -201,18 +201,14 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-git:Open Git source control": false,
-      "pomodoro-timer:Toggle timer panel": false
+      "pomodoro-timer:Toggle timer panel": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "55c635f16944652c",
   "lastOpenFiles": [
-    "test.md",
     "test2.md",
-    "conflict-files-obsidian-git.md",
-    "README.md",
-    "0 Templates/School note template.md",
-    "repo/Assets/Pasted image 20250821003424.png",
+    "test.md",
     "repo/0 Templates/Leetcode problem template.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/3 Voice Endpoints.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/1 Audio Recording.md",
@@ -244,9 +240,13 @@
     "Lecture Notes/CO1103/Basics On Sets.md",
     "Assets/Pasted image 20250821003424.png",
     "Assets/LC 876.png",
+    "0 Templates/School note template.md",
     "0 Templates/Project lesson note template.md",
     "0 Templates/Personal Learning template.md",
+    "0 Templates/Leetcode problem template.md",
+    "repo/Assets/Pasted image 20250821003424.png",
     "repo/Assets/LC 876.png",
+    "README.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Assets/Pasted image 20250820233920.png",
