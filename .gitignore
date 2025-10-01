@@ -1,0 +1,7 @@
+.git/
+repo/
+.obsidian/workspace*
+.obsidian/cache
+.obsidian/plugins/*/data.json
+.DS_Store
+Thumbs.db
