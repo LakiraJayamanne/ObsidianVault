@@ -86,3 +86,96 @@ In words:
 - Web is a collection of interconnected web pages.
 	- These documents are provided by web servers and can be accessed using a web browser
 
+
+### Protocols
+
+- A protocol is a set of standards that has been defined for computers to communicate with each other
+
+- It defines the format of messages and order of messages sent/received
+
+- Protocols control sending and receiving messages
+	- TCP
+	- IP
+	- HTTP
+
+
+#### IP
+
+- A simple protocol to send data between two computers
+
+- Each device connected to internet is assigned a *unique* IP address.
+
+- Data travelling via internet is divided into smaller pieces called *packets*
+
+- IP address info is attached to each packet so it can be routed to the correct destination
+
+- Find you IP Address: *whatismyip.com*
+
+### Domain Name System (DNS)
+
+- A DNS is a set of servers that maps domain names to IP addresses
+
+- For example: le.ac.uk translates to - 
+
+```python
+https.//le.ac.uk/ --> 143.210.133.109
+```
+
+### Uniform Resource Locator (URL)
+
+- Also called a *web address*
+
+- A unique identifier for the location of each web page.
+
+- URL has 3 component: *protocol used, server name, path of file on the server.*
+
+```python
+https://le.ac.uk/courses
+
+https:    ->   protocol
+le.ac.uk  ->   domain name
+courses   ->   path
+```
+
+### Hypertext Transfer Protocol (HTTP)
+
+- This protocol defines how a web browser and web server exchange information
+
+- A browser sends a HTTP request to the web server which in turn sends an HTTP response back.
+
+- Establish a connection with the server which sends HTML pages to user's browser.
+
+
+### Who runs the internet?
+
+- *Internet Engineering Task Force (IETF)*: responsible for IP standards
+
+- *Internet Corporation for Assigned Names and Numbers (ICANN)*: decides top-level domain names
+
+- *WWW Consortium (W3C)*: develops web standards
+
+### Web cookies
+
+- A cookie is a small file sent to a browser from a server when a user visits a website
+
+- When user visits the same website again, the browser sends the cookie back to server
+
+
+#### Why are cookies useful?
+
+- Cookies allow websites to remember information like:
+	- User Login info
+	- Details user may have entered
+	- Keep items in basket
+	- Items user viewed on previous visit
+	- Number of times a user visited a page
+	- Time user spent on a web page
+
+
+### Web Techs
+
+- Hypertext Markup Language (HTML): write web pages
+
+- Cascading Style Sheets (CSS): for stylistic info of web pages
+
+- JavaScript: for interactive and programmable web pages

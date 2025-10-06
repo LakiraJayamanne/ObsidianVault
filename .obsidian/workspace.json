@@ -111,7 +111,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 345
+    "width": 345,
+    "collapsed": true
   },
   "right": {
     "id": "20cab1237de36872",
