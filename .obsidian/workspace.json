@@ -25,14 +25,12 @@
             "id": "be78965493ba9e1c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "Lecture Notes/CO1101/Internet and WWW.md",
-                "mode": "source",
-                "source": false
+                "file": "Assets/Client-Server.png"
               },
-              "icon": "lucide-file",
-              "title": "Internet and WWW"
+              "icon": "lucide-image",
+              "title": "Client-Server"
             }
           }
         ],
@@ -111,8 +109,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 345,
-    "collapsed": true
+    "width": 345
   },
   "right": {
     "id": "20cab1237de36872",
@@ -129,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lecture Notes/CO1101/Internet and WWW.md",
+                "file": "Assets/Client-Server.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +136,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Internet and WWW"
+              "title": "Backlinks for Client-Server"
             }
           },
           {
@@ -222,15 +219,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "be78965493ba9e1c",
+  "active": "f4a0cea9598da94a",
   "lastOpenFiles": [
-    "Pasted image 20251006081731.png",
-    "Pasted image 20251006081317.png",
-    "Lecture Notes/CO1103/Basics On Sets.md",
+    "README.md",
+    "Assets/How the internet works.png",
     "Lecture Notes/CO1101/Internet and WWW.md",
+    "Assets/Client-Server.png",
+    "Lecture Notes/CO1103/Basics On Sets.md",
     "Lecture Notes/CO1101",
     "Lecture Notes/CO1103/Set Comprehension.md",
-    "README.md",
     "test3.md",
     "conflict-files-obsidian-git.md",
     "test2.md",
@@ -270,7 +267,6 @@
     "Assets/Pasted image 20250820233920.png",
     "Assets/LC 1342.png",
     "Assets/LC 1672.png",
-    "Assets/LC 412.png",
-    "Assets/download (18).jpeg"
+    "Assets/LC 412.png"
   ]
 }

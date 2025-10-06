@@ -26,7 +26,7 @@ Teacher: #GAT #DL
 
 ### Structure of the Internet:
 
-![[Pasted image 20251006081317.png]]
+![[How the internet works.png]]
 
 In words:
 
@@ -51,7 +51,7 @@ In words:
 
 - *Web Dev*: The process o creating and modifying web pages
 
-![[Pasted image 20251006081731.png]]
+![[Client-Server.png]]
 
 
 ## World Wide Web (WWW)
@@ -74,3 +74,15 @@ In words:
 - The web client uses browsers like Google Chrome, Internet Explorer, Firefox, Safari, etc.
 
 - The user makes use of web browsers to send a request to *server*.
+
+
+## The Internet vs Web
+
+- The internet and web are two *SEPARATE* things
+
+- Internet is a collection of computers or networking devices connected together.
+	- These devices can communicate with each other
+
+- Web is a collection of interconnected web pages.
+	- These documents are provided by web servers and can be accessed using a web browser
+
