@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "52d80aa22df221ad",
+        "id": "d8a7b403e1ec6a0d",
         "type": "tabs",
         "children": [
           {
-            "id": "83b6b81c42da1661",
+            "id": "8bce22b87e728131",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0 Templates/School note template.md",
+                "file": "Lecture Notes/CO1103/Functions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "School note template"
+              "title": "Functions"
             }
           }
         ]
@@ -33,7 +33,7 @@
       {
         "id": "dc9bba424bf0f73b",
         "type": "tabs",
-        "dimension": 80.67632850241546,
+        "dimension": 67.1090047393365,
         "children": [
           {
             "id": "f4a0cea9598da94a",
@@ -80,7 +80,7 @@
       {
         "id": "4e75ab28ce678a47",
         "type": "tabs",
-        "dimension": 19.32367149758454,
+        "dimension": 32.89099526066351,
         "children": [
           {
             "id": "d1f0039aa10dcde1",
@@ -206,11 +206,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "83b6b81c42da1661",
+  "active": "8bce22b87e728131",
   "lastOpenFiles": [
-    "0 Templates/School note template.md",
+    "Assets/Functions - Arrow diagrams.png",
     "Lecture Notes/CO1103/Functions.md",
+    "Pasted image 20251007223303.png",
+    "Assets/How the internet works.png",
+    "Assets/Client-Server.png",
+    "Assets/LC 383.png",
     "Lecture Notes/CO1103/Basics On Sets.md",
+    "0 Templates/School note template.md",
     "Lecture Notes/CO1103/Set Comprehension.md",
     "Lecture Notes/CO1101/Internet and WWW.md",
     "Programming/Personal notes/Linked lists.md",
@@ -218,9 +223,6 @@
     "Programming/Personal Projects/Jarvis/Lesson 1/1 Voice Assistant Overview.md",
     "Programming/Personal Projects/Jarvis/Lesson 1/2 Component Breakdown.md",
     "Assets/LC 876.png",
-    "Assets/Pasted image 20250821003424.png",
-    "Assets/How the internet works.png",
-    "Assets/Client-Server.png",
     "Untitled.md",
     "Lecture Notes/CO1101/X.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/2 Whisper Integration.md",
@@ -241,7 +243,6 @@
     "Programming/Personal Projects/Jarvis/Lesson 3",
     "Programming/Personal Projects/Jarvis/Lesson 2",
     "Programming/Personal Projects/Jarvis/Lesson 1",
-    "Programming/Thaaththi Guide App/Development Process/Day 1.md",
     "Programming/Personal Projects/Jarvis",
     "Programming/Thaaththi Guide App/Development Process",
     "Programming/Personal Projects",
@@ -253,8 +254,6 @@
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Assets/Pasted image 20250820233920.png",
-    "Assets/LC 1342.png",
-    "Assets/LC 1672.png",
-    "Assets/LC 412.png"
+    "Assets/LC 1342.png"
   ]
 }
