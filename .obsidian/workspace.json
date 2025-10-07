@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lecture Notes/CO1103/Functions.md",
+                "file": "0 Templates/School note template.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Functions"
+              "title": "School note template"
             }
           }
         ]
@@ -96,8 +96,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 345,
-    "collapsed": true
+    "width": 345
   },
   "right": {
     "id": "20cab1237de36872",
@@ -209,8 +208,8 @@
   },
   "active": "83b6b81c42da1661",
   "lastOpenFiles": [
-    "Lecture Notes/CO1103/Basics On Sets.md",
     "Lecture Notes/CO1103/Functions.md",
+    "Lecture Notes/CO1103/Basics On Sets.md",
     "Lecture Notes/CO1103/Set Comprehension.md",
     "Lecture Notes/CO1101/Internet and WWW.md",
     "Programming/Personal notes/Linked lists.md",
