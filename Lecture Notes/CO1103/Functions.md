@@ -74,4 +74,12 @@ x3    ->    f    ->    y3
 Inputs and outputs in mathematics. 
 
 - Instead of "sets of inputs", we say **domain**
-- Instead of "sets of outputs", we say 
+- Instead of "sets of outputs", we say **codomain**
+
+```python
+f : A -> B     # FORMAL WAY TO SPECIFY DOMAIN AND CODOMAIN
+
+# A is the domain of f (sets of inputs)
+# B is the codomain of f (sets of outputs)
+```
+
