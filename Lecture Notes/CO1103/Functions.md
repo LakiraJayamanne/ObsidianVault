@@ -69,4 +69,9 @@ x3    ->    f    ->    y3
 3 -> dog
 ```
 
+## Domain and CoDomain
 
+Inputs and outputs in mathematics. 
+
+- Instead of "sets of inputs", we say **domain**
+- Instead of "sets of outputs", we say 
