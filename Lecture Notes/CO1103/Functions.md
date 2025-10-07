@@ -1,8 +1,7 @@
-![[Pasted image 20251007223303.png]]
 Class: #CO1103 
 Date: 07-10-2025
 Teacher: #DrPaulaSeveri 
-## Functions
+# Notes:
 
 - Definition of a function
 - Domain, Co-Domain
@@ -154,4 +153,18 @@ quantise(n):
 	234  if  208<=n<=255
 
 ### 5. Defining a function as a set
+
+Input-output connection = a pair
+
+*double* as a set of pairs:
+
+*double* = { (0,0), (0,1), (2,4), (3,6), (4,8), (5,10), (6,12). (7,14) }
+
+First element in a bracket is the input, second element is the output.
+
+## Partial functions
+
+Let *A* and *B* be sets and *S ⊂ A*. A *partial function f, from A to B* is a function from *S* to *B*. 
+
+When *f* from *A to B* is a function, we say that the function is **total** to stress the totality. 
 
