@@ -1,7 +1,7 @@
 
 Class: #CO1103
 Date: 30-09-2025
-Teacher: #PGS
+Teacher: #DrPaulaSeveri 
 ## Topic Overview
 
 - Syntax for sets and set membership

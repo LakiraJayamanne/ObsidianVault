@@ -1,7 +1,7 @@
 
 Class: #CO1103 
 Date: 01-10-2025
-Teacher: #PGS 
+Teacher: #DrPaulaSeveri
 ## Topic Overview
 
 Building sets: 
