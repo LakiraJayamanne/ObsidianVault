@@ -168,3 +168,35 @@ Let *A* and *B* be sets and *S ⊂ A*. A *partial function f, from A to B* is a 
 
 When *f* from *A to B* is a function, we say that the function is **total** to stress the totality. 
 
+## Pre-Image and Image of a value
+
+```python
+a ↦ f(a) = b  
+```
+
+*a* is a pre-image of *b* *b* is an image of *a*
+
+![[Functions - image, preimage.png]]
+
+In this scenario, the **image** of *cat*, is *4*. 
+And the **pre-image** of 4, is *cat* AND *dog*.
+
+## Connection to Computer Science
+
+| **Mathematics**                 | *Computer Science*               |
+| ------------------------------- | -------------------------------- |
+| Set                             | Type                             |
+| Function                        | Function or method               |
+| Domain                          | Input type ( set of inputs )     |
+| Codomain                        | Output type ( set of outputs )   |
+| Range                           | Set of achieved outputs          |
+| Define a function               | Write a function / method        |
+| Apply a function to an argument | Call the function to an argument |
+
+## Connection to Programming Languages
+
+| **Mathematics**                                     | isPrime: Z -> {True, False}<br><br>  is Prime(x) = ....<br>                        |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| *Java*                                              | 1 boolean isPrime(n){<br>2 /#code to check primality of n#/<br>3 }                 |
+| <span style="color:rgb(255, 200, 0)">Python</span>  | 1 def isPrime(int n){<br>2 # code to check primality of n#<br>}                    |
+| <span style="color:rgb(255, 0, 255)">Haskell</span> | isPrime :: Integer -> Bool<br>isPrime n = .... /# code to check primality of n # / |

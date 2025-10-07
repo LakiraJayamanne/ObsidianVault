@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#PGS",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -206,8 +206,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "8bce22b87e728131",
+  "active": "f4a0cea9598da94a",
   "lastOpenFiles": [
+    "0 Templates/Functions - image, preimage.png",
     "Assets/Functions - Arrow diagrams.png",
     "Lecture Notes/CO1103/Functions.md",
     "Pasted image 20251007223303.png",
