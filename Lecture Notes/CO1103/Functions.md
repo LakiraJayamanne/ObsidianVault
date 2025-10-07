@@ -5,7 +5,7 @@ Teacher: #DrPaulaSeveri
 ## Functions
 
 - Definition of a function
-- Domain, Codomain
+- Domain, Co-Domain
 - Different ways to describe a function
 - Image (or range)
 
@@ -69,7 +69,7 @@ x3    ->    f    ->    y3
 3 -> dog
 ```
 
-## Domain and CoDomain
+## Domain and Co-Domain
 
 Inputs and outputs in mathematics. 
 
@@ -83,3 +83,7 @@ f : A -> B     # FORMAL WAY TO SPECIFY DOMAIN AND CODOMAIN
 # B is the codomain of f (sets of outputs)
 ```
 
+- The function, is a link between the elements of A and B that satisfied:
+	- *Totality*: Every element **a ∈ A** is linked to some element **b ∈ B**
+	- *Uniqueness*: This element **b** is unique; that is, if **a** is linked to both **b** and **b'**, then **b = b'**
+	
