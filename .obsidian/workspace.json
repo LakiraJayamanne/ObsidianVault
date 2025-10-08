@@ -96,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 345
+    "width": 345,
+    "collapsed": true
   },
   "right": {
     "id": "20cab1237de36872",
@@ -206,7 +207,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f4a0cea9598da94a",
+  "active": "8bce22b87e728131",
   "lastOpenFiles": [
     "0 Templates/Functions - image, preimage.png",
     "Assets/Functions - Arrow diagrams.png",
