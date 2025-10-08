@@ -200,4 +200,4 @@ And the **pre-image** of 4, is *cat* AND *dog*.
 | *Java*                                              | 1 boolean isPrime(n){<br>2 /#code to check primality of n#/<br>3 }                 |
 | <span style="color:rgb(255, 200, 0)">Python</span>  | 1 def isPrime(int n){<br>2 # code to check primality of n#<br>}                    |
 | <span style="color:rgb(255, 0, 255)">Haskell</span> | isPrime :: Integer -> Bool<br>isPrime n = .... /# code to check primality of n # / |
-|                                                     |                                                                                    |
+
