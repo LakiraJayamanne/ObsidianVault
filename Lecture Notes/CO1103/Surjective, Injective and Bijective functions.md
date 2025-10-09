@@ -19,4 +19,7 @@ f(A) -> range of f
 B -> codomain
 
 
+# One-to-one (or injective) function
 
+A function *f*: A -> B is **one-to-one** (injective) if:
+	- for any a1, a2, a3 ∈ A, if a1 
