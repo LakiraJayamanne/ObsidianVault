@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lecture Notes/CO1103/Functions.md",
+                "file": "Lecture Notes/CO1103/Surjective, Injective and Bijective functions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Functions"
+              "title": "Surjective, Injective and Bijective functions"
             }
           }
         ]
@@ -209,16 +209,17 @@
   },
   "active": "8bce22b87e728131",
   "lastOpenFiles": [
+    "Lecture Notes/CO1103/What is a function?.md",
+    "Lecture Notes/CO1103/Surjective, Injective and Bijective functions.md",
+    "Lecture Notes/CO1103/Set Comprehension.md",
     "0 Templates/Functions - image, preimage.png",
     "Assets/Functions - Arrow diagrams.png",
-    "Lecture Notes/CO1103/Functions.md",
     "Pasted image 20251007223303.png",
     "Assets/How the internet works.png",
     "Assets/Client-Server.png",
     "Assets/LC 383.png",
     "Lecture Notes/CO1103/Basics On Sets.md",
     "0 Templates/School note template.md",
-    "Lecture Notes/CO1103/Set Comprehension.md",
     "Lecture Notes/CO1101/Internet and WWW.md",
     "Programming/Personal notes/Linked lists.md",
     "Programming/Personal notes/Arrays.md",
@@ -255,7 +256,6 @@
     "repo/Assets/LC 876.png",
     "Untitled 1.canvas",
     "Untitled.canvas",
-    "Assets/Pasted image 20250820233920.png",
-    "Assets/LC 1342.png"
+    "Assets/Pasted image 20250820233920.png"
   ]
 }

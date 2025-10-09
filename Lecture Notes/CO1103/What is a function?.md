@@ -1,6 +1,7 @@
 Class: #CO1103 
 Date: 07-10-2025
 Teacher: #DrPaulaSeveri 
+Related topic: #Functions
 # Notes:
 
 - Definition of a function
