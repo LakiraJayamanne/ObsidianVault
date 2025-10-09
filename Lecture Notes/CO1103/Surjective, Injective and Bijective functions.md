@@ -45,3 +45,23 @@ Example:
 
 square : R^{>=0}  ->  R^{>=0}
 	square(x) = x^2
+
+
+# Connection to computer science
+
+- Injective, surjective, and bijective functions link set sizes to combinatorial counting.
+
+- This is important for [Combinatorics], and for analysing the complexity of algorithms
+
+
+- **Injective (one-to-one)**:
+	- Ensures *unique mapping*
+	- Example: Hash functions without collisions (ideal case), mapping IDs to users.
+
+- **Surjective (onto)**:
+	- Ensures *coverage of all outputs*. 
+	- Example: Compiler optimisation mapping expressions to registers - every register is used.
+
+- **Bijective (one-to-one and onto)**:
+	- Ensures *perfect reversible mapping*
+	- Example: Encoding / Decoding, reversible encryption, or memory address mapping.
