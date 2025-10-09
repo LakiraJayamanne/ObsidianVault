@@ -36,3 +36,12 @@ A = {Alive, Bob, Charlie}  B = {A@email.com, B@email.com, C@email.com}
 
 ![[onetoone example.png]]
 
+
+## Bijection
+
+A function *f* : A -> B is **bijective** if *f* is injective (one-to-one) and surjective (onto)
+
+Example:
+
+square : R^{>=0}  ->  R^{>=0}
+	square(x) = x^2
