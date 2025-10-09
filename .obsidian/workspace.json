@@ -96,8 +96,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 345,
-    "collapsed": true
+    "width": 345
   },
   "right": {
     "id": "20cab1237de36872",
@@ -207,10 +206,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "8bce22b87e728131",
+  "active": "d1f0039aa10dcde1",
   "lastOpenFiles": [
-    "Lecture Notes/CO1103/What is a function?.md",
     "Lecture Notes/CO1103/Surjective, Injective and Bijective functions.md",
+    "Pasted image 20251009084004.png",
+    "Lecture Notes/CO1103/What is a function?.md",
     "Lecture Notes/CO1103/Set Comprehension.md",
     "0 Templates/Functions - image, preimage.png",
     "Assets/Functions - Arrow diagrams.png",
@@ -242,7 +242,6 @@
     "Programming/Personal Projects/Jarvis/Lesson 2/3 Dependencies.md",
     "Programming/Personal Projects/Jarvis/Lesson 2/1 Environment Setup.md",
     "Programming/Personal Projects/Jarvis/Lesson 1/3 Design Decisions.md",
-    "Programming/Personal Projects/Jarvis/Lesson 1/4 Technology Selection.md",
     "Programming/Personal Projects/Jarvis/Lesson 3",
     "Programming/Personal Projects/Jarvis/Lesson 2",
     "Programming/Personal Projects/Jarvis/Lesson 1",
@@ -255,7 +254,6 @@
     "repo/Assets/Pasted image 20250821003424.png",
     "repo/Assets/LC 876.png",
     "Untitled 1.canvas",
-    "Untitled.canvas",
-    "Assets/Pasted image 20250820233920.png"
+    "Untitled.canvas"
   ]
 }
