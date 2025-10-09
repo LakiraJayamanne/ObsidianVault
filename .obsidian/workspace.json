@@ -20,19 +20,8 @@
               "icon": "lucide-file",
               "title": "Academic Writing"
             }
-          },
-          {
-            "id": "bd2074c67979cd0b",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -217,7 +206,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "bd2074c67979cd0b",
+  "active": "1c16671934913f5f",
   "lastOpenFiles": [
     "Lecture Notes/CO1101/Academic Writing.md",
     "Lecture Notes/CO1103/Basics On Sets.md",
