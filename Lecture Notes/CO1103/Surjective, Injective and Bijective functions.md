@@ -18,6 +18,12 @@ A function *f*: A -> B is **onto** (surjective) if *f*(A) = B.
 f(A) -> range of f
 B -> codomain
 
+Example:
+
+f, f' : A -> B where A = {1,2,3} and B = {Alice, Bob}
+
+![[onto example.png]]
+
 
 # One-to-one (or injective) function
 
@@ -28,4 +34,5 @@ Example:
 
 A = {Alive, Bob, Charlie}  B = {A@email.com, B@email.com, C@email.com}
 
-![[Pasted image 20251009084004.png]]
+![[onetoone example.png]]
+

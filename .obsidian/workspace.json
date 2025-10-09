@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "d8a7b403e1ec6a0d",
+        "id": "1febf974032a504c",
         "type": "tabs",
         "children": [
           {
-            "id": "8bce22b87e728131",
+            "id": "1c16671934913f5f",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -206,26 +206,27 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d1f0039aa10dcde1",
+  "active": "f4a0cea9598da94a",
   "lastOpenFiles": [
-    "Lecture Notes/CO1103/Surjective, Injective and Bijective functions.md",
-    "Pasted image 20251009084004.png",
+    "Screenshots/onto example.png",
     "Lecture Notes/CO1103/What is a function?.md",
+    "0 Templates/School note template.md",
+    "Lecture Notes/CO1103/Surjective, Injective and Bijective functions.md",
+    "Screenshots/onetoone example.png",
     "Lecture Notes/CO1103/Set Comprehension.md",
     "0 Templates/Functions - image, preimage.png",
-    "Assets/Functions - Arrow diagrams.png",
+    "Screenshots/Functions - Arrow diagrams.png",
     "Pasted image 20251007223303.png",
-    "Assets/How the internet works.png",
-    "Assets/Client-Server.png",
-    "Assets/LC 383.png",
+    "Screenshots/How the internet works.png",
+    "Screenshots/Client-Server.png",
+    "Screenshots/LC 383.png",
     "Lecture Notes/CO1103/Basics On Sets.md",
-    "0 Templates/School note template.md",
     "Lecture Notes/CO1101/Internet and WWW.md",
     "Programming/Personal notes/Linked lists.md",
     "Programming/Personal notes/Arrays.md",
     "Programming/Personal Projects/Jarvis/Lesson 1/1 Voice Assistant Overview.md",
     "Programming/Personal Projects/Jarvis/Lesson 1/2 Component Breakdown.md",
-    "Assets/LC 876.png",
+    "Screenshots/LC 876.png",
     "Untitled.md",
     "Lecture Notes/CO1101/X.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/2 Whisper Integration.md",
