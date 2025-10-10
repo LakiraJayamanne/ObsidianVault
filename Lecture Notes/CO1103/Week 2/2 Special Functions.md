@@ -51,3 +51,15 @@ $$
 f(x) = 2x+1
 $$
 
+3. Quadratic polynomial (degree 2):
+
+$$
+\Large f(x) = x^2-4x+3
+$$
+
+4. Cubic polynomial (degree 3):
+
+$$
+f(x) = 5x^3+2x^2-x+7
+$$
+
