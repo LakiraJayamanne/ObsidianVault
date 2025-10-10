@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lecture Notes/CO1103/Surjective, Injective and Bijective functions.md",
+                "file": "Lecture Notes/CO1103/0 Latex Cheat Sheet.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Surjective, Injective and Bijective functions"
+              "title": "0 Latex Cheat Sheet"
             }
           }
         ]
@@ -206,14 +206,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1c16671934913f5f",
+  "active": "f4a0cea9598da94a",
   "lastOpenFiles": [
-    "Lecture Notes/CO1103/Basics On Sets.md",
+    "Lecture Notes/CO1103/Week 2",
+    "Lecture Notes/CO1103/Week 1",
+    "Lecture Notes/CO1103/Week 2/What is a function?.md",
+    "Lecture Notes/CO1103/0 Latex Cheat Sheet.md",
+    "Lecture Notes/CO1103/Week 2/Surjective, Injective and Bijective functions.md",
+    "Lecture Notes/CO1103/Week 1/Set Comprehension.md",
+    "Lecture Notes/CO1103/Week 2/Special Functions.md",
+    "Screenshots/Pasted image 20251010131005.png",
+    "Lecture Notes/CO1103/Week 1/Basics On Sets.md",
     "Lecture Notes/CO1101/Academic Writing.md",
-    "Lecture Notes/CO1103/What is a function?.md",
     "Programming/Personal Projects/Jarvis/Lesson 1/1 Voice Assistant Overview.md",
-    "Lecture Notes/CO1103/Surjective, Injective and Bijective functions.md",
-    "Lecture Notes/CO1103/Set Comprehension.md",
     "Lecture Notes/CO1104/Data Paths.md",
     "Screenshots/onto example.png",
     "0 Templates/School note template.md",
@@ -229,7 +234,6 @@
     "Programming/Personal notes/Arrays.md",
     "Programming/Personal Projects/Jarvis/Lesson 1/2 Component Breakdown.md",
     "Screenshots/LC 876.png",
-    "Untitled.md",
     "Lecture Notes/CO1101/X.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/2 Whisper Integration.md",
     "README.md",
@@ -242,8 +246,6 @@
     "Programming/Personal Projects/Jarvis/Lesson 3/3 Voice Endpoints.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/1 Audio Recording.md",
     "Programming/Personal Projects/Jarvis/Lesson 2/2 FastAPI Foundation.md",
-    "Programming/Personal Projects/Jarvis/Lesson 2/3 Dependencies.md",
-    "Programming/Personal Projects/Jarvis/Lesson 2/1 Environment Setup.md",
     "Programming/Personal Projects/Jarvis/Lesson 3",
     "Programming/Personal Projects/Jarvis/Lesson 2",
     "Programming/Personal Projects/Jarvis/Lesson 1",
@@ -252,8 +254,6 @@
     "Programming/Personal Projects",
     "Programming/Thaaththi Guide App",
     "Programming/Personal notes",
-    "Programming/LeetCode",
-    "repo/Assets/Pasted image 20250821003424.png",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]
