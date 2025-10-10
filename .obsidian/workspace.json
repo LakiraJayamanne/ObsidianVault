@@ -11,10 +11,14 @@
             "id": "04a506e51f8fe6a1",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Lecture Notes/CO1103/Week 2/4 Special Functions.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "4 Special Functions"
             }
           }
         ]
@@ -92,8 +96,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 345,
-    "collapsed": true
+    "width": 345
   },
   "right": {
     "id": "20cab1237de36872",
@@ -203,11 +206,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "04a506e51f8fe6a1",
+  "active": "d1f0039aa10dcde1",
   "lastOpenFiles": [
-    "Lecture Notes/CO1103/Week 2/2 Special Functions.md",
-    "Lecture Notes/CO1103/Week 2/1 Surjective, Injective and Bijective functions.md",
+    "Lecture Notes/CO1103/Week 2/4 Special Functions.md",
+    "Lecture Notes/CO1103/Week 2/3 Inverse.md",
+    "Lecture Notes/CO1103/Week 2/2 Composition.md",
+    "Screenshots/composition arrow diagram.png",
     "Lecture Notes/CO1103/0 Latex Cheat Sheet.md",
+    "Lecture Notes/CO1103/Week 2/1 Surjective, Injective and Bijective functions.md",
     "Lecture Notes/CO1103/Week 2",
     "Lecture Notes/CO1103/Week 1",
     "Lecture Notes/CO1103/Week 2/0 What is a function?.md",
@@ -230,7 +236,6 @@
     "Programming/Personal notes/Linked lists.md",
     "Programming/Personal notes/Arrays.md",
     "Programming/Personal Projects/Jarvis/Lesson 1/2 Component Breakdown.md",
-    "Screenshots/LC 876.png",
     "Lecture Notes/CO1101/X.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/2 Whisper Integration.md",
     "README.md",
@@ -242,7 +247,6 @@
     "repo/0 Templates/Leetcode problem template.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/3 Voice Endpoints.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/1 Audio Recording.md",
-    "Programming/Personal Projects/Jarvis/Lesson 2/2 FastAPI Foundation.md",
     "Programming/Personal Projects/Jarvis/Lesson 3",
     "Programming/Personal Projects/Jarvis/Lesson 2",
     "Programming/Personal Projects/Jarvis/Lesson 1",
