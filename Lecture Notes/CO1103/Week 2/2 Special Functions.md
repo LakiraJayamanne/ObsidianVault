@@ -60,6 +60,6 @@ $$
 4. Cubic polynomial (degree 3):
 
 $$
-f(x) = 5x^3+2x^2-x+7
+\Large f(x) = 5x^3+2x^2-x+7
 $$
 
