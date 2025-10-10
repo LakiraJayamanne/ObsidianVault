@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lecture Notes/CO1103/Week 2/4 Special Functions.md",
+                "file": "Lecture Notes/CO1103/Week 2/0 What is a function.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "4 Special Functions"
+              "title": "0 What is a function"
             }
           }
         ]
@@ -206,7 +206,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d1f0039aa10dcde1",
+  "active": "04a506e51f8fe6a1",
   "lastOpenFiles": [
     "Lecture Notes/CO1103/Week 2/4 Special Functions.md",
     "Lecture Notes/CO1103/Week 2/3 Inverse.md",
@@ -216,7 +216,7 @@
     "Lecture Notes/CO1103/Week 2/1 Surjective, Injective and Bijective functions.md",
     "Lecture Notes/CO1103/Week 2",
     "Lecture Notes/CO1103/Week 1",
-    "Lecture Notes/CO1103/Week 2/0 What is a function?.md",
+    "Lecture Notes/CO1103/Week 2/0 What is a function.md",
     "Lecture Notes/CO1103/Week 1/Set Comprehension.md",
     "Screenshots/Pasted image 20251010131005.png",
     "Lecture Notes/CO1103/Week 1/Basics On Sets.md",
