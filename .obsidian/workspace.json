@@ -96,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 345
+    "width": 345,
+    "collapsed": true
   },
   "right": {
     "id": "20cab1237de36872",
@@ -208,10 +209,11 @@
   },
   "active": "04a506e51f8fe6a1",
   "lastOpenFiles": [
+    "test3.md",
+    "Lecture Notes/CO1103/Week 2/2 Composition.md",
     "Lecture Notes/CO1103/Week 2/3 Inverse.md",
     "Lecture Notes/CO1103/Week 2/0 What is a function.md",
     "Lecture Notes/CO1103/Week 2/4 Special Functions.md",
-    "Lecture Notes/CO1103/Week 2/2 Composition.md",
     "Screenshots/composition arrow diagram.png",
     "Lecture Notes/CO1103/0 Latex Cheat Sheet.md",
     "Lecture Notes/CO1103/Week 2/1 Surjective, Injective and Bijective functions.md",
@@ -240,7 +242,6 @@
     "Programming/Personal Projects/Jarvis/Lesson 3/2 Whisper Integration.md",
     "README.md",
     "Lecture Notes/CO1101",
-    "test3.md",
     "conflict-files-obsidian-git.md",
     "test2.md",
     "test.md",
