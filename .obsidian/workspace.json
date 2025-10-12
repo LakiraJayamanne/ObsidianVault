@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lecture Notes/CO1103/Week 2/2 Composition.md",
+                "file": "Lecture Notes/CO1103/Week 2/1 Surjective, Injective and Bijective functions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2 Composition"
+              "title": "1 Surjective, Injective and Bijective functions"
             }
           }
         ]
@@ -96,8 +96,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 345,
-    "collapsed": true
+    "width": 345
   },
   "right": {
     "id": "20cab1237de36872",
@@ -209,9 +208,9 @@
   },
   "active": "04a506e51f8fe6a1",
   "lastOpenFiles": [
-    "test3.md",
-    "Lecture Notes/CO1103/Week 2/2 Composition.md",
     "Lecture Notes/CO1103/Week 2/3 Inverse.md",
+    "Lecture Notes/CO1103/Week 2/2 Composition.md",
+    "test3.md",
     "Lecture Notes/CO1103/Week 2/0 What is a function.md",
     "Lecture Notes/CO1103/Week 2/4 Special Functions.md",
     "Screenshots/composition arrow diagram.png",
