@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lecture Notes/CO1103/Week 2/1 Surjective, Injective and Bijective functions.md",
+                "file": "Lecture Notes/CO1102/0 Loops.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1 Surjective, Injective and Bijective functions"
+              "title": "0 Loops"
             }
           }
         ]
@@ -96,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 345
+    "width": 345,
+    "collapsed": true
   },
   "right": {
     "id": "20cab1237de36872",
@@ -208,6 +209,8 @@
   },
   "active": "04a506e51f8fe6a1",
   "lastOpenFiles": [
+    "Lecture Notes/CO1103/Week 2/1 Surjective, Injective and Bijective functions.md",
+    "Lecture Notes/CO1102/0 Loops.md",
     "Lecture Notes/CO1103/Week 2/3 Inverse.md",
     "Lecture Notes/CO1103/Week 2/2 Composition.md",
     "test3.md",
@@ -215,7 +218,6 @@
     "Lecture Notes/CO1103/Week 2/4 Special Functions.md",
     "Screenshots/composition arrow diagram.png",
     "Lecture Notes/CO1103/0 Latex Cheat Sheet.md",
-    "Lecture Notes/CO1103/Week 2/1 Surjective, Injective and Bijective functions.md",
     "Lecture Notes/CO1103/Week 2",
     "Lecture Notes/CO1103/Week 1",
     "Lecture Notes/CO1103/Week 1/Set Comprehension.md",
@@ -246,7 +248,6 @@
     "test.md",
     "repo/0 Templates/Leetcode problem template.md",
     "Programming/Personal Projects/Jarvis/Lesson 3/3 Voice Endpoints.md",
-    "Programming/Personal Projects/Jarvis/Lesson 3/1 Audio Recording.md",
     "Programming/Personal Projects/Jarvis/Lesson 3",
     "Programming/Personal Projects/Jarvis/Lesson 2",
     "Programming/Personal Projects/Jarvis/Lesson 1",
