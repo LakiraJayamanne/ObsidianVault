@@ -19,7 +19,7 @@ for each line in some files
 	Do something
 ```
 
-# Range (stop)
+## Range (stop)
 
 - Iterates over integers from 0 to stop-1. That is, integers in [0,stop]
 - Begins at 0
@@ -47,7 +47,7 @@ for value in range (10):
 ```
 
 
-# Range (start, stop[,step])
+## Range (start, stop[,step])
 
 
 - Starts with the integer start
@@ -72,37 +72,38 @@ for value in range(12, 0, -2):
 ```
 
 
-# Other usage of FOR loop
+# While loop
+
+- First declare a variable as for counter and set it to 0.
+- Once the first statement is printed, the variable "counter" is increased by 1.
+- Determine if loop should continue
 
 ```python
-s = "HELLO"
+counter = 0
 
-for k in range(5):
-	print(s[k])
-
-#output
-H
-E
-L
-L
-O
+while counter < 10:
+	print("Welcome to Python")
+	counter =+ 1
 ```
 
-Alternative:
+### Break
+
+- A break statement causes an exit from the innermost containing while, do, for
 
 ```python
-text = "HELLO"
-
-for letter in text:
-	print(letter)
-
-#output
-H
-E
-L
-L
-O
+for I in range (10):
+	if userID[I] == targetID
+		index = I
+		break
 ```
 
+### Continue
 
-# FOR loops in Lis
+- The continue statement causes the innermost loop to start the next iteration immediately
+
+```python
+for I in range (10):
+	if userID != -1:
+		continue
+	print("UserID " + i + " :" + userID)
+```
