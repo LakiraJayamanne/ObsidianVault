@@ -71,3 +71,38 @@ for value in range(12, 0, -2):
 2
 ```
 
+
+# Other usage of FOR loop
+
+```python
+s = "HELLO"
+
+for k in range(5):
+	print(s[k])
+
+#output
+H
+E
+L
+L
+O
+```
+
+Alternative:
+
+```python
+text = "HELLO"
+
+for letter in text:
+	print(letter)
+
+#output
+H
+E
+L
+L
+O
+```
+
+
+# FOR loops in Lis
