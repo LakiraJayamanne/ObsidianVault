@@ -1,0 +1,67 @@
+.
+├── 0 Templates
+│   ├── Functions - image, preimage.png
+│   ├── Leetcode problem template.md
+│   ├── Personal Learning template.md
+│   ├── Project lesson note template.md
+│   └── School note template.md
+├── .gitattributes
+├── .gitignore
+├── Lecture Notes
+│   ├── CO1101
+│   │   └── Internet and WWW.md
+│   ├── CO1102
+│   │   └── 0 Loops.md
+│   ├── CO1103
+│   │   ├── 0 Latex Cheat Sheet.md
+│   │   ├── Week 1
+│   │   │   ├── Basics On Sets.md
+│   │   │   └── Set Comprehension.md
+│   │   ├── Week 2
+│   │   │   ├── 0 What is a function.md
+│   │   │   ├── 1 Surjective, Injective and Bijective functions.md
+│   │   │   ├── 2 Composition.md
+│   │   │   ├── 3 Inverse.md
+│   │   │   └── 4 Special Functions.md
+│   │   └── Week 3
+│   │       └── 0 Ordered collections.md
+│   └── CO1104
+│       └── Data Paths.md
+├── Programming
+│   ├── Personal notes
+│   │   ├── Arrays.md
+│   │   ├── Linked lists.md
+│   │   └── Time Complexity.md
+│   ├── Personal Projects
+│   │   └── Jarvis
+│   │       ├── Lesson 1
+│   │       │   ├── 1 Voice Assistant Overview.md
+│   │       │   ├── 2 Component Breakdown.md
+│   │       │   ├── 3 Design Decisions.md
+│   │       │   └── 4 Technology Selection.md
+│   │       ├── Lesson 2
+│   │       │   ├── 1 Environment Setup.md
+│   │       │   ├── 2 FastAPI Foundation.md
+│   │       │   └── 3 Dependencies.md
+│   │       └── Lesson 3
+│   │           ├── 1 Audio Recording.md
+│   │           ├── 2 Whisper Integration.md
+│   │           └── 3 Voice Endpoints.md
+│   └── Thaaththi Guide App
+│       ├── Development Process
+│       │   └── Day 1.md
+│       └── Thaaththi business idea.md
+├── README.md
+├── Screenshots
+│   ├── Client-Server.png
+│   ├── composition arrow diagram.png
+│   ├── Functions - Arrow diagrams.png
+│   ├── How the internet works.png
+│   ├── LC 383.png
+│   ├── LC 876.png
+│   ├── onetoone example.png
+│   └── onto example.png
+├── Untitled.canvas
+└── vault-structure.txt
+
+20 directories, 45 files
