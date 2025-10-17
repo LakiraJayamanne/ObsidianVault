@@ -1,9 +1,8 @@
 
 Class: #CO1103
 Date: 30-09-2025
-Teacher: #DrPaulaSeveri 
+Teacher: Dr Paula Severi
 Related: #Sets
-Week: #W1
 ## Topic Overview
 
 - Syntax for sets and set membership

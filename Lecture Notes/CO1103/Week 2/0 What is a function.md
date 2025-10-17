@@ -1,8 +1,8 @@
 Class: #CO1103 
 Date: 07-10-2025
-Teacher: #DrPaulaSeveri 
-Related topic: #Functions
-Week: #W2
+Teacher: Dr Paula Severi 
+Topic: #Functions
+Builds Onto: [[1 Types of Functions]], [[2 Composition]], [[3 Inverse]], [[4 Special Functions]]
 # Notes:
 
 - Definition of a function

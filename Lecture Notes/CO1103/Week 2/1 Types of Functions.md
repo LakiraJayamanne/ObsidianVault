@@ -1,8 +1,9 @@
 Class: #CO1103
 Date: 09-10-2025
-Teacher: #DrPaulaSeveri 
-Related topic: #Functions
-Week: #W2
+Teacher: Dr Paula Severi
+Topic: #Functions
+Related: [[2 Composition]], [[3 Inverse]], [[4 Special Functions]]
+Builds on: [[0 What is a function]]
 
 # Onto (or surjective) function
 

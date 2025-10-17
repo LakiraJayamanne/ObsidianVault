@@ -1,9 +1,10 @@
 
 Class: #CO1103 
 Date: 10-10-2025
-Teacher: #DrPaulaSeveri 
-Related: #Functions 
-Week: #W2 
+Teacher: Dr Paula Severi
+Topic: #Functions
+Related: [[1 Types of Functions]], [[2 Composition]], [[3 Inverse]],
+Builds on: [[0 What is a function]]
 
 1. Polynomials
 2. Exponentiation

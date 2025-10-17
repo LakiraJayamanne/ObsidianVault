@@ -1,8 +1,9 @@
 Class: #CO1103 
 Date: 10-10-2025
-Teacher: #DrPaulaSeveri 
-Related: #Functions 
-
+Teacher: Dr Paula Severi 
+Topic: #Functions
+Related: [[1 Types of Functions]], [[3 Inverse]], [[4 Special Functions]]
+Builds on: [[0 What is a function]]
 # Composition of functions (definition)
 
 $$

@@ -1,9 +1,9 @@
 
 Class: #CO1103 
 Date: 01-10-2025
-Teacher: #DrPaulaSeveri
-Related: #Sets 
-Week: #W1 
+Teacher: Dr Paula Severi
+Related:
+Builds on: [[Basics On Sets]]
 ## Topic Overview
 
 Building sets: 
