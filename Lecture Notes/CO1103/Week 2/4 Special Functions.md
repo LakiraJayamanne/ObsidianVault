@@ -2,6 +2,8 @@
 Class: #CO1103 
 Date: 10-10-2025
 Teacher: #DrPaulaSeveri 
+Related: #Functions 
+Week: #W2 
 
 1. Polynomials
 2. Exponentiation

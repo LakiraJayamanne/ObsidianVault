@@ -2,6 +2,8 @@
 Class: #CO1103 
 Date: 01-10-2025
 Teacher: #DrPaulaSeveri
+Related: #Sets 
+Week: #W1 
 ## Topic Overview
 
 Building sets: 

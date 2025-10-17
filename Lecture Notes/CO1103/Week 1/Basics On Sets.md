@@ -2,6 +2,8 @@
 Class: #CO1103
 Date: 30-09-2025
 Teacher: #DrPaulaSeveri 
+Related: #Sets
+Week: #W1
 ## Topic Overview
 
 - Syntax for sets and set membership
