@@ -15,3 +15,4 @@ desktop.ini
 
 # Ignore temporary or trashed files
 .trash/.obsidian/workspace.json
+.obsidian/workspace.json
