@@ -1,10 +1,7 @@
 Class: #CO1103
 Date: 09-10-2025
 Teacher: Dr Paula Severi
-Topic: #Functions
-Related: [[2 Composition]], [[3 Inverse]], [[4 Special Functions]]
-Builds on: [[0 What is a function]]
-
+Topic: #Functions 
 # Onto (or surjective) function
 
 A function *f*: A -> B is **onto** (surjective) if *f*(A) = B.
