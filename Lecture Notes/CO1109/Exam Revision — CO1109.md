@@ -33,6 +33,48 @@ $$\text{Added Value} = \text{Selling Price} - \text{Cost Price}$$
 
 ---
 
+## Lecture 2 — Financial Statements and Analysis
+
+### The Accounting Equation
+$$\text{Assets} = \text{Liabilities} + \text{Equity}$$
+
+Rearranges to:
+- Assets − Liabilities = Equity
+- Assets − Equity = Liabilities
+
+### The Three Key Financial Statements
+
+| Statement | What it shows | Timeframe |
+|---|---|---|
+| **Statement of Financial Position** (Balance Sheet) | Assets, liabilities, and equity | Point in time (snapshot) |
+| **Income Statement** (P&L) | Revenues, costs, and expenses | Accounting period |
+| **Statement of Cash Flows** | Cash receipts, disbursements, net change in cash | Accounting period |
+
+- Balance sheet must **always balance** — both sides must be equal
+- "Cash is King" — sufficient cash is critical for short-term operations, purchases, and acquisitions
+
+### Financial Ratios
+
+#### Tests of Profitability
+$$\text{Gross Profit Margin} = \frac{\text{Gross Profit}}{\text{Sales}} \times 100$$
+
+$$\text{Return on Sales} = \frac{\text{Operating Profit}}{\text{Net Sales}}$$
+
+$$\text{Return on Capital Employed (ROCE)} = \frac{\text{Earnings Before Tax}}{\text{Capital Employed}} \times 100$$
+
+> Capital Employed = Total Assets − Current Liabilities
+
+#### Tests of Financial Health
+$$\text{Current Ratio} = \frac{\text{Current Assets}}{\text{Current Liabilities}}$$
+
+$$\text{Inventory Turnover} = \frac{\text{Cost of Sales}}{\text{Average Inventory}}$$
+
+$$\text{Debt Ratio} = \frac{\text{Total Debts}}{\text{Total Assets}}$$
+
+> Current ratio > 1 = company can cover short-term liabilities. Debt ratio closer to 0 = less leveraged.
+
+---
+
 ## Lecture 3 — Finance for IT Decision Making
 
 ### Methods of Finance
@@ -235,6 +277,13 @@ Measurable targets used to evaluate performance. Must follow **SMART**:
 | Formula | Expression |
 |---|---|
 | Added Value | Selling Price − Cost Price |
+| Gross Profit Margin | (Gross Profit / Sales) × 100 |
+| Current Ratio | Current Assets / Current Liabilities |
+| Debt Ratio | Total Debts / Total Assets |
+| Inventory Turnover | Cost of Sales / Average Inventory |
+| Return on Sales | Operating Profit / Net Sales |
+| ROCE | (Earnings Before Tax / Capital Employed) × 100 |
+| Capital Employed | Total Assets − Current Liabilities |
 | ROI | (Net Benefits / Total Costs) × 100 |
 | Payback Period | Initial Cost / Annual Saving |
 | ARR | (Average Annual Profit / Initial Outlay) × 100 |
@@ -242,6 +291,9 @@ Measurable targets used to evaluate performance. Must follow **SMART**:
 | Mean | Sum of values / Count of values |
 
 ### Likely Exam Traps
+- **Balance sheet vs Income Statement** — balance sheet is a *snapshot* (point in time), income/cash flow are *period* statements
+- **Capital Employed** = Total Assets − Current Liabilities (not total assets alone)
+- **Current ratio < 1** = danger sign (can't cover short-term debts)
 - **Correlation ≠ Causation** — always state this
 - **NPV** — higher positive = better, but know *why* (time value of money)
 - **Fat vs Thin Client** — fat = logic on client, thin = logic on server (easy to mix up)
