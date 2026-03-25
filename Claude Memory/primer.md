@@ -5,7 +5,7 @@ Hyprland on Fedora — **Fully working. SDDM fixed. ✓**
 - SDDM fix confirmed: `DisplayServer=x11` in `/etc/sddm.conf.d/kde_settings.conf` — root cause was SDDM defaulting to Wayland greeter
 - Real config at `~/.config/hypr/`, waybar/swww/swaync running via exec-once
 Gym Tracker — Phase 1 complete. Ready to start Phase 2 (`storage.py`).
-Memory system — fully set up globally, syncs between laptop and desktop.
+Memory system — **migrated to Obsidian vault** (`MyVault/Claude Memory/`). Auto-commits via Stop hook. ✓
 
 ## In Progress
 - **CO1106 Cinema Ticket Coursework** — wireframes done and pushed to GitLab ✓
@@ -75,7 +75,7 @@ Memory system — fully set up globally, syncs between laptop and desktop.
 ## Still To Do / Consider
 - **Hypridle** — screen dim/lock/suspend timers not configured at all
 - **SDDM** — ✓ working (DisplayServer=x11 fix, SilentSDDM theme active)
-- **Gaps & borders** — window spacing, border thickness
+- **Gaps & borders** — user says current spacing is fine, skip for now
 - **Plymouth boot animation** — custom frame-sequence animation
 - **Gym Tracker Phase 2** — `storage.py` (save/load JSON)
 - **Oxenfree** — still not working, needs jc141 native torrent with more seeds or different approach

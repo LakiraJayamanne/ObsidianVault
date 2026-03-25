@@ -5,6 +5,16 @@ Each entry logs what was built, changed, or decided in a session.
 
 ---
 
+## 25/03/2026 — Session 42
+- Memory migrated from separate git repo to Obsidian vault (`MyVault/Claude Memory/`) — all files copied, CLAUDE.md paths updated
+- Stop hook added to `~/.claude/settings.json` — auto-commits and pushes `Claude Memory/` on every session end
+- Kitty: cursor trail re-enabled (cursor_trail 1), block cursor shape, blink interval 0.7s
+- persona3.jpg wallpaper active, matugen P3R colors applied
+- Decided to skip full Persona Quickshell install until after vacation — all assets confirmed available in repo
+- CO1109 exam is Friday 27 Mar (same day as vacation start)
+
+---
+
 ## 25/03/2026 — Session 41
 - SDDM confirmed fixed — DisplayServer=x11 worked, login screen fully functional
 - hyprlock PAM fix: `/etc/pam.d/hyprlock` rewritten to put pam_unix before pam_fprintd — password now works instantly without waiting for fingerprint timeout. Either password OR fingerprint works independently.
