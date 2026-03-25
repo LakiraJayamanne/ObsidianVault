@@ -39,7 +39,8 @@
       "Bash(notebooklm list:*)",
       "Bash(for id:*)",
       "Bash(do)",
-      "Bash(notebooklm delete:*)"
+      "Bash(notebooklm delete:*)",
+      "Bash(gh repo:*)"
     ]
   }
 }
