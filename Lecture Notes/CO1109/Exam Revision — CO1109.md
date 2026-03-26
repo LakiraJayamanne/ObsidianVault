@@ -19,7 +19,7 @@ Related: Business and Financial Computing
 - **Factors of Production** — Land, Labour, Capital, Enterprise (combine to create products/wealth)
 - **The Financial Cycle** — investors provide funds (loans/stock) → company generates profits/wages → returns to investors
 
-### Types of Business Entity
+### Types of Business Entity[]()
 
 | Type | Key Feature |
 |---|---|
