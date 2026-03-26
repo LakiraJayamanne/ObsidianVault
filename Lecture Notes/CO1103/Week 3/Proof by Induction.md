@@ -1,6 +1,5 @@
 Class: #CO1103
 Date: 18-03-2026
-Teacher:
 Related: #ProofByInduction #Proof #NaturalNumbers
 
 ## Topic Overview

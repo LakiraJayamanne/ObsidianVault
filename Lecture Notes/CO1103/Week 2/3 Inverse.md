@@ -1,7 +1,6 @@
 
 Class: #CO1103 
 Date: 10-10-2025
-Teacher: Dr Paula Severi
 Topic: #Functions
 # Definition of inverse
 

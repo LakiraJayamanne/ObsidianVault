@@ -1,6 +1,5 @@
 Class: #CO1103 
 Date: 07-10-2025
-Teacher: Dr Paula Severi 
 # Notes:
 
 - Definition of a function

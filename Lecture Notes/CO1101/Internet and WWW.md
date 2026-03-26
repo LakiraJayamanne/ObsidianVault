@@ -1,7 +1,6 @@
 
 Class: #CO1101
 Date: 06-10-2025
-Teacher: #GAT #DL
 # Notes:
 
 ## The Internet

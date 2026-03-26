@@ -1,6 +1,5 @@
 Class: #CO1103
 Date: 09-10-2025
-Teacher: Dr Paula Severi
 Topic: #Functions 
 # Onto (or surjective) function
 

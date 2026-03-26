@@ -1,7 +1,6 @@
 
 Class: #CO1103
 Date: 30-09-2025
-Teacher: Dr Paula Severi
 Related: #Sets
 ## Topic Overview
 
