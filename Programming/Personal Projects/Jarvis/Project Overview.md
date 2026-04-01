@@ -16,7 +16,7 @@ updated: 2026-04-01
 
 | Component | Choice | Notes |
 |---|---|---|
-| Wake word | Porcupine (Picovoice) | Free tier, accurate, low CPU. Custom name TBD. |
+| Wake word | Porcupine (Picovoice) | Free tier, accurate, low CPU. Wake word: "Persona". |
 | STT | Whisper (local) | Runs on-device, no API |
 | Brain | claw-code | https://github.com/instructkr/claw-code |
 | TTS | edge-tts | Free, cross-platform, good voice quality |
@@ -51,12 +51,7 @@ updated: 2026-04-01
 - **Brain**: claw-code (Rust-based AI agent harness with tool use, plugins, MCP support).
 - **TTS**: edge-tts over ElevenLabs — free, no API limits, cross-platform, good enough quality.
 - **Platform**: Both Windows and Linux. Build with cross-platform in mind.
-- **Name**: Not decided yet — will be the wake word.
-
----
-
-## Possible Names (TBD)
-*(pick one — this becomes the wake word)*
+- **Name**: Persona. Ties into Persona Quickshell rice. Wake word: "Persona".
 
 ---
 

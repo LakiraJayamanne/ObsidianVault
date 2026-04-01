@@ -30,7 +30,7 @@ Current project status, what's in progress, what's next.
 ## Voice Assistant — Stack Locked (01/04/2026)
 | Component | Choice |
 |---|---|
-| Wake word | Porcupine (Picovoice) — free tier, accurate, low CPU |
+| Wake word | Porcupine (Picovoice) — wake word: "Persona" |
 | STT | Whisper (local) |
 | Brain | claw-code |
 | TTS | edge-tts |

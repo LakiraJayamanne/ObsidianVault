@@ -25,7 +25,14 @@
       "query": "path: Programming  ",
       "color": {
         "a": 1,
-        "rgb": 65297
+        "rgb": 65280
+      }
+    },
+    {
+      "query": "tag:#jarvis path:\"Programming/Personal Projects/Jarvis\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 0
       }
     }
   ],
@@ -39,6 +46,6 @@
   "repelStrength": 3.95833333333333,
   "linkStrength": 1,
   "linkDistance": 30,
-  "scale": 0.2858951634834676,
-  "close": true
+  "scale": 0.7878344292720872,
+  "close": false
 }
