@@ -487,3 +487,12 @@ Running log of every Claude session — what was built, changed, or decided.
 - Tried Persona Quickshell P3rpause on laptop — worked visually but laggy (iGPU can't handle fullscreen video overlay, Qt6 hw decode not working)
 - Reverted everything back to original state cleanly
 - Persona Quickshell repo cloned at ~/quickshell/persona-qs/ for later
+
+## 01/04/2026 — Session 48 (Windows desktop)
+- Migrated entire Claude memory system from claude-memory GitHub repo → Obsidian vault (z Meta/Claude/)
+- Removed exposed GitHub token from z Meta/README.md — user revoked it on GitHub
+- Removed Obsidian Git plugin — Claude handles git at session end now
+- CLAUDE.md updated: reads/writes vault paths, pushes ObsidianVault repo at session end
+- Laptop vault confirmed moved to Documents/Obsidian/MyVault (same path as Windows)
+- Memory growth strategy decided: core files stay flat, individual topics grow into own notes organically
+- Old claude-memory repo to be archived once both machines confirmed working off vault
