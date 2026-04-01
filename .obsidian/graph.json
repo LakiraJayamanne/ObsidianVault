@@ -4,19 +4,32 @@
   "showTags": true,
   "showAttachments": false,
   "hideUnresolved": false,
-  "showOrphans": true,
-  "collapse-color-groups": true,
-  "colorGroups": [],
+  "showOrphans": false,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:\"z Meta/Claude\"",
+      "color": { "a": 1, "rgb": 4494847 }
+    },
+    {
+      "query": "path:\"Lecture Notes\"",
+      "color": { "a": 1, "rgb": 16744272 }
+    },
+    {
+      "query": "path:\"Programming\"",
+      "color": { "a": 1, "rgb": 6618931 }
+    }
+  ],
   "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
   "collapse-forces": false,
-  "centerStrength": 0.5078125,
-  "repelStrength": 11.4583333333333,
-  "linkStrength": 0.578125,
+  "centerStrength": 0.395833333333333,
+  "repelStrength": 3.95833333333333,
+  "linkStrength": 1,
   "linkDistance": 30,
-  "scale": 0.1037477437724546,
+  "scale": 0.28589516348346705,
   "close": true
 }
