@@ -1,4 +1,3 @@
 # ObsidianVault
 
-key: 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
-
+Lakira's personal Obsidian vault. Synced to GitHub via Claude at session end.
