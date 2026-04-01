@@ -1,0 +1,4 @@
+/* Custom tag node colour in graph view */
+  .graph-view.color-fill-tag {
+      color: #ffffff;  /* purple — change to whatever */
+  }

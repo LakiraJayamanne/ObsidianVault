@@ -8,16 +8,25 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "path:\"z Meta/Claude\"",
-      "color": { "a": 1, "rgb": 4494847 }
+      "query": "path: \"z Meta/Claude\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 16711680
+      }
     },
     {
-      "query": "path:\"Lecture Notes\"",
-      "color": { "a": 1, "rgb": 16744272 }
+      "query": "path: \"Lecture Notes\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 31743
+      }
     },
     {
-      "query": "path:\"Programming\"",
-      "color": { "a": 1, "rgb": 6618931 }
+      "query": "path: Programming  ",
+      "color": {
+        "a": 1,
+        "rgb": 65297
+      }
     }
   ],
   "collapse-display": true,
@@ -25,11 +34,11 @@
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
-  "collapse-forces": false,
+  "collapse-forces": true,
   "centerStrength": 0.395833333333333,
   "repelStrength": 3.95833333333333,
   "linkStrength": 1,
   "linkDistance": 30,
-  "scale": 0.28589516348346705,
+  "scale": 0.2858951634834676,
   "close": true
 }
