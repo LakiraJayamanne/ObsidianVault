@@ -16,10 +16,29 @@ Current project status, what's in progress, what's next.
 - **Memory system** — Fully migrated to Obsidian vault (z Meta/Claude/). ✓
 - **Obsidian vault** — Now the main base for Claude memory. Synced to GitHub. ✓
 - **Laptop vault** — Moved to Documents/Obsidian/MyVault. Same path as Windows. ✓
+- **Voice Assistant** — Stack decided. Not started. Waiting on desktop setup.
 
 ## In Progress
 - **Desktop rice plan** — Saving all GPU-heavy Quickshell stuff for desktop dual boot
-- **Voice for Claude** — Discussed, not started. Leaning towards edge-tts or ElevenLabs. Against OpenAI TTS.
+
+## Priority Order (After Vacation ~31 Mar 2026)
+1. **Desktop dual boot** — Fedora + Hyprland on RX 6700XT machine
+2. **claw-code** — get it set up (https://github.com/instructkr/claw-code)
+3. **Desktop rice** — full Quickshell setup on desktop
+4. **Voice assistant** — build starts after above three
+
+## Voice Assistant — Stack Locked (01/04/2026)
+| Component | Choice |
+|---|---|
+| Wake word | Porcupine (Picovoice) — free tier, accurate, low CPU |
+| STT | Whisper (local) |
+| Brain | claw-code |
+| TTS | edge-tts |
+
+- Cross-platform: Windows + Linux
+- Wake word name TBD (will be the assistant's name)
+- Don't build/test on laptop — iGPU can't handle Whisper well. Use desktop (RX 6700XT).
+- Old JARVIS project notes archived in vault at `Programming/Personal Projects/Jarvis/Old Notes (Aug 2025).md`
 
 ## Memory System — How It Works Now
 - All memory lives in the vault at `z Meta/Claude/`
@@ -27,13 +46,6 @@ Current project status, what's in progress, what's next.
 - Claude writes/commits/pushes the ObsidianVault repo at session end
 - Obsidian Git plugin removed — Claude handles git
 - Old `claude-memory` repo to be archived once both machines confirmed working
-- Memory grows organically: core files stay flat, individual topics get their own notes as they grow
-
-## After Vacation (from ~31 Mar 2026)
-- Full month off uni — good time for big projects
-- **Priority: Desktop dual boot** — Fedora + Hyprland, full Persona Quickshell rice on RX 6700XT
-- Gym Tracker Phase 2 + 3
-- Voice for Claude
 
 ## Still To Do
 - **Archive claude-memory repo** — once laptop confirmed working off vault

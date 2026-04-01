@@ -4,5 +4,8 @@
   "textFontFamily": "JetBrains Mono",
   "monospaceFontFamily": "JetBrains Mono",
   "theme": "obsidian",
-  "accentColor": "#6bb6ef"
+  "accentColor": "#6bb6ef",
+  "enabledCssSnippets": [
+    "graph-colors"
+  ]
 }

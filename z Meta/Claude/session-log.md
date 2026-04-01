@@ -496,3 +496,11 @@ Running log of every Claude session — what was built, changed, or decided.
 - Laptop vault confirmed moved to Documents/Obsidian/MyVault (same path as Windows)
 - Memory growth strategy decided: core files stay flat, individual topics grow into own notes organically
 - Old claude-memory repo to be archived once both machines confirmed working off vault
+
+## 01/04/2026 — Session 49 (Windows desktop)
+- Planned voice assistant project in full
+- Stack decided: Porcupine (wake word) + Whisper STT + claw-code (brain) + edge-tts (TTS)
+- Cross-platform: Windows + Linux. Desktop (RX 6700XT) is the target machine, not laptop
+- Wake word name TBD — will be the assistant's name
+- Old JARVIS project (Aug 2025) overwritten — useful concepts archived in Old Notes (Aug 2025).md
+- Priority order set: desktop dual boot → claw-code setup → rice → voice assistant build
