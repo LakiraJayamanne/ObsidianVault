@@ -44,6 +44,11 @@ Rules and preferences learned from working with Lakira. Apply every session.
 - Use CronCreate with recurring: false
 - Warn him to keep the session open (reminders are session-only)
 
+## Memory System
+- **Obsidian vault is the primary brain** — all notes, research, project context, and memory live here
+- The `.claude/projects` auto-memory is a secondary index only — always put real notes in the vault so Lakira can see the graph visualisation
+- When saving research or project notes, create proper Obsidian `.md` files with tags and links, not just `.claude` memory entries
+
 ## Naming Conventions
 - "Wide Row" → "Upper Back Row"
 - "Close Grip T-Bar Row" → "T-Bar Lat Row"

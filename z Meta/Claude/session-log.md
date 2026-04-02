@@ -570,3 +570,11 @@ Running log of every Claude session — what was built, changed, or decided.
 - No new work done after memory sync
 - Plan confirmed: desktop Hyprland next, then claw-code, then rice, then voice assistant
 - Session end
+
+## 02/04/2026 — Session 54 (Windows desktop) — research session
+- Researched openclaw.ai (local AI assistant via messaging apps — not relevant to voice assistant build)
+- Researched claw-code (github.com/instructkr/claw-code) — open-source reimplementation of Claude Code's TypeScript source, leaked 31/03/2026
+- claw-code is the planned "brain" for Lakira's voice assistant (Porcupine → Whisper → claw-code → edge-tts)
+- Rust port (ultraworkers/claw-code-parity) is functional for basic agentic tasks but 2 days old — wait for stability before building
+- Research note saved to vault: Programming/Personal Projects/Jarvis/claw-code Research.md
+- Corrected behaviour: Obsidian vault is the primary brain — all notes/research go here, not just .claude memory
