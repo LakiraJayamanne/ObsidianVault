@@ -504,3 +504,11 @@ Running log of every Claude session — what was built, changed, or decided.
 - Wake word name TBD — will be the assistant's name
 - Old JARVIS project (Aug 2025) overwritten — useful concepts archived in Old Notes (Aug 2025).md
 - Priority order set: desktop dual boot → claw-code setup → rice → voice assistant build
+
+## 02/04/2026 — Session 50 (Windows desktop)
+- Started desktop dual boot (Fedora 43 + Windows on Kingston 1TB NVMe)
+- Flashed Fedora 43 ISO to USB with Rufus (GPT, UEFI)
+- Disabled Fast Startup (`powercfg /h off`)
+- Windows Disk Management blocked shrink (unmovable files, only 7.7GB available)
+- Plan: boot from USB via F11, Try Fedora, use GParted to shrink C: by 100GB, then install
+- Session handed off to laptop

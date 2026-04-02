@@ -19,11 +19,19 @@ Current project status, what's in progress, what's next.
 - **Voice Assistant** — Stack decided. Not started. Waiting on desktop setup.
 
 ## In Progress
-- **Desktop rice plan** — Saving all GPU-heavy Quickshell stuff for desktop dual boot
+- **Desktop dual boot** — MID INSTALL. Stopped at partition step. See below.
 
-## Priority Order (After Vacation ~31 Mar 2026)
-1. **Desktop dual boot** — Fedora + Hyprland on RX 6700XT machine
-2. **claw-code** — get it set up (https://github.com/instructkr/claw-code)
+## Desktop Dual Boot — Current State (02/04/2026)
+- Drive: Kingston 1TB NVMe, one C: partition (~930GB), 441GB free
+- Motherboard: ASRock B660M Pro RS — boot menu key: **F11**
+- Fedora 43 ISO flashed to USB with Rufus (GPT, UEFI)
+- Fast Startup disabled (`powercfg /h off` done)
+- Windows Disk Management couldn't shrink (only 7.7GB available — unmovable files blocked it)
+- **Next step: boot from USB (F11), choose "Try Fedora", open GParted, shrink C: by 100GB, then run installer**
+
+## Priority Order
+1. **Desktop dual boot** — IN PROGRESS (see above)
+2. **claw-code** — get it set up
 3. **Desktop rice** — full Quickshell setup on desktop
 4. **Voice assistant** — build starts after above three
 
@@ -52,7 +60,6 @@ Current project status, what's in progress, what's next.
 - **Hypridle** — screen dim/lock/suspend timers not configured
 - **Gaps & borders** — window spacing, border thickness
 - **Plymouth boot animation** — custom frame-sequence animation (desktop only)
-- **Desktop dual boot (Fedora)** — RX 6700XT, need to partition around 215GB games library
 
 ## Already Working (don't redo)
 - Super+Q → Persona Quickshell blade menu (POWER/STATS/CLAUDE)
