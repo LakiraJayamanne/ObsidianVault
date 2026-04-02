@@ -552,3 +552,10 @@ Running log of every Claude session — what was built, changed, or decided.
 - Fixed Stop hook in settings.json pointing to wrong vault path (pending user approval)
 - Desktop memory setup plan: gh auth login → git clone ObsidianVault → cp CLAUDE.md → copy settings.json
 - Decision: clone vault on desktop rather than mounting Windows partition (cleaner, git handles sync)
+
+## 02/04/2026 — Session 53 (laptop/Fedora) — CLAUDE.md boot fix
+- Resolved diverged branches on vault with git pull --rebase (local had empty "blah" commit, remote had 9 auto-checkpoints)
+- Copied vault CLAUDE.md to ~/.claude/CLAUDE.md — laptop now boots automatically
+- Fixed capitalisation bug: /home/Lakira → /home/lakira in both copies
+- Added machine detection step to CLAUDE.md: lspci VGA check distinguishes laptop (760M) from desktop Fedora (RX 6700XT) from Windows (wmic)
+- Three environments confirmed: Windows desktop, Fedora desktop, Fedora laptop
