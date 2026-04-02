@@ -480,15 +480,29 @@ Running log of every Claude session — what was built, changed, or decided.
 - First data point logged: Pull Day (see CONTEXT.md)
 - No code written yet
 
-## 01/04/2026 — Session 47 (laptop)
+## 01/04/2026 — Session 47 (laptop) — Quickshell inspo + laptop plan
 - Collected Quickshell inspo: end-4/dots-hyprland, ilyamiro/nixos-configuration, Persona Quickshell, caelestia
-- Decided: laptop stays as-is, all GPU-heavy Quickshell stuff saved for desktop dual boot (RX 6700XT)
+- Decided: laptop stays as-is (iGPU can't handle it), all GPU-heavy Quickshell stuff saved for desktop
 - Wrote upgrade plan to ~/Desktop/quickshell_upgrade_plan.md
-- Tried Persona Quickshell P3rpause on laptop — worked visually but laggy (iGPU can't handle fullscreen video overlay, Qt6 hw decode not working)
+- Tried Persona Quickshell P3rpause on laptop — worked visually but laggy (Qt6 hw decode not working, no HW decoder found)
 - Reverted everything back to original state cleanly
 - Persona Quickshell repo cloned at ~/quickshell/persona-qs/ for later
 
-## 01/04/2026 — Session 48 (Windows desktop)
+## 01/04/2026 — Session 48 (laptop) — ilyamiro deep dive
+- Full analysis of ilyamiro/nixos-configuration as Quickshell desktop inspo
+- Aesthetic: Catppuccin Mocha names but all colors via matugen. Flat/minimal (no blur, no shadows, gaps 4, rounding 4)
+- Bar: full Quickshell PanelWindow (TopBar.qml) — no Waybar at all
+- Popup system: single FloatingWindow qs-master at -5000,-5000, teleports + resizes + StackView swaps. All widgets share one window.
+- IPC: qs_manager.sh writes to /tmp/qs_widget_state, Main.qml polls every 50ms
+- Dynamic theming: matugen → /tmp/qs_colors.json, MatugenColors.qml polls every 1s, live-updates all widget colors
+- Themes: kitty, Vesktop, Firefox userChrome.css, neovim, cava, swayosd, swaync, rofi — all matugen templates
+- Lock screen: custom QML with Quickshell.Services.Pam — not hyprlock
+- Focus time daemon: Python + SQLite, tracks active window per app, shown in FocusTimePopup
+- Wallpaper picker: color filter tabs, video wallpaper (mpvpaper + swww), DDG image search (streams via get_ddg_links.py)
+- Plymouth: 80-frame animation + 80-frame progress sequence, all PNGs included in repo
+- Desktop rice plan finalised: caelestia base → ilyamiro widgets → claw-code+Ollama → Plymouth
+
+## 01/04/2026 — Session 48 (Windows desktop) — memory migration
 - Migrated entire Claude memory system from claude-memory GitHub repo → Obsidian vault (z Meta/Claude/)
 - Removed exposed GitHub token from z Meta/README.md — user revoked it on GitHub
 - Removed Obsidian Git plugin — Claude handles git at session end now
@@ -497,7 +511,7 @@ Running log of every Claude session — what was built, changed, or decided.
 - Memory growth strategy decided: core files stay flat, individual topics grow into own notes organically
 - Old claude-memory repo to be archived once both machines confirmed working off vault
 
-## 01/04/2026 — Session 49 (Windows desktop)
+## 01/04/2026 — Session 49 (Windows desktop) — voice assistant planning
 - Planned voice assistant project in full
 - Stack decided: Porcupine (wake word) + Whisper STT + claw-code (brain) + edge-tts (TTS)
 - Cross-platform: Windows + Linux. Desktop (RX 6700XT) is the target machine, not laptop
@@ -505,10 +519,26 @@ Running log of every Claude session — what was built, changed, or decided.
 - Old JARVIS project (Aug 2025) overwritten — useful concepts archived in Old Notes (Aug 2025).md
 - Priority order set: desktop dual boot → claw-code setup → rice → voice assistant build
 
-## 02/04/2026 — Session 50 (Windows desktop)
+## 02/04/2026 — Session 50 (Windows desktop) — dual boot attempt
 - Started desktop dual boot (Fedora 43 + Windows on Kingston 1TB NVMe)
 - Flashed Fedora 43 ISO to USB with Rufus (GPT, UEFI)
 - Disabled Fast Startup (`powercfg /h off`)
 - Windows Disk Management blocked shrink (unmovable files, only 7.7GB available)
 - Plan: boot from USB via F11, Try Fedora, use GParted to shrink C: by 100GB, then install
-- Session handed off to laptop
+- Session handed off to laptop (Fedora live USB)
+
+## 02/04/2026 — Session 51 (desktop/Fedora live) — dual boot COMPLETE
+- Fedora 43 dual boot on desktop done ✓
+- Drive: KINGSTON SNV2S1000G 1TB NVMe
+- Anaconda couldn't resize NTFS either — used command line approach
+- Fix sequence: chkdsk /f /r (repaired 140209 cluster mismatches) → ntfsfix -d → ntfsresize --force --size 850G → parted resizepart 3 850G
+- Fedora installed on ~149GB: p5 swap 2.15GB, p6 Btrfs 147GB (/ and /home subvolumes)
+- Post-install: Windows BSOD UNMOUNTABLE_BOOT_VOLUME — fixed with ntfsfix /dev/nvme0n1p3 from live USB. Windows intact.
+- GRUB customisation noted as TODO
+- Next: install Hyprland on desktop
+
+## 02/04/2026 — Session 52 (desktop/Fedora) — memory setup clarification
+- Confirmed memory is in Obsidian vault, not old claude-memory repo
+- ~/.claude/CLAUDE.md was still pointing to old repo — fixed by copying vault CLAUDE.md
+- Vault already present at correct path: ~/Documents/Obsidian/MyVault
+- Synced missing sessions and updated primer/tech-setup/projects from old claude-memory repo

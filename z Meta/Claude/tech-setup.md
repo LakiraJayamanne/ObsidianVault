@@ -7,8 +7,8 @@ tags:
 # Tech Setup
 
 ## Machines
-- **Laptop** — Fedora 42, Hyprland rice (primary dev machine)
-- **Desktop** — Windows 11 (secondary, also has Claude Code set up)
+- **Laptop** — Fedora 42, Hyprland rice (primary dev machine). AMD HawkPoint iGPU (760M). Cannot handle fullscreen video overlay or Qt6 hw decode.
+- **Desktop** — Dual boot: Windows 11 + Fedora 43 (dual boot done 02/04/2026). GPU: RX 6700XT (12GB VRAM, AMDGPU, ROCm). Hyprland + full Quickshell rice planned. Claude Code set up on Windows side.
 
 ## Tools
 - VS Code
