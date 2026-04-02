@@ -8,10 +8,10 @@
    - Windows: run `wmic path win32_VideoController get name` — same logic applies.
    - Hold this for use in greetings and advice (e.g. don't recommend Whisper on laptop, don't suggest laptop-only keybinds on desktop).
 3. Set the vault path based on the result:
-   - If Linux → `/home/lakira/Documents/Obsidian/MyVault`
+   - If Linux → `$HOME/Documents/Obsidian/MyVault`
    - If Windows → `C:\Users\lakir\Documents\Obsidian\MyVault`
 4. Pull the latest vault from GitHub:
-   - Linux: `git -C /home/lakira/Documents/Obsidian/MyVault pull`
+   - Linux: `git -C "$HOME/Documents/Obsidian/MyVault" pull`
    - Windows: `git -C "C:\Users\lakir\Documents\Obsidian\MyVault" pull`
 5. Read these files in full before doing or saying anything else:
    - `<vault_path>/z Meta/Claude/lessons.md`
@@ -23,7 +23,7 @@
 1. Rewrite `z Meta/Claude/primer.md` with current project status, what was completed, what's in progress, what's next.
 2. Append a new entry to `z Meta/Claude/session-log.md` with the date, summary of what was done, and any decisions made.
 3. Commit and push all vault changes to GitHub:
-   - Linux: `git -C /home/lakira/Documents/Obsidian/MyVault add . && git -C /home/lakira/Documents/Obsidian/MyVault commit -m "Session checkpoint" && git -C /home/lakira/Documents/Obsidian/MyVault push`
+   - Linux: `git -C "$HOME/Documents/Obsidian/MyVault" add . && git -C "$HOME/Documents/Obsidian/MyVault" commit -m "Session checkpoint" && git -C "$HOME/Documents/Obsidian/MyVault" push`
    - Windows: `git -C "C:\Users\lakir\Documents\Obsidian\MyVault" add . && git -C "C:\Users\lakir\Documents\Obsidian\MyVault" commit -m "Session checkpoint" && git -C "C:\Users\lakir\Documents\Obsidian\MyVault" push`
 
 ## GitHub — Every Project

@@ -559,3 +559,9 @@ Running log of every Claude session — what was built, changed, or decided.
 - Fixed capitalisation bug: /home/Lakira → /home/lakira in both copies
 - Added machine detection step to CLAUDE.md: lspci VGA check distinguishes laptop (760M) from desktop Fedora (RX 6700XT) from Windows (wmic)
 - Three environments confirmed: Windows desktop, Fedora desktop, Fedora laptop
+
+## 02/04/2026 — Session 53 continued (laptop) — CLAUDE.md $HOME fix
+- Desktop session updated CLAUDE.md to use /home/lakira (lowercase) — would have broken laptop (/home/Lakira)
+- Fixed by replacing all hardcoded Linux paths with $HOME — works on both machines regardless of username capitalisation
+- Copied updated CLAUDE.md to ~/.claude/CLAUDE.md on laptop
+- Desktop memory setup confirmed working
