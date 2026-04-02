@@ -565,3 +565,8 @@ Running log of every Claude session — what was built, changed, or decided.
 - Fixed by replacing all hardcoded Linux paths with $HOME — works on both machines regardless of username capitalisation
 - Copied updated CLAUDE.md to ~/.claude/CLAUDE.md on laptop
 - Desktop memory setup confirmed working
+
+## 02/04/2026 — Session end (laptop)
+- No new work done after memory sync
+- Plan confirmed: desktop Hyprland next, then claw-code, then rice, then voice assistant
+- Session end
