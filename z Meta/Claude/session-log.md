@@ -542,3 +542,13 @@ Running log of every Claude session — what was built, changed, or decided.
 - ~/.claude/CLAUDE.md was still pointing to old repo — fixed by copying vault CLAUDE.md
 - Vault already present at correct path: ~/Documents/Obsidian/MyVault
 - Synced missing sessions and updated primer/tech-setup/projects from old claude-memory repo
+
+## 02/04/2026 — Session 52 (laptop) — memory cleanup + desktop prep
+- Corrected session start: was reading old claude-memory repo, not vault. Fixed.
+- Found vault already present on desktop at ~/Documents/Obsidian/MyVault (via Windows partition access)
+- Fixed ~/.claude/CLAUDE.md on laptop to point to vault (was still pointing to old claude-memory repo)
+- Synced all missing sessions from old claude-memory repo into vault (Sessions 47-51)
+- Updated primer, tech-setup, projects with: desktop dual boot done, voice assistant stack, Quickshell plan, ilyamiro breakdown
+- Fixed Stop hook in settings.json pointing to wrong vault path (pending user approval)
+- Desktop memory setup plan: gh auth login → git clone ObsidianVault → cp CLAUDE.md → copy settings.json
+- Decision: clone vault on desktop rather than mounting Windows partition (cleaner, git handles sync)
