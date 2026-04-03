@@ -13,7 +13,7 @@ Current project status, what's in progress, what's next.
 ## Current Status
 - **Hyprland on Fedora (laptop)** — Fully working. SDDM fixed. ✓
 - **Desktop dual boot (Fedora 43)** — DONE ✓ (02/04/2026)
-- **Desktop GRUB** — DONE ✓ (03/04/2026) — Ultrakill revamp theme active, 5s timeout, Windows 11 entry present. GRUB_GFXMODE=1920x1080,auto added to fix theme rendering. menu_auto_hide unset from grubenv (03/04/2026) — was silently skipping menu on cold boot.
+- **Desktop GRUB** — DONE ✓ (03/04/2026) — Valhalla theme active, 10s timeout, Windows 11 entry present, Fedora entry renamed to "Fedora". menu_auto_hide unset from grubenv — was silently skipping menu on cold boot.
 - **Gym Tracker** — Phase 1 complete. Ready to start Phase 2 (storage.py).
 - **Memory system** — Fully migrated to Obsidian vault (z Meta/Claude/). ✓
 - **Obsidian vault** — Main base for Claude memory. Synced to GitHub (ObsidianVault repo). ✓
@@ -40,7 +40,7 @@ Current project status, what's in progress, what's next.
 ## GRUB Notes (desktop)
 - Theme: YouStones/ultrakill-revamp-grub-theme — installed to /boot/grub2/themes/ultrakill-revamp-grub-theme/
 - GRUB_TERMINAL_OUTPUT="gfxterm" is commented out — if theme renders broken, uncomment and rebuild
-- Reboot skip issue: UEFI Fast Boot enabled in BIOS — disable it in BIOS settings to fix GRUB not showing on warm reboot
+- Fast Boot disabled in BIOS ✓ (03/04/2026) — GRUB now shows on warm reboot
 
 ## Voice Assistant — Stack Locked (01/04/2026)
 | Component | Choice |
@@ -110,7 +110,7 @@ Current project status, what's in progress, what's next.
 
 ## Still To Do
 - **Desktop Hyprland install** — next up (GRUB now fully sorted)
-- **Disable Fast Boot in BIOS** — fixes GRUB not showing on warm reboot
+- ~~**Disable Fast Boot in BIOS**~~ — DONE ✓ (03/04/2026)
 - **Archive claude-memory repo** — both machines confirmed on vault now
 - **Voice assistant** — build after desktop is set up
 - **Hypridle** — screen dim/lock/suspend timers not configured on laptop
