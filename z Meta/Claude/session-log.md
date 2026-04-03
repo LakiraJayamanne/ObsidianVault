@@ -681,3 +681,15 @@ Running log of every Claude session — what was built, changed, or decided.
 - EFI grub.cfg at Z:\EFI\fedora\grub.cfg just points to main grub.cfg on ext4 /boot partition — can't edit timeout from Windows
 - Plan: boot Fedora live USB → chroot → fix GRUB timeout → diagnose hang with journalctl
 - Session paused mid-diagnosis — Lakira going to boot live USB
+
+## 03/04/2026 — Session 66 (laptop → desktop) — Fixed desktop boot hang
+- Desktop was hanging at black screen after Caelestia install — never reaching SDDM
+- Booted Fedora live USB, chroot into desktop install (nvme0n1p6 btrfs subvol=root, p5=/boot, p1=/boot/efi)
+- journalctl showed SDDM had no entries — but display-manager.service correctly pointed to sddm.service
+- Root cause: Valhalla GRUB theme was silently rendering a black screen, making it look like a kernel/initramfs hang
+- Also: new kernel 6.19.10-200.fc43 pulled in by caelestia dnf install, menu_auto_hide reset by kernel update
+- Fix: disabled GRUB theme, set GRUB_TERMINAL_OUTPUT=console, GRUB_CMDLINE_LINUX="nomodeset", unset menu_auto_hide, grub2-mkconfig rebuild
+- Desktop now boots to SDDM → Hyprland ✓
+- New issue: Hyprland updated to 0.51.1, breaking rgba color syntax — 186+ config errors, no keybinds, no bar
+- Super+T opens kitty on desktop ✓
+- Handing off to desktop session to fix Hyprland config

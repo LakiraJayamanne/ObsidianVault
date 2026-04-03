@@ -13,10 +13,11 @@ Current project status, what's in progress, what's next.
 ## Current Status
 - **Hyprland on Fedora (laptop)** — Fully working. SDDM fixed. ✓
 - **Desktop dual boot (Fedora 43)** — DONE ✓ (02/04/2026)
-- **Desktop GRUB** — DONE ✓ (03/04/2026) — Valhalla theme active, 10s timeout, Windows 11 entry present, Fedora entry renamed to "Fedora". menu_auto_hide unset from grubenv — was silently skipping menu on cold boot.
+- **Desktop GRUB** — Partially working. Theme disabled (Valhalla was causing black screen). Console mode active. menu_auto_hide unset. Windows 11 entry present. ⚠️
 - **Desktop Windows boot fix** — CONFIRMED WORKING ✓ (03/04/2026)
 - **Desktop Hyprland install** — DONE ✓ (03/04/2026)
-- **Desktop Hyprland first boot** — CONFIRMED WORKING ✓ (03/04/2026)
+- **Desktop boot hang** — FIXED ✓ (03/04/2026) — Root cause: Valhalla GRUB theme silently black-screened. Fixed by disabling theme + forcing console mode.
+- **Desktop Hyprland** — Booting but config broken due to Hyprland 0.51.1 update. rgba syntax errors (186+). No keybinds/bar. In progress. ⚠️
 - **Monitor @ 165Hz** — Set in /home/lakira/.config/hypr/hyprland/monitors/default.conf ✓
 - **Zen Browser** — Installed via Flatpak, profile synced from laptop ✓
 - **Spicetify** — Installed, prefs_path set manually, backup applied ✓ (needs flatpak chmod fix to complete)
@@ -41,23 +42,33 @@ Current project status, what's in progress, what's next.
 - Old `claude-memory` repo to be archived (both machines now confirmed on vault)
 
 ## In Progress
-- **Caelestia first boot — BROKEN** — desktop hangs on black screen when booting Fedora. GRUB timeout too short to catch manually. Diagnosing via Fedora live USB chroot — about to do this next.
-  - Symptom: ASUS logo stays up, then black screen. Never reaches SDDM.
-  - Likely cause: kernel/initramfs hang or SDDM failing early in boot
-  - Plan: boot live USB → chroot → fix GRUB timeout → check journalctl for hang cause
+- **Desktop Hyprland config — BROKEN** — Hyprland updated to 0.51.1 during caelestia install, breaking rgba color syntax. 186+ errors. No keybinds (except Super+T=terminal), no bar.
+  - Fix: update rgba() values in ~/.config/hypr/hyprland/decoration.conf and others to 0.51.1 syntax
+  - Config split across: env, general, input, misc, animations, decoration, group, execs, rules, keybinds + hypr-user.conf
+  - Super+T opens kitty ✓
+
+## GRUB State (desktop) — needs cleanup
+- Theme: DISABLED (Valhalla was causing silent black screen on boot)
+- GRUB_TERMINAL_OUTPUT=console (added to fix visibility)
+- GRUB_CMDLINE_LINUX="nomodeset" (added for debugging — remove once stable)
+- To restore: remove nomodeset, re-enable gfxterm, find a working theme (NOT Valhalla)
+- menu_auto_hide unset from grubenv ✓
+- Two kernels present: 6.17.1-300.fc43 and 6.19.10-200.fc43. Default set to 6.17.1.
 
 ## Priority Order
-1. **Fix desktop Fedora boot hang** ← next (live USB chroot)
+1. **Fix Hyprland 0.51.1 config** ← next (on desktop, rgba syntax + keybinds + bar) 
 2. **Finish Spicetify setup** — still needs flatpak chmod + apply to complete
 3. **Desktop rice** — caelestia customisation + ilyamiro widgets
-4. **claw-code + Ollama** — set up as Claude Code cooldown fallback
-5. **Voice assistant** — build starts after above
+4. **Clean up GRUB** — remove nomodeset, restore graphical theme
+5. **claw-code + Ollama** — set up as Claude Code cooldown fallback
+6. **Voice assistant** — build starts after above
 
 ## GRUB Notes (desktop)
-- Theme: Valhalla — installed to /boot/grub2/themes/valhalla/
-- GRUB_TERMINAL_OUTPUT="gfxterm" is commented out — if theme renders broken, uncomment and rebuild
-- Fast Boot disabled in BIOS ✓ (03/04/2026) — GRUB now shows on warm reboot
-- menu_auto_hide unset from grubenv — was silently skipping menu on cold boot
+- Theme: Valhalla installed to /boot/grub2/themes/valhalla/ but DISABLED — was causing silent black screen on every boot
+- GRUB_TERMINAL_OUTPUT=console — forced text mode to fix boot visibility
+- GRUB_CMDLINE_LINUX="nomodeset" — added for debugging, remove when done
+- Fast Boot disabled in BIOS ✓ (03/04/2026)
+- menu_auto_hide unset from grubenv — keeps getting reset by kernel updates, may need to re-unset after dnf updates
 
 ## Caelestia Notes (desktop)
 - Installed via EnceladusII/caelestia-fedora (abandoned Fedora fork, frozen Aug 2025)
@@ -128,7 +139,7 @@ Current project status, what's in progress, what's next.
 - HiFi Walker H2 — auction, ~£21.50, Rockbox DAP, better audio, likely needs microSD
 
 ## Still To Do
-- **Fix desktop Fedora boot hang** — live USB chroot in progress
+- **Fix Hyprland 0.51.1 rgba config errors** — in progress on desktop
 - **Finish Spicetify** — chmod flatpak dir + re-run backup apply
 - **Archive claude-memory repo** — both machines confirmed on vault now
 - **Voice assistant** — build after desktop is set up
