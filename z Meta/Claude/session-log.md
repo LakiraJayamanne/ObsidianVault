@@ -614,3 +614,10 @@ Running log of every Claude session — what was built, changed, or decided.
 - Install script correctly detected Fedora, used /boot/grub2/, rebuilt grub
 - GRUB_TERMINAL_OUTPUT="gfxterm" was commented out by install script — if theme renders broken, uncomment and rebuild
 - Next: Desktop Hyprland install
+
+## 03/04/2026 — Session 60 (desktop/Fedora) — GRUB theme fix
+- Ultrakill revamp theme was rendering incorrectly (wrong visuals, "SmileOS2.0" label visible)
+- SmileOS string not found in theme.txt (title-text is blank) — source unknown
+- Root cause: no GRUB_GFXMODE set, GRUB picking wrong resolution
+- Fix: added GRUB_GFXMODE=1920x1080,auto to /etc/default/grub, rebuilt grub2-mkconfig
+- Next: reboot to verify theme renders correctly, then Desktop Hyprland install

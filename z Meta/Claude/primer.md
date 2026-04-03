@@ -13,7 +13,7 @@ Current project status, what's in progress, what's next.
 ## Current Status
 - **Hyprland on Fedora (laptop)** — Fully working. SDDM fixed. ✓
 - **Desktop dual boot (Fedora 43)** — DONE ✓ (02/04/2026)
-- **Desktop GRUB** — DONE ✓ (03/04/2026) — Ultrakill revamp theme active, 5s timeout, menu auto-shows, Windows 11 entry present.
+- **Desktop GRUB** — DONE ✓ (03/04/2026) — Ultrakill revamp theme active, 5s timeout, menu auto-shows, Windows 11 entry present. GRUB_GFXMODE=1920x1080,auto added to fix theme rendering.
 - **Gym Tracker** — Phase 1 complete. Ready to start Phase 2 (storage.py).
 - **Memory system** — Fully migrated to Obsidian vault (z Meta/Claude/). ✓
 - **Obsidian vault** — Main base for Claude memory. Synced to GitHub (ObsidianVault repo). ✓
