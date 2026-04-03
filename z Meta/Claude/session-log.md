@@ -623,3 +623,9 @@ Running log of every Claude session — what was built, changed, or decided.
 - Install script correctly detected Fedora, used /boot/grub2/, rebuilt grub
 - GRUB_TERMINAL_OUTPUT="gfxterm" was commented out by install script — if theme renders broken, uncomment and rebuild
 - Next: Desktop Hyprland install
+
+## 03/04/2026 — Session 60 (desktop/Fedora) — GRUB menu_auto_hide fix
+- GRUB menu not showing on cold boot (power off → power on) despite GRUB_TIMEOUT=5 and GRUB_TIMEOUT_STYLE=menu being correctly set
+- Root cause: menu_auto_hide=1 in /boot/grub2/grubenv — when boot_success=1 is also set, GRUB silently skips the menu regardless of timeout settings
+- Fix: sudo grub2-editenv /boot/grub2/grubenv unset menu_auto_hide (no grub.cfg rebuild needed)
+- Next: reboot to confirm menu shows, then Desktop Hyprland install
