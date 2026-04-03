@@ -13,7 +13,7 @@ Current project status, what's in progress, what's next.
 ## Current Status
 - **Hyprland on Fedora (laptop)** — Fully working. SDDM fixed. ✓
 - **Desktop dual boot (Fedora 43)** — DONE ✓ (02/04/2026)
-- **Desktop GRUB** — DONE ✓ (03/04/2026) — Valhalla theme working, 5s timeout, menu auto-shows, Windows 11 entry present. Fixed: theme files copied to /boot/grub2/themes/valhalla/, path corrected in /etc/default/grub, GRUB_TIMEOUT_STYLE=menu added, rebuilt.
+- **Desktop GRUB** — DONE ✓ (03/04/2026) — Ultrakill revamp theme active, 5s timeout, menu auto-shows, Windows 11 entry present.
 - **Gym Tracker** — Phase 1 complete. Ready to start Phase 2 (storage.py).
 - **Memory system** — Fully migrated to Obsidian vault (z Meta/Claude/). ✓
 - **Obsidian vault** — Main base for Claude memory. Synced to GitHub (ObsidianVault repo). ✓
@@ -27,7 +27,7 @@ Current project status, what's in progress, what's next.
 - Old `claude-memory` repo to be archived (both machines now confirmed on vault)
 
 ## In Progress
-- **Desktop Hyprland setup** — dual boot done, GRUB fully done, next: install Hyprland on desktop
+- **Desktop Hyprland setup** — GRUB fully done, next: install Hyprland on desktop
 - **Desktop rice plan** — Hyprland first, then claw-code + Ollama, then caelestia rice
 - **Voice Assistant** — stack locked, build starts after desktop is set up
 
@@ -36,6 +36,11 @@ Current project status, what's in progress, what's next.
 2. **claw-code + Ollama** — set up as Claude Code cooldown fallback BEFORE ricing
 3. **Desktop rice** — caelestia + ilyamiro widgets
 4. **Voice assistant** — build starts after above three
+
+## GRUB Notes (desktop)
+- Theme: YouStones/ultrakill-revamp-grub-theme — installed to /boot/grub2/themes/ultrakill-revamp-grub-theme/
+- GRUB_TERMINAL_OUTPUT="gfxterm" is commented out — if theme renders broken, uncomment and rebuild
+- Reboot skip issue: UEFI Fast Boot enabled in BIOS — disable it in BIOS settings to fix GRUB not showing on warm reboot
 
 ## Voice Assistant — Stack Locked (01/04/2026)
 | Component | Choice |
@@ -105,6 +110,7 @@ Current project status, what's in progress, what's next.
 
 ## Still To Do
 - **Desktop Hyprland install** — next up (GRUB now fully sorted)
+- **Disable Fast Boot in BIOS** — fixes GRUB not showing on warm reboot
 - **Archive claude-memory repo** — both machines confirmed on vault now
 - **Voice assistant** — build after desktop is set up
 - **Hypridle** — screen dim/lock/suspend timers not configured on laptop

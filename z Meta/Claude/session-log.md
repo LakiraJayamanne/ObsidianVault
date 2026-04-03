@@ -607,3 +607,10 @@ Running log of every Claude session — what was built, changed, or decided.
 - Fix: copied theme files to /boot/grub2/themes/valhalla/, fixed GRUB_THEME path, added GRUB_TIMEOUT_STYLE=menu, rebuilt grub2-mkconfig
 - GRUB is now fully done — Valhalla theme, 5s auto-show, Windows 11 entry, Fedora entry
 - Next: Desktop Hyprland install
+
+## 03/04/2026 — Session 59 (desktop/Fedora) — Ultrakill GRUB theme
+- GRUB reboot issue diagnosed: UEFI Fast Boot causes GRUB menu to be skipped on warm reboot but not cold boot — fix is to disable Fast Boot in BIOS (can't be done from Linux)
+- Switched GRUB theme from Valhalla to YouStones/ultrakill-revamp-grub-theme (installed via install.sh)
+- Install script correctly detected Fedora, used /boot/grub2/, rebuilt grub
+- GRUB_TERMINAL_OUTPUT="gfxterm" was commented out by install script — if theme renders broken, uncomment and rebuild
+- Next: Desktop Hyprland install
