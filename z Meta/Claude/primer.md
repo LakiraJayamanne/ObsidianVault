@@ -14,7 +14,15 @@ Current project status, what's in progress, what's next.
 - **Hyprland on Fedora (laptop)** — Fully working. SDDM fixed. ✓
 - **Desktop dual boot (Fedora 43)** — DONE ✓ (02/04/2026)
 - **Desktop GRUB** — DONE ✓ (03/04/2026) — Valhalla theme active, 10s timeout, Windows 11 entry present, Fedora entry renamed to "Fedora". menu_auto_hide unset from grubenv — was silently skipping menu on cold boot.
-- **Desktop Windows boot fix** — Fixed (03/04/2026) — GRUB entry was pointing to NTFS UUID (5A728A6A728A4B29) instead of EFI partition UUID (D289-BBA0). Fixed 40_custom to use correct UUID + insmod fat/part_gpt. grub2-mkconfig rebuilt. Untested — confirm Windows boots on next reboot.
+- **Desktop Windows boot fix** — CONFIRMED WORKING ✓ (03/04/2026)
+- **Desktop Hyprland install** — DONE, awaiting first boot ✓ (03/04/2026)
+  - Hyprland installed via solopasha/hyprland COPR
+  - SDDM enabled as display manager (--force replaced GDM symlink)
+  - Config at ~/.config/hypr/hyprland.conf — keybinds sourced from ~/.config/hypr/configs/keybinds.conf
+  - Keybinds ported from laptop (Super+Q=killactive, Super+Return=kitty, Super+Space=rofi, arrows for focus/move/resize, workspaces 1-10)
+  - Monitor set to 1920x1080@60
+  - Autostart: waybar + dunst
+  - $menu = rofi -show drun, $terminal = kitty
 - **Gym Tracker** — Phase 1 complete. Ready to start Phase 2 (storage.py).
 - **Memory system** — Fully migrated to Obsidian vault (z Meta/Claude/). ✓
 - **Obsidian vault** — Main base for Claude memory. Synced to GitHub (ObsidianVault repo). ✓
@@ -28,20 +36,20 @@ Current project status, what's in progress, what's next.
 - Old `claude-memory` repo to be archived (both machines now confirmed on vault)
 
 ## In Progress
-- **Desktop Hyprland setup** — GRUB fully done, next: install Hyprland on desktop
-- **Desktop rice plan** — Hyprland first, then claw-code + Ollama, then caelestia rice
-- **Voice Assistant** — stack locked, build starts after desktop is set up
+- **Desktop Hyprland first boot** — rebooting to test, SDDM → Hyprland session
+- **Desktop rice plan** — Hyprland first boot next, then claw-code + Ollama, then caelestia rice
 
 ## Priority Order
-1. **Desktop Hyprland install** ← next
+1. **Confirm Hyprland boots on desktop** ← next (just rebooting)
 2. **claw-code + Ollama** — set up as Claude Code cooldown fallback BEFORE ricing
 3. **Desktop rice** — caelestia + ilyamiro widgets
 4. **Voice assistant** — build starts after above three
 
 ## GRUB Notes (desktop)
-- Theme: YouStones/ultrakill-revamp-grub-theme — installed to /boot/grub2/themes/ultrakill-revamp-grub-theme/
+- Theme: Valhalla — installed to /boot/grub2/themes/valhalla/
 - GRUB_TERMINAL_OUTPUT="gfxterm" is commented out — if theme renders broken, uncomment and rebuild
 - Fast Boot disabled in BIOS ✓ (03/04/2026) — GRUB now shows on warm reboot
+- menu_auto_hide unset from grubenv — was silently skipping menu on cold boot
 
 ## Voice Assistant — Stack Locked (01/04/2026)
 | Component | Choice |
@@ -56,7 +64,7 @@ Current project status, what's in progress, what's next.
 - Old JARVIS project notes archived in vault at `Programming/Personal Projects/Jarvis/Old Notes (Aug 2025).md`
 
 ## Desktop Setup Order (planned)
-1. Fedora dual boot + Hyprland base ← **next**
+1. Fedora dual boot + Hyprland base ← **confirming now**
 2. claw-code + Ollama — set up BEFORE ricing
 3. Caelestia as the base shell (elegant, Material You, fish-native, better Qt/GTK integration)
 4. Port ilyamiro widgets into caelestia — music EQ popup, DDG wallpaper search, focus time tracker
@@ -110,8 +118,7 @@ Current project status, what's in progress, what's next.
 - HiFi Walker H2 — auction, ~£21.50, Rockbox DAP, better audio, likely needs microSD
 
 ## Still To Do
-- **Desktop Hyprland install** — next up (GRUB now fully sorted)
-- ~~**Disable Fast Boot in BIOS**~~ — DONE ✓ (03/04/2026)
+- **Confirm desktop Hyprland first boot** — rebooting now
 - **Archive claude-memory repo** — both machines confirmed on vault now
 - **Voice assistant** — build after desktop is set up
 - **Hypridle** — screen dim/lock/suspend timers not configured on laptop

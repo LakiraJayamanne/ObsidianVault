@@ -642,3 +642,14 @@ Running log of every Claude session — what was built, changed, or decided.
 - Also missing insmod part_gpt and insmod fat — needed for FAT32 EFI partition
 - Fixed /etc/grub.d/40_custom with correct UUID and modules, rebuilt grub2-mkconfig
 - Fix applied but not yet confirmed — next reboot will verify Windows boots
+
+## 03/04/2026 — Session 63 (desktop/Fedora) — Hyprland install
+- Windows boot confirmed working (GRUB fix from session 62 verified)
+- Enabled solopasha/hyprland COPR and installed hyprland
+- Installed sddm, kitty, waybar, rofi-wayland, dunst, xdg-desktop-portal-hyprland
+- Enabled SDDM as display manager with --force (replaced GDM symlink)
+- Created ~/.config/hypr/configs/keybinds.conf — ported from laptop via scp (Lakira@192.168.1.137)
+- Adapted keybinds for desktop: Super+Q=killactive (not radial menu), removed brightness keys, kept everything else
+- Set monitor to 1920x1080@60, $menu=rofi -show drun, autostart waybar+dunst
+- Keybinds sourced from separate file in hyprland.conf
+- About to reboot into SDDM → Hyprland for first boot
