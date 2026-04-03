@@ -653,3 +653,23 @@ Running log of every Claude session — what was built, changed, or decided.
 - Set monitor to 1920x1080@60, $menu=rofi -show drun, autostart waybar+dunst
 - Keybinds sourced from separate file in hyprland.conf
 - About to reboot into SDDM → Hyprland for first boot
+
+## 03/04/2026 — Session 64 (desktop/Fedora) — Caelestia install + app setup
+- Hyprland first boot confirmed working ✓
+- Monitor set to 165Hz (in ~/.config/hypr/hyprland/monitors/default.conf)
+- Fixed gestures block error (removed workspace_swipe — desktop has no touchpad)
+- Installed Zen Browser via Flatpak (app.zen_browser.zen), synced profile from laptop via rsync
+- Installed Spicetify — binary at ~/.spicetify/spicetify, not in PATH by default
+  - Set prefs_path manually in config-xpui.ini (was blank after config command)
+  - spotify_path set to Flatpak location
+  - Still needs: sudo chmod on Flatpak dir + re-run backup apply
+- Synced wallpapers from laptop via rsync (~/Pictures/Wallpapers)
+- Set system dark mode via gsettings
+- Researched Caelestia: Quickshell/QML, Material You, no matugen, full shell replacement
+- Found EnceladusII/caelestia-fedora — Fedora port (abandoned Aug 2025, frozen snapshot)
+- Installed caelestia-fedora via install.fish — handles Quickshell via COPR, app2unit from source, fonts, CLI
+- Backed up hyprland config to ~/hypr-backup before install
+- Hyprland config now restructured by caelestia into ~/.config/hypr/hyprland/*.conf
+- Monitor conf restored to 165Hz after caelestia overwrote it
+- Rebooting to confirm Caelestia first boot
+- Decided: can update caelestia shell later via git pull (risk: Quickshell version mismatch)

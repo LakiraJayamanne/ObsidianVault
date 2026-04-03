@@ -15,18 +15,23 @@ Current project status, what's in progress, what's next.
 - **Desktop dual boot (Fedora 43)** — DONE ✓ (02/04/2026)
 - **Desktop GRUB** — DONE ✓ (03/04/2026) — Valhalla theme active, 10s timeout, Windows 11 entry present, Fedora entry renamed to "Fedora". menu_auto_hide unset from grubenv — was silently skipping menu on cold boot.
 - **Desktop Windows boot fix** — CONFIRMED WORKING ✓ (03/04/2026)
-- **Desktop Hyprland install** — DONE, awaiting first boot ✓ (03/04/2026)
-  - Hyprland installed via solopasha/hyprland COPR
-  - SDDM enabled as display manager (--force replaced GDM symlink)
-  - Config at ~/.config/hypr/hyprland.conf — keybinds sourced from ~/.config/hypr/configs/keybinds.conf
-  - Keybinds ported from laptop (Super+Q=killactive, Super+Return=kitty, Super+Space=rofi, arrows for focus/move/resize, workspaces 1-10)
-  - Monitor set to 1920x1080@60
-  - Autostart: waybar + dunst
-  - $menu = rofi -show drun, $terminal = kitty
+- **Desktop Hyprland install** — DONE ✓ (03/04/2026)
+- **Desktop Hyprland first boot** — CONFIRMED WORKING ✓ (03/04/2026)
+- **Monitor @ 165Hz** — Set in /home/lakira/.config/hypr/hyprland/monitors/default.conf ✓
+- **Zen Browser** — Installed via Flatpak, profile synced from laptop ✓
+- **Spicetify** — Installed, prefs_path set manually, backup applied ✓ (needs flatpak chmod fix to complete)
+- **Wallpapers** — Synced from laptop to ~/Pictures/Wallpapers ✓
+- **System dark mode** — Set via gsettings ✓
+- **Caelestia rice** — Installed via caelestia-fedora fork (EnceladusII/caelestia-fedora) ✓ (03/04/2026)
+  - Frozen at August 2025 snapshot of upstream caelestia
+  - Can update shell via: cd ~/.config/quickshell/caelestia && git pull (risk: Quickshell version mismatch)
+  - Hyprland config backed up to ~/hypr-backup before install
+  - Config now split across ~/.config/hypr/hyprland/*.conf
+  - Monitor conf at ~/.config/hypr/hyprland/monitors/default.conf
 - **Gym Tracker** — Phase 1 complete. Ready to start Phase 2 (storage.py).
 - **Memory system** — Fully migrated to Obsidian vault (z Meta/Claude/). ✓
 - **Obsidian vault** — Main base for Claude memory. Synced to GitHub (ObsidianVault repo). ✓
-- **Voice Assistant** — Stack decided. Not started. Waiting on desktop setup.
+- **Voice Assistant** — Stack decided. Not started. Waiting on desktop rice.
 
 ## Memory System — How It Works
 - All memory lives in the vault at `z Meta/Claude/`
@@ -36,20 +41,29 @@ Current project status, what's in progress, what's next.
 - Old `claude-memory` repo to be archived (both machines now confirmed on vault)
 
 ## In Progress
-- **Desktop Hyprland first boot** — rebooting to test, SDDM → Hyprland session
-- **Desktop rice plan** — Hyprland first boot next, then claw-code + Ollama, then caelestia rice
+- **Caelestia first boot** — rebooting to test SDDM → Hyprland → Caelestia
 
 ## Priority Order
-1. **Confirm Hyprland boots on desktop** ← next (just rebooting)
-2. **claw-code + Ollama** — set up as Claude Code cooldown fallback BEFORE ricing
-3. **Desktop rice** — caelestia + ilyamiro widgets
-4. **Voice assistant** — build starts after above three
+1. **Confirm Caelestia boots on desktop** ← next (rebooting now)
+2. **Finish Spicetify setup** — still needs flatpak chmod + apply to complete
+3. **Desktop rice** — caelestia customisation + ilyamiro widgets
+4. **claw-code + Ollama** — set up as Claude Code cooldown fallback
+5. **Voice assistant** — build starts after above
 
 ## GRUB Notes (desktop)
 - Theme: Valhalla — installed to /boot/grub2/themes/valhalla/
 - GRUB_TERMINAL_OUTPUT="gfxterm" is commented out — if theme renders broken, uncomment and rebuild
 - Fast Boot disabled in BIOS ✓ (03/04/2026) — GRUB now shows on warm reboot
 - menu_auto_hide unset from grubenv — was silently skipping menu on cold boot
+
+## Caelestia Notes (desktop)
+- Installed via EnceladusII/caelestia-fedora (abandoned Fedora fork, frozen Aug 2025)
+- Quickshell installed via COPR (errornointernet/quickshell)
+- Shell lives at ~/.config/quickshell/caelestia
+- Hyprland config restructured — now sources from ~/.config/hypr/hyprland/*.conf
+- User overrides go in ~/.config/caelestia/hypr-vars.conf and hypr-user.conf
+- Keybinds at ~/.config/hypr/hyprland/keybinds.conf (need to verify laptop keybinds ported correctly)
+- Bar is on the left (default) — can move to top via shell.json if desired
 
 ## Voice Assistant — Stack Locked (01/04/2026)
 | Component | Choice |
@@ -62,13 +76,6 @@ Current project status, what's in progress, what's next.
 - Cross-platform: Windows + Linux
 - Don't build/test on laptop — iGPU can't handle Whisper well. Use desktop (RX 6700XT).
 - Old JARVIS project notes archived in vault at `Programming/Personal Projects/Jarvis/Old Notes (Aug 2025).md`
-
-## Desktop Setup Order (planned)
-1. Fedora dual boot + Hyprland base ← **confirming now**
-2. claw-code + Ollama — set up BEFORE ricing
-3. Caelestia as the base shell (elegant, Material You, fish-native, better Qt/GTK integration)
-4. Port ilyamiro widgets into caelestia — music EQ popup, DDG wallpaper search, focus time tracker
-5. Plymouth boot animation (reference ilyamiro's 80 frames)
 
 ## Laptop Plan (keep Waybar — iGPU can't handle full Quickshell bar)
 - Tighten island layout, pill workspaces
@@ -118,13 +125,15 @@ Current project status, what's in progress, what's next.
 - HiFi Walker H2 — auction, ~£21.50, Rockbox DAP, better audio, likely needs microSD
 
 ## Still To Do
-- **Confirm desktop Hyprland first boot** — rebooting now
+- **Confirm Caelestia first boot** — rebooting now
+- **Finish Spicetify** — chmod flatpak dir + re-run backup apply
 - **Archive claude-memory repo** — both machines confirmed on vault now
 - **Voice assistant** — build after desktop is set up
 - **Hypridle** — screen dim/lock/suspend timers not configured on laptop
 - **Gaps & borders** — window spacing/border thickness on laptop
 - **Plymouth boot animation** — save for desktop
 - **Gym Tracker Phase 2** — storage.py (save/load JSON)
+- **claw-code + Ollama** — desktop setup
 
 ## Gym Tracker Build Phases
 1. [x] Phase 1 — models.py (ExerciseSet, Session, Log)
