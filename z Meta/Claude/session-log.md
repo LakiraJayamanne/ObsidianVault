@@ -10,6 +10,15 @@ Running log of every Claude session — what was built, changed, or decided.
 
 ---
 
+## 03/04/2026 — Session 47 (desktop)
+- 3:54am session
+- Investigated SmileOS 2.0 GRUB flash — appeared for ~1 second on first reboot after GRUB rebuild last session
+- Diagnosed: grub.cfg clean (only ultrakill referenced), efibootmgr clean (Fedora + Windows only), EFI partition clean (no rogue GRUB installs)
+- Valhalla theme is also installed in /boot/grub2/themes/ but not referenced anywhere
+- Conclusion: one-time rendering glitch from old theme in GRUB runtime memory, not a real issue
+- Fixed vault git repo corruption (multiple empty object files) — deleted empty objects, fetched from remote, repo healthy
+- No Hyprland work started yet
+
 ## 30/03/2026 — Session 46 (laptop)
 - Back from vacation
 - MP3 player recap: SUPEREYE 32GB (built-in storage) vs HiFi Walker H2 (auction, likely needs microSD). USB stick style ones I called bad — user didn't reject them personally. No Persona 3 themed players exist.
@@ -614,10 +623,3 @@ Running log of every Claude session — what was built, changed, or decided.
 - Install script correctly detected Fedora, used /boot/grub2/, rebuilt grub
 - GRUB_TERMINAL_OUTPUT="gfxterm" was commented out by install script — if theme renders broken, uncomment and rebuild
 - Next: Desktop Hyprland install
-
-## 03/04/2026 — Session 60 (desktop/Fedora) — GRUB theme fix
-- Ultrakill revamp theme was rendering incorrectly (wrong visuals, "SmileOS2.0" label visible)
-- SmileOS string not found in theme.txt (title-text is blank) — source unknown
-- Root cause: no GRUB_GFXMODE set, GRUB picking wrong resolution
-- Fix: added GRUB_GFXMODE=1920x1080,auto to /etc/default/grub, rebuilt grub2-mkconfig
-- Next: reboot to verify theme renders correctly, then Desktop Hyprland install
