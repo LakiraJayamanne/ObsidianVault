@@ -673,3 +673,11 @@ Running log of every Claude session — what was built, changed, or decided.
 - Monitor conf restored to 165Hz after caelestia overwrote it
 - Rebooting to confirm Caelestia first boot
 - Decided: can update caelestia shell later via git pull (risk: Quickshell version mismatch)
+
+## 03/04/2026 — Session 65 (desktop/Windows) — Fedora boot hang investigation
+- After caelestia install, desktop Fedora hangs on boot — ASUS logo stays up, then black screen, never reaches SDDM
+- GRUB timeout too short to catch (barely visible), F11 ASUS boot menu picks Fedora but boots straight to black screen
+- Ruled out: BIOS/POST issue (Windows boots fine), GRUB itself (EFI grub.cfg confirmed intact on Z: drive)
+- EFI grub.cfg at Z:\EFI\fedora\grub.cfg just points to main grub.cfg on ext4 /boot partition — can't edit timeout from Windows
+- Plan: boot Fedora live USB → chroot → fix GRUB timeout → diagnose hang with journalctl
+- Session paused mid-diagnosis — Lakira going to boot live USB

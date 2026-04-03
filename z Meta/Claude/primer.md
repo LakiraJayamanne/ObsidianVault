@@ -41,10 +41,13 @@ Current project status, what's in progress, what's next.
 - Old `claude-memory` repo to be archived (both machines now confirmed on vault)
 
 ## In Progress
-- **Caelestia first boot** — rebooting to test SDDM → Hyprland → Caelestia
+- **Caelestia first boot — BROKEN** — desktop hangs on black screen when booting Fedora. GRUB timeout too short to catch manually. Diagnosing via Fedora live USB chroot — about to do this next.
+  - Symptom: ASUS logo stays up, then black screen. Never reaches SDDM.
+  - Likely cause: kernel/initramfs hang or SDDM failing early in boot
+  - Plan: boot live USB → chroot → fix GRUB timeout → check journalctl for hang cause
 
 ## Priority Order
-1. **Confirm Caelestia boots on desktop** ← next (rebooting now)
+1. **Fix desktop Fedora boot hang** ← next (live USB chroot)
 2. **Finish Spicetify setup** — still needs flatpak chmod + apply to complete
 3. **Desktop rice** — caelestia customisation + ilyamiro widgets
 4. **claw-code + Ollama** — set up as Claude Code cooldown fallback
@@ -125,7 +128,7 @@ Current project status, what's in progress, what's next.
 - HiFi Walker H2 — auction, ~£21.50, Rockbox DAP, better audio, likely needs microSD
 
 ## Still To Do
-- **Confirm Caelestia first boot** — rebooting now
+- **Fix desktop Fedora boot hang** — live USB chroot in progress
 - **Finish Spicetify** — chmod flatpak dir + re-run backup apply
 - **Archive claude-memory repo** — both machines confirmed on vault now
 - **Voice assistant** — build after desktop is set up
