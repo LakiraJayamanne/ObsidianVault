@@ -14,6 +14,7 @@ Current project status, what's in progress, what's next.
 - **Hyprland on Fedora (laptop)** — Fully working. SDDM fixed. ✓
 - **Desktop dual boot (Fedora 43)** — DONE ✓ (02/04/2026)
 - **Desktop GRUB** — DONE ✓ (03/04/2026) — Valhalla theme active, 10s timeout, Windows 11 entry present, Fedora entry renamed to "Fedora". menu_auto_hide unset from grubenv — was silently skipping menu on cold boot.
+- **Desktop Windows boot fix** — Fixed (03/04/2026) — GRUB entry was pointing to NTFS UUID (5A728A6A728A4B29) instead of EFI partition UUID (D289-BBA0). Fixed 40_custom to use correct UUID + insmod fat/part_gpt. grub2-mkconfig rebuilt. Untested — confirm Windows boots on next reboot.
 - **Gym Tracker** — Phase 1 complete. Ready to start Phase 2 (storage.py).
 - **Memory system** — Fully migrated to Obsidian vault (z Meta/Claude/). ✓
 - **Obsidian vault** — Main base for Claude memory. Synced to GitHub (ObsidianVault repo). ✓

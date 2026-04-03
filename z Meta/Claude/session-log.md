@@ -635,3 +635,10 @@ Running log of every Claude session — what was built, changed, or decided.
 - Switched GRUB theme back from ultrakill-revamp-grub-theme to valhalla (ultrakill was labelling Fedora entry as "SmileOS")
 - Renamed Fedora BLS entry from long UUID-style name to just "Fedora" via sed on /boot/loader/entries/*.conf
 - Rebuilt grub2-mkconfig — all three changes applied
+
+## 03/04/2026 — Session 62 (desktop/Fedora) — Windows boot fix
+- Windows boot was failing with "couldn't find device" error
+- Root cause: GRUB 40_custom entry had wrong UUID — was using 5A728A6A728A4B29 (Windows NTFS C: drive) instead of D289-BBA0 (EFI partition, nvme0n1p1)
+- Also missing insmod part_gpt and insmod fat — needed for FAT32 EFI partition
+- Fixed /etc/grub.d/40_custom with correct UUID and modules, rebuilt grub2-mkconfig
+- Fix applied but not yet confirmed — next reboot will verify Windows boots
