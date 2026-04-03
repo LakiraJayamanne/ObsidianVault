@@ -584,3 +584,10 @@ Running log of every Claude session — what was built, changed, or decided.
 - Planned GRUB customisation: Valhalla theme, entries renamed to "Fedora" and "Windows 11", timeout 5s
 - Full command guide saved to vault: Programming/Personal Projects/Desktop Setup/GRUB Setup.md
 - Session ended with Lakira booting into Fedora to run the setup
+
+## 03/04/2026 — Session 56 (desktop/Fedora) — GRUB setup
+- Installed Valhalla GRUB theme via valhallaDots install.sh (picked GRUB option)
+- Set GRUB_TIMEOUT=5, GRUB_DISTRIBUTOR="Fedora", GRUB_DISABLE_OS_PROBER=true in /etc/default/grub
+- Added manual Windows 11 menuentry to /etc/grub.d/40_custom (UUID: 5A728A6A728A4B29, nvme0n1p3)
+- Rebuilt with grub2-mkconfig — completed cleanly
+- Next: reboot to verify, then Hyprland install

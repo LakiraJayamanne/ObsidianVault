@@ -13,6 +13,7 @@ Current project status, what's in progress, what's next.
 ## Current Status
 - **Hyprland on Fedora (laptop)** — Fully working. SDDM fixed. ✓
 - **Desktop dual boot (Fedora 43)** — DONE ✓ (02/04/2026)
+- **Desktop GRUB** — DONE ✓ (03/04/2026) — Valhalla theme, 5s timeout, Windows 11 entry, os-prober disabled
 - **Gym Tracker** — Phase 1 complete. Ready to start Phase 2 (storage.py).
 - **Memory system** — Fully migrated to Obsidian vault (z Meta/Claude/). ✓
 - **Obsidian vault** — Main base for Claude memory. Synced to GitHub (ObsidianVault repo). ✓
@@ -26,7 +27,7 @@ Current project status, what's in progress, what's next.
 - Old `claude-memory` repo to be archived (both machines now confirmed on vault)
 
 ## In Progress
-- **Desktop Hyprland setup** — dual boot done, GRUB plan ready, next: boot Fedora and run setup
+- **Desktop Hyprland setup** — dual boot done, GRUB done, next: install Hyprland on desktop
 - **Desktop rice plan** — Hyprland first, then claw-code + Ollama, then caelestia rice
 - **Voice Assistant** — stack locked, build starts after desktop is set up
 
@@ -103,15 +104,13 @@ Current project status, what's in progress, what's next.
 - HiFi Walker H2 — auction, ~£21.50, Rockbox DAP, better audio, likely needs microSD
 
 ## Still To Do
-- **Desktop GRUB** — plan saved, run on next Fedora boot (`Programming/Personal Projects/Desktop Setup/GRUB Setup.md`)
-- **Desktop Hyprland install** — after GRUB
+- **Desktop Hyprland install** — next up
 - **Archive claude-memory repo** — both machines confirmed on vault now
 - **Voice assistant** — build after desktop is set up
 - **Hypridle** — screen dim/lock/suspend timers not configured on laptop
 - **Gaps & borders** — window spacing/border thickness on laptop
 - **Plymouth boot animation** — save for desktop
 - **Gym Tracker Phase 2** — storage.py (save/load JSON)
-- **GRUB customisation** — timeout, theme, entry names on desktop
 
 ## Gym Tracker Build Phases
 1. [x] Phase 1 — models.py (ExerciseSet, Session, Log)
