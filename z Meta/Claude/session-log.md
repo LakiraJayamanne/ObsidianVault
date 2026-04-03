@@ -599,3 +599,11 @@ Running log of every Claude session — what was built, changed, or decided.
 - grub.cfg has 6 menu entries — entries exist, menu just not displaying
 - Likely fix: add GRUB_TIMEOUT_STYLE=menu to /etc/default/grub and rebuild
 - Next step: try holding Shift at boot to confirm GRUB is there, then apply fix
+
+## 03/04/2026 — Session 58 (desktop/Fedora) — GRUB fully fixed
+- Held Shift at boot — confirmed GRUB was present but showing default theme (Valhalla not applied)
+- Root cause: valhallaDots install.sh wrote to /boot/grub/ but Fedora uses /boot/grub2/
+- GRUB_THEME was also pointing to wrong path (/boot/grub/ not /boot/grub2/)
+- Fix: copied theme files to /boot/grub2/themes/valhalla/, fixed GRUB_THEME path, added GRUB_TIMEOUT_STYLE=menu, rebuilt grub2-mkconfig
+- GRUB is now fully done — Valhalla theme, 5s auto-show, Windows 11 entry, Fedora entry
+- Next: Desktop Hyprland install

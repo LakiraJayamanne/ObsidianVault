@@ -13,7 +13,7 @@ Current project status, what's in progress, what's next.
 ## Current Status
 - **Hyprland on Fedora (laptop)** — Fully working. SDDM fixed. ✓
 - **Desktop dual boot (Fedora 43)** — DONE ✓ (02/04/2026)
-- **Desktop GRUB** — Mostly done (03/04/2026) — Valhalla theme, 5s timeout, Windows 11 entry, os-prober disabled. GRUB menu not showing on reboot — 6 entries exist, GRUB_TIMEOUT_STYLE not set. Fix: add GRUB_TIMEOUT_STYLE=menu, rebuild. Try Shift key at boot first to confirm GRUB is present.
+- **Desktop GRUB** — DONE ✓ (03/04/2026) — Valhalla theme working, 5s timeout, menu auto-shows, Windows 11 entry present. Fixed: theme files copied to /boot/grub2/themes/valhalla/, path corrected in /etc/default/grub, GRUB_TIMEOUT_STYLE=menu added, rebuilt.
 - **Gym Tracker** — Phase 1 complete. Ready to start Phase 2 (storage.py).
 - **Memory system** — Fully migrated to Obsidian vault (z Meta/Claude/). ✓
 - **Obsidian vault** — Main base for Claude memory. Synced to GitHub (ObsidianVault repo). ✓
@@ -27,7 +27,7 @@ Current project status, what's in progress, what's next.
 - Old `claude-memory` repo to be archived (both machines now confirmed on vault)
 
 ## In Progress
-- **Desktop Hyprland setup** — dual boot done, GRUB done, next: install Hyprland on desktop
+- **Desktop Hyprland setup** — dual boot done, GRUB fully done, next: install Hyprland on desktop
 - **Desktop rice plan** — Hyprland first, then claw-code + Ollama, then caelestia rice
 - **Voice Assistant** — stack locked, build starts after desktop is set up
 
@@ -104,7 +104,7 @@ Current project status, what's in progress, what's next.
 - HiFi Walker H2 — auction, ~£21.50, Rockbox DAP, better audio, likely needs microSD
 
 ## Still To Do
-- **Desktop Hyprland install** — next up
+- **Desktop Hyprland install** — next up (GRUB now fully sorted)
 - **Archive claude-memory repo** — both machines confirmed on vault now
 - **Voice assistant** — build after desktop is set up
 - **Hypridle** — screen dim/lock/suspend timers not configured on laptop
