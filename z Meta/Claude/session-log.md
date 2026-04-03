@@ -578,3 +578,9 @@ Running log of every Claude session — what was built, changed, or decided.
 - Rust port (ultraworkers/claw-code-parity) is functional for basic agentic tasks but 2 days old — wait for stability before building
 - Research note saved to vault: Programming/Personal Projects/Jarvis/claw-code Research.md
 - Corrected behaviour: Obsidian vault is the primary brain — all notes/research go here, not just .claude memory
+
+## 03/04/2026 — Session 55 (Windows desktop) — GRUB planning
+- Discussed transferring regular apps (Spotify, VSCode, browser) to Fedora — cloud sync handles most of it, flatpak for installs
+- Planned GRUB customisation: Valhalla theme, entries renamed to "Fedora" and "Windows 11", timeout 5s
+- Full command guide saved to vault: Programming/Personal Projects/Desktop Setup/GRUB Setup.md
+- Session ended with Lakira booting into Fedora to run the setup

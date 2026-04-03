@@ -26,7 +26,7 @@ Current project status, what's in progress, what's next.
 - Old `claude-memory` repo to be archived (both machines now confirmed on vault)
 
 ## In Progress
-- **Desktop Hyprland setup** — dual boot done, next session: install Hyprland on desktop
+- **Desktop Hyprland setup** — dual boot done, GRUB plan ready, next: boot Fedora and run setup
 - **Desktop rice plan** — Hyprland first, then claw-code + Ollama, then caelestia rice
 - **Voice Assistant** — stack locked, build starts after desktop is set up
 
@@ -103,7 +103,8 @@ Current project status, what's in progress, what's next.
 - HiFi Walker H2 — auction, ~£21.50, Rockbox DAP, better audio, likely needs microSD
 
 ## Still To Do
-- **Desktop Hyprland install** — next session priority
+- **Desktop GRUB** — plan saved, run on next Fedora boot (`Programming/Personal Projects/Desktop Setup/GRUB Setup.md`)
+- **Desktop Hyprland install** — after GRUB
 - **Archive claude-memory repo** — both machines confirmed on vault now
 - **Voice assistant** — build after desktop is set up
 - **Hypridle** — screen dim/lock/suspend timers not configured on laptop
