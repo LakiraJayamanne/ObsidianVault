@@ -13,7 +13,7 @@ Current project status, what's in progress, what's next.
 ## Current Status
 - **Hyprland on Fedora (laptop)** — Fully working. SDDM fixed. ✓
 - **Desktop dual boot (Fedora 43)** — DONE ✓ (02/04/2026)
-- **Desktop GRUB** — DONE ✓ (03/04/2026) — Valhalla theme, 5s timeout, Windows 11 entry, os-prober disabled
+- **Desktop GRUB** — Mostly done (03/04/2026) — Valhalla theme, 5s timeout, Windows 11 entry, os-prober disabled. GRUB menu not showing on reboot — 6 entries exist, GRUB_TIMEOUT_STYLE not set. Fix: add GRUB_TIMEOUT_STYLE=menu, rebuild. Try Shift key at boot first to confirm GRUB is present.
 - **Gym Tracker** — Phase 1 complete. Ready to start Phase 2 (storage.py).
 - **Memory system** — Fully migrated to Obsidian vault (z Meta/Claude/). ✓
 - **Obsidian vault** — Main base for Claude memory. Synced to GitHub (ObsidianVault repo). ✓

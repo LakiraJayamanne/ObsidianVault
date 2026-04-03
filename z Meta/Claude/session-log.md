@@ -591,3 +591,11 @@ Running log of every Claude session — what was built, changed, or decided.
 - Added manual Windows 11 menuentry to /etc/grub.d/40_custom (UUID: 5A728A6A728A4B29, nvme0n1p3)
 - Rebuilt with grub2-mkconfig — completed cleanly
 - Next: reboot to verify, then Hyprland install
+
+## 03/04/2026 — Session 57 (desktop/Fedora) — GRUB menu not showing
+- Rebooted after GRUB setup — booted straight to Fedora, menu never appeared
+- F11 UEFI boot menu also went straight to default (Fedora)
+- GRUB_TIMEOUT=5 confirmed set, no GRUB_TIMEOUT_STYLE in /etc/default/grub
+- grub.cfg has 6 menu entries — entries exist, menu just not displaying
+- Likely fix: add GRUB_TIMEOUT_STYLE=menu to /etc/default/grub and rebuild
+- Next step: try holding Shift at boot to confirm GRUB is there, then apply fix
