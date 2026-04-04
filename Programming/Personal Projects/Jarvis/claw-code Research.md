@@ -36,23 +36,23 @@ On 31/03/2026 at 4 AM, **Claude Code's TypeScript source was leaked**. Sigrid Ji
 
 ### What the Rust port can do (as of 02/04/2026)
 
-| Feature | Status |
-|---|---|
-| Anthropic API + streaming | ✅ |
-| OAuth login | ✅ |
-| Interactive REPL | ✅ |
-| Tools: bash, read, write, edit, grep, glob | ✅ |
-| Web search / fetch | ✅ |
-| Sub-agent orchestration | ✅ |
-| CLAUDE.md / project memory | ✅ |
-| MCP server lifecycle | ✅ |
-| Session persistence + resume | ✅ |
-| Extended thinking | ✅ |
-| Cost tracking, git integration | ✅ |
-| Slash commands | ✅ |
-| Hooks (PreToolUse/PostToolUse) | 🔧 Config only, not executed |
-| Plugin system | 📋 Planned |
-| Skills registry | 📋 Planned |
+| Feature                                    | Status                       |
+| ------------------------------------------ | ---------------------------- |
+| Anthropic API + streaming                  | ✅                            |
+| OAuth login                                | ✅                            |
+| Interactive REPL                           | ✅                            |
+| Tools: bash, read, write, edit, grep, glob | ✅                            |
+| Web search / fetch                         | ✅                            |
+| Sub-agent orchestration                    | ✅                            |
+| CLAUDE.md / project memory                 | ✅                            |
+| MCP server lifecycle                       | ✅                            |
+| Session persistence + resume               | ✅                            |
+| Extended thinking                          | ✅                            |
+| Cost tracking, git integration             | ✅                            |
+| Slash commands                             | ✅                            |
+| Hooks (PreToolUse/PostToolUse)             | 🔧 Config only, not executed |
+| Plugin system                              | 📋 Planned                   |
+| Skills registry                            | 📋 Planned                   |
 
 ### Big gaps vs real Claude Code
 
