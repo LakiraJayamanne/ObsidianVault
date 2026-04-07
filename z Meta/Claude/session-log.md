@@ -730,3 +730,17 @@ Running log of every Claude session — what was built, changed, or decided.
   ```
 - Gym Tracker changes logged: RIR instead of RPE, weekly volume tracker, NO phone app (terminal first, PWA later), draw heavy inspiration from tracked.gg (by Keenan)
 - Next: stt.py (Whisper STT) — Lakira writing it himself, teaching approach
+
+## 07/04/2026 — Session 69 (laptop) — JARVIS architecture locked + stt.py written
+- Cloned MyPersona project to laptop from GitHub
+- Locked JARVIS architecture:
+  - Persistent background process (not cold-start on wake word)
+  - Discord as messaging layer
+  - Tool-calling loop in brain.py (claw-code style agentic execution)
+  - Obsidian memory at z Meta/JARVIS/ (separate from Claude, cross-readable)
+  - Ollama LAN sharing planned (desktop serves, laptop + phone connect)
+- Added stt_model = "base" to config.py
+- Written stt.py — Whisper base, sounddevice, fully annotated, NOT YET TESTED
+- New files planned: tools.py, discord_bot.py, input.py, main.py (brain.py needs upgrade)
+- Next: wake.py, then tools.py, then brain.py tool-calling upgrade
+- Lakira transferring to desktop — pick up from wake.py

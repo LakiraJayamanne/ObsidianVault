@@ -30,29 +30,55 @@ Current project status, what's in progress, what's next.
 - **Wallpapers** — Synced from laptop ✓
 - **Ollama** — Installed, llama3.1 8B pulled and working ✓
 - **Voice Assistant (JARVIS)** — IN PROGRESS ⚠️
-  - config.py ✓
+  - config.py ✓ (added stt_model = "base")
   - tts.py ✓ (tested, working)
-  - brain.py — DONE ✓ (ollama.chat() working, tested, ~4s response time)
-  - stt.py — not started
+  - brain.py ✓ (ollama.chat() working, tested, ~4s response time)
+  - stt.py ✓ (Whisper base, sounddevice, written + pushed — NOT YET TESTED)
   - wake.py — not started
-  - main.py — not started
+  - discord_bot.py — not started
+  - tools.py — not started
   - input.py — not started
+  - main.py — not started
 - **Gym Tracker** — Phase 1 complete. Phase 2 not started.
 - **Memory system** — Fully in Obsidian vault ✓
 
 ## Voice Assistant — Current Stack
 | Component | Choice |
 |---|---|
-| Wake word + snaps | OpenWakeWord (fully local, no account needed) |
-| STT | Whisper (local) |
-| Brain | Ollama — llama3.1 8B |
+| Wake word | OpenWakeWord (fully local, no account needed) |
+| STT | Whisper base (local) |
+| Brain | Ollama — llama3.1 8B + tool-calling loop |
 | TTS | edge-tts — en-GB-RyanNeural |
-| Text input | Terminal + WhatsApp (planned) |
+| Text input | Discord bot |
+| Actions | tools.py (system control, file I/O, web search etc.) |
+| Memory | Obsidian vault — z Meta/JARVIS/ |
 
-- Wake word: "Persona" (two snaps also planned as alternative trigger)
-- Assistant name: **JARVIS** (placeholder — will rename to a Persona game character later)
-- Project at: `/home/lakira/Documents/Projects/MyPersona/`
+- Wake word: "Persona"
+- Assistant name: **JARVIS / Persona** (Persona game character, TBD)
+- Project at: `/home/Lakira/Documents/PROGRAMMING/PERSONAL/MyPersona/` (laptop + desktop, synced via GitHub)
 - Full build notes: `Programming/Personal Projects/Jarvis/Persona Build Notes.md`
+
+## JARVIS — Architecture Decisions (07/04/2026)
+- Runs as a persistent background process — never cold-starts on wake word
+- Memory lives in Obsidian vault at `z Meta/JARVIS/` — separate from Claude's `z Meta/Claude/`
+- Claude reads JARVIS memory, JARVIS reads Claude memory — cross-readable, separately writable
+- Discord as messaging layer (proper bot API, works on phone + desktop)
+- Brain upgraded to tool-calling loop — JARVIS can execute actions, not just reply
+- Inspiration: claw-code agentic loop + openclaw.ai action model
+- Ollama network sharing planned: desktop runs Ollama, laptop + phone point to it over LAN
+
+## JARVIS — File Plan
+| File | Status | Role |
+|---|---|---|
+| config.py | ✓ | All settings |
+| tts.py | ✓ | Speak responses |
+| brain.py | ✓ | LLM + tool-calling loop |
+| stt.py | ✓ written, not tested | Whisper STT |
+| wake.py | not started | OpenWakeWord trigger |
+| tools.py | not started | All actions JARVIS can take |
+| discord_bot.py | not started | Text channel on phone/desktop |
+| input.py | not started | Routes voice + Discord into brain |
+| main.py | not started | Ties everything together |
 
 ## GRUB State (desktop) — needs cleanup
 - Theme: DISABLED (Valhalla caused silent black screen)
