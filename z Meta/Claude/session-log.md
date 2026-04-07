@@ -711,3 +711,22 @@ Running log of every Claude session — what was built, changed, or decided.
   - config.py ✓, tts.py ✓ (tested and working)
   - brain.py in progress — imports done, think() shell written, ollama.chat() call is next step
   - Teaching approach: Lakira writing code himself, not Claude writing it
+
+## 07/04/2026 — Session 68 (desktop) — brain.py complete + gym tracker changes
+- Completed brain.py — ollama.chat() call working, tested, ~4s response time
+- think(text) takes user query, returns Persona's response string
+- Uses config.brain_model (llama3.1) and config.personality as system prompt
+- brain.py final code:
+  ```python
+  import ollama
+  import config
+
+  def think(text):
+      ollama_chat = ollama.chat(model = config.brain_model, messages = [{"role": "system", "content": config.personality}, {"role": "user", "content": text}])
+      return ollama_chat.message.content
+
+  if __name__ == "__main__":
+      print(think("Hello, who are you?"))
+  ```
+- Gym Tracker changes logged: RIR instead of RPE, weekly volume tracker, NO phone app (terminal first, PWA later), draw heavy inspiration from tracked.gg (by Keenan)
+- Next: stt.py (Whisper STT) — Lakira writing it himself, teaching approach

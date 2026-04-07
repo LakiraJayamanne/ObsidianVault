@@ -32,7 +32,7 @@ Current project status, what's in progress, what's next.
 - **Voice Assistant (JARVIS)** — IN PROGRESS ⚠️
   - config.py ✓
   - tts.py ✓ (tested, working)
-  - brain.py — in progress (imports done, think() function shell written, ollama.chat() call next)
+  - brain.py — DONE ✓ (ollama.chat() working, tested, ~4s response time)
   - stt.py — not started
   - wake.py — not started
   - main.py — not started
@@ -117,6 +117,12 @@ Current project status, what's in progress, what's next.
 3. [ ] Phase 3 — main.py (text menu)
 4. [ ] Phase 4 — algorithms.py (overload, plateau, bodyweight trend)
 5. [ ] Phase 5 — Polish
+
+## Gym Tracker — Confirmed Changes (07/04/2026)
+- **RIR instead of RPE** — swap effort rating system in data model
+- **Weekly Volume tracker** — total sets per muscle group per week (add to Phase 4)
+- **Phone app — DECIDED AGAINST for now** — finish terminal version first, use it, port to PWA later if needed
+- **Draw HEAVY inspiration from tracked.gg** (by Keenan) — reference it for UX, features, and flow decisions
 
 ## Gym Data Logged So Far
 - Session 1: Pull Day — 17/03/2026 — BW 71kg
