@@ -693,3 +693,21 @@ Running log of every Claude session — what was built, changed, or decided.
 - New issue: Hyprland updated to 0.51.1, breaking rgba color syntax — 186+ config errors, no keybinds, no bar
 - Super+T opens kitty on desktop ✓
 - Handing off to desktop session to fix Hyprland config
+
+## 07/04/2026 — Session 67 (desktop/Fedora) — Caelestia fixes + JARVIS voice assistant started
+- Fixed all Hyprland 0.51.1 rgba() config errors — hardcoded color values ✓
+- Caelestia bar (quickshell) working ✓
+- Dynamic Material You theming active ✓
+- Vibrance shader created (1.1x saturation) at ~/.config/hypr/shaders/vibrance.frag
+- Mouse acceleration disabled
+- Added Super+middle click = killactive keybind
+- Removed old kernel 6.17.1, GRUB now has 2 entries (Fedora + rescue)
+- GRUB theme still pending (Gorgeous-GRUB Matrix/Morpheus planned)
+- fastfetch: tried image logo (sixel) but abandoned due to persistent black bar issue — reverted to saturn.txt
+- Sidebar character updated to spidey_circle.png
+- Started JARVIS voice assistant build:
+  - Stack: OpenWakeWord + Whisper + Ollama (llama3.1 8B) + edge-tts (en-GB-RyanNeural)
+  - Wake word: "Persona", assistant name: JARVIS (placeholder)
+  - config.py ✓, tts.py ✓ (tested and working)
+  - brain.py in progress — imports done, think() shell written, ollama.chat() call is next step
+  - Teaching approach: Lakira writing code himself, not Claude writing it
