@@ -88,11 +88,11 @@ Current project status, what's in progress, what's next.
 - Goal: remove nomodeset, switch to gfxterm, apply Gorgeous-GRUB Matrix/Morpheus theme (Fedora + Windows version)
 
 ## Priority Order (next session)
-1. **Finish brain.py** — write ollama.chat() call, test it
-2. **stt.py** — Whisper STT
-3. **wake.py** — OpenWakeWord
-4. **input.py** — terminal text input
-5. **main.py** — tie everything together
+1. **wake.py** — OpenWakeWord (stt.py written, not yet tested)
+2. **Test stt.py** — Whisper STT on laptop
+3. **input.py** — terminal text input
+4. **main.py** — tie everything together
+5. **Minecraft server** — set up Oracle Cloud instance (plan in Gaming/Minecraft Server.md)
 6. **GRUB theme** — Gorgeous-GRUB, remove nomodeset
 7. **Plymouth boot animation**
 8. **Gym Tracker Phase 2**

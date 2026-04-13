@@ -744,3 +744,11 @@ Running log of every Claude session — what was built, changed, or decided.
 - New files planned: tools.py, discord_bot.py, input.py, main.py (brain.py needs upgrade)
 - Next: wake.py, then tools.py, then brain.py tool-calling upgrade
 - Lakira transferring to desktop — pick up from wake.py
+
+## 13/04/2026 — Session 70 (laptop) — Minecraft server planning
+- Full Minecraft server planned from scratch — Fabric, MC 1.21.1, Oracle Cloud Free Tier
+- ~114 mods selected across server + client + resource packs
+- Key decisions: Voxy over DH, Bluemap over Dynmap, dropped Alex's Mobs (Forge only), dropped Spelunkery (dead), swapped Farmer's Delight for Refabricated fork, Naturalist as mob mod
+- YUNG's full structure suite added, Origins, Carry On, Sophisticated Backpacks, Simple Voice Chat, Deeper and Darker dimension
+- Full Oracle Cloud setup guide written
+- Everything saved to Gaming/Minecraft Server.md in vault
