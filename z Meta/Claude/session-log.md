@@ -752,3 +752,15 @@ Running log of every Claude session — what was built, changed, or decided.
 - YUNG's full structure suite added, Origins, Carry On, Sophisticated Backpacks, Simple Voice Chat, Deeper and Darker dimension
 - Full Oracle Cloud setup guide written
 - Everything saved to Gaming/Minecraft Server.md in vault
+
+
+## 14/04/2026 — Session 71 (desktop) — Minecraft server setup
+- Audited client mod profile (PrismLauncher "Server" instance) against planned mod list
+- Confirmed all swaps: DH over Voxy (Voxy not on 1.21.1), Alex's Mobs Fabric port added, Critters and Companions added, Utility Belt over Wearable Lanterns, Bobby added for DH chunk caching, C2ME added client-side, TIMM = Immersive Music mod
+- Origins and Vein Mining dropped (not on 1.21.1 / not wanted)
+- Still to install client-side: LambDynamicLights ✓, Inventory Profiles Next ✓ (both added this session)
+- Updated Gaming/Minecraft Server.md to reflect all swaps
+- Decided on Aternos over Oracle Cloud (signup friction with card verification)
+- Aternos limitation: no custom mod uploads — dropped Alex's Mobs, Farmer's Delight, Bluemap, Carpet, YUNG's Jungle Temples (not in library)
+- Server mod list: 40 mods loaded on Aternos — NOT YET BOOTED
+- Next: boot the server and confirm it starts clean

@@ -34,14 +34,15 @@ tags:
 - Chunky *(run once on world creation to pre-gen chunks)*
 
 ### Content
-- Naturalist (wildlife mobs)
+- Alex's Mobs *(swapped from Naturalist — not on 1.21.1)*
+- Critters and Companions
 - Farmer's Delight Refabricated
 - Explorify
-- Origins
-- Vein Mining
+- ~~Origins~~ *(dropped — Lakira doesn't want it)*
+- ~~Vein Mining~~ *(dropped — not available on 1.21.1)*
 - Carry On
 - Sophisticated Backpacks
-- Wearable Lanterns
+- Utility Belt *(swapped from Wearable Lanterns — not available on 1.21.1)*
 - Right Click Harvest
 - Towns and Towers
 - Repurposed Structures
@@ -58,6 +59,7 @@ tags:
 - YUNG's Better Nether Fortresses
 - YUNG's Bridges
 - YUNG's Extras
+- YUNG's Better End Island *(bonus addition)*
 
 ### Multiplayer QoL
 - Simple Voice Chat
@@ -89,7 +91,8 @@ tags:
 - Dynamic FPS
 
 ### Visual
-- Voxy
+- Distant Horizons *(swapped from Voxy — not on 1.21.1)*
+- Bobby *(chunk caching, pairs with DH)*
 - Euphoria Patches
 - Better Clouds
 - Particle Rain
@@ -98,7 +101,7 @@ tags:
 - Continuity
 - Camera Overhaul
 - Wakes
-- LambDynamicLights
+- LambDynamicLights *(⚠️ not yet installed)*
 - 3D Skin Layers
 - Not Enough Animations
 - Eating Animation
@@ -108,7 +111,7 @@ tags:
 - Atmosfera
 - Presence Footsteps
 - Sounds (Extra Sounds Updated)
-- Immersive Music
+- Immersive Music *(TIMM — The Immersive Music Mod)*
 - Sound Physics Remastered
 
 ### Particles / Effects
@@ -135,9 +138,9 @@ tags:
 - REI (Roughly Enough Items)
 - Jade
 - AppleSkin
-- Inventory Profiles Next
+- Inventory Profiles Next *(⚠️ not yet installed)*
 - Sodium Extra
-- Reese's Sodium Options
+- Reese's Sodium Options *(⚠️ wrong version installed — need 1.21.1 build, not 1.21.4)*
 - MiniHUD
 - Resourcify
 
@@ -273,4 +276,6 @@ Give friends the Oracle instance IP. Op yourself in console: `/op YourUsername`
 - Waystones XP cost — configure in config if you want them free
 - Origins — everyone picks on first join, can't change without a command
 - Set a world border to limit chunk generation beyond Chunky pre-gen area
-- Mods dropped: Alex's Mobs (Forge only 1.21.x), Spelunkery (dead mod)
+- Mods dropped: Spelunkery (dead mod), Naturalist (not on 1.21.1), Voxy (not on 1.21.1), Wearable Lanterns (not available), Origins (dropped by choice), Vein Mining (not on 1.21.1)
+- Alex's Mobs has a Fabric 1.21.1 port — back in the list
+- Still to install: LambDynamicLights, Inventory Profiles Next, Reese's Sodium Options (correct version)

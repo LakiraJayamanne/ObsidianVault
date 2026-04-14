@@ -41,6 +41,12 @@ Current project status, what's in progress, what's next.
   - main.py — not started
 - **Gym Tracker** — Phase 1 complete. Phase 2 not started.
 - **Memory system** — Fully in Obsidian vault ✓
+- **Minecraft Server (Aternos)** — IN PROGRESS ⚠️
+  - Client profile: DONE (PrismLauncher "Server" instance, ~100 mods)
+  - Server: 40 mods loaded on Aternos, NOT YET BOOTED/TESTED
+  - Hosting: Aternos (free, hibernates when empty — chosen over Oracle due to signup friction)
+  - Full mod list + Oracle setup guide in Gaming/Minecraft Server.md
+  - Key swaps from original plan: DH over Voxy, Alex's Mobs dropped (not on Aternos), Farmers Delight dropped (not on Aternos), Carpet/Bluemap dropped (not on Aternos)
 
 ## Voice Assistant — Current Stack
 | Component | Choice |
@@ -88,11 +94,11 @@ Current project status, what's in progress, what's next.
 - Goal: remove nomodeset, switch to gfxterm, apply Gorgeous-GRUB Matrix/Morpheus theme (Fedora + Windows version)
 
 ## Priority Order (next session)
-1. **wake.py** — OpenWakeWord (stt.py written, not yet tested)
-2. **Test stt.py** — Whisper STT on laptop
-3. **input.py** — terminal text input
-4. **main.py** — tie everything together
-5. **Minecraft server** — set up Oracle Cloud instance (plan in Gaming/Minecraft Server.md)
+1. **Minecraft server** — boot the Aternos server and test it works clean (40 mods loaded)
+2. **wake.py** — OpenWakeWord (stt.py written, not yet tested)
+3. **Test stt.py** — Whisper STT on laptop
+4. **input.py** — terminal text input
+5. **main.py** — tie everything together
 6. **GRUB theme** — Gorgeous-GRUB, remove nomodeset
 7. **Plymouth boot animation**
 8. **Gym Tracker Phase 2**
