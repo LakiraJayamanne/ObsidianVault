@@ -764,3 +764,13 @@ Running log of every Claude session — what was built, changed, or decided.
 - Aternos limitation: no custom mod uploads — dropped Alex's Mobs, Farmer's Delight, Bluemap, Carpet, YUNG's Jungle Temples (not in library)
 - Server mod list: 40 mods loaded on Aternos — NOT YET BOOTED
 - Next: boot the server and confirm it starts clean
+
+## 14/04/2026 — Session 71 continued — Minecraft server debugging
+- Server boots successfully on Aternos (174 mods, ~28s load time)
+- Fixed: cloth-config missing (YUNG's suite dependency) — added to server
+- Fixed: owo-lib missing (Accessories + Deeper and Darker dependency) — added to server
+- Fixed: Krypton removed from server (NoSuchElementException in Netty pipeline on login)
+- Ongoing: "Invalid entity data item type for field 17 on PlayerEntity" — client/server mod mismatch
+  - Removed Farmer's Delight from client (not on server) — didn't fix it
+  - Next: remove Citadel from client (leftover from Alex's Mobs, not on server, likely registering entity data)
+- Server is up and running, just can't connect yet

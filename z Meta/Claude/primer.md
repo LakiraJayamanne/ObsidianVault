@@ -42,11 +42,13 @@ Current project status, what's in progress, what's next.
 - **Gym Tracker** — Phase 1 complete. Phase 2 not started.
 - **Memory system** — Fully in Obsidian vault ✓
 - **Minecraft Server (Aternos)** — IN PROGRESS ⚠️
-  - Client profile: DONE (PrismLauncher "Server" instance, ~100 mods)
-  - Server: 40 mods loaded on Aternos, NOT YET BOOTED/TESTED
+  - Client profile: mostly done, still debugging connection issues
+  - Server: boots successfully (174 mods), but client can't connect yet
+  - Current error: "Invalid entity data item type for field 17 on PlayerEntity" — mod mismatch
+  - Removed from client so far: Krypton (Netty pipeline crash), Farmer's Delight (entity data mismatch)
+  - Next fix to try: remove Citadel from client (leftover Alex's Mobs dependency, not on server)
   - Hosting: Aternos (free, hibernates when empty — chosen over Oracle due to signup friction)
-  - Full mod list + Oracle setup guide in Gaming/Minecraft Server.md
-  - Key swaps from original plan: DH over Voxy, Alex's Mobs dropped (not on Aternos), Farmers Delight dropped (not on Aternos), Carpet/Bluemap dropped (not on Aternos)
+  - Full mod list in Gaming/Minecraft Server.md
 
 ## Voice Assistant — Current Stack
 | Component | Choice |
