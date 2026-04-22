@@ -10,6 +10,17 @@ Running log of every Claude session — what was built, changed, or decided.
 
 ---
 
+## 22/04/2026 — Session 48 (desktop, Windows, 1am–4am)
+- No code written — concept/learning session
+- Explained Claude agents: model + tools + loop, interactive vs standalone
+- Planned **Dad's Email Agent**: Outlook via Microsoft Graph API, Claude API for analysis, generates checklist + pre-written draft replies, creates drafts in Outlook, run on demand. Dad is on Mac. Blocked on confirming Python installed.
+- Discussed agent vs interactive Claude distinction
+- Wukong — FINISHED ✓ (true ending, rated 8.6). 5 hours on final boss.
+- Game list reviewed from mygamelist_2026-04-22.csv and backlog.ods
+- REPLACED (new cyberpunk 2.5D platformer, Apr 14 2026) — Lakira already 1 hour in, enjoying the cinematography
+- Expedition 33 won GOTY 2025. Silksong also released (post Aug 2025 — Claude's knowledge cutoff).
+- Key decisions: Dad's email agent is Mac not Windows (corrected Guide Tracker note too)
+
 ## 03/04/2026 — Session 47 (desktop)
 - 3:54am session
 - Investigated SmileOS 2.0 GRUB flash — appeared for ~1 second on first reboot after GRUB rebuild last session

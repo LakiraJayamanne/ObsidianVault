@@ -101,10 +101,11 @@ Current project status, what's in progress, what's next.
 3. **Test stt.py** — Whisper STT on laptop
 4. **input.py** — terminal text input
 5. **main.py** — tie everything together
-6. **GRUB theme** — Gorgeous-GRUB, remove nomodeset
-7. **Plymouth boot animation**
-8. **Gym Tracker Phase 2**
-9. **Guide Tracker app** (for Lakira's dad, Windows)
+6. **Dad's Email Agent** — check if dad has Python on Mac, then build
+7. **GRUB theme** — Gorgeous-GRUB, remove nomodeset
+8. **Plymouth boot animation**
+9. **Gym Tracker Phase 2**
+10. **Guide Tracker app** (for Lakira's dad — NOTE: dad is on Mac, not Windows)
 
 ## Caelestia Notes (desktop)
 - Installed via EnceladusII/caelestia-fedora (abandoned Fedora fork, frozen Aug 2025)
@@ -162,8 +163,17 @@ Current project status, what's in progress, what's next.
 - Session 1: Pull Day — 17/03/2026 — BW 71kg
 - Session 2: Push Day — 20/03/2026 — BW 72kg (clothes, no shoes)
 
+## Dad's Email Agent (NEW — 22/04/2026)
+- For Lakira's dad, on **Mac**
+- Outlook emails via Microsoft Graph API (OAuth2, Azure app registration needed)
+- Claude API to analyse emails → generate checklist + pre-written draft replies
+- Output: terminal checklist + optional Obsidian note
+- Drafts created directly in Outlook via Graph API (dad reviews before sending)
+- Run on demand
+- **Blocked:** confirm dad has Python installed on Mac before starting
+
 ## Desktop Only
-- **Guide Tracker app** — project for Lakira's dad, Windows desktop only.
+- **Guide Tracker app** — project for Lakira's dad (Mac, not Windows — correction from earlier).
 
 ## ilyamiro/nixos-configuration — Key Patterns Worth Stealing
 1. Morphing master window
