@@ -10,6 +10,18 @@ Running log of every Claude session — what was built, changed, or decided.
 
 ---
 
+## 23/04/2026 — Session 49 (desktop, Windows, 12:45pm–1am)
+- Built dad's email agent end to end
+- Azure app registered, single tenant, permissions granted (Mail.Read, Mail.ReadWrite, Mail.Send)
+- Device code auth flow working, token cached on Mac
+- Script at /Users/laahirujayamanne/Documents/email_agent.py
+- 30 unread emails fetched successfully — auth and Graph API fully working
+- Blocked: Anthropic API has no credits — dad needs to add $5 at console.anthropic.com
+- Wrote user manual (Email Agent Guide.md) — simple enough for non-technical user
+- Also discussed: Crimson Desert (runs fine on RX 6700 XT, story weak), Pragmata (released Apr 17, recommended for next story-heavy game), Nier Automata still recommended after that
+- Lakira is playing REPLACED at night (1hr in, likes it)
+- Decided: Pragmata next, then Automata
+
 ## 22/04/2026 — Session 48 (desktop, Windows, 1am–4am)
 - No code written — concept/learning session
 - Explained Claude agents: model + tools + loop, interactive vs standalone

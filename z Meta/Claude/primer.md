@@ -163,14 +163,17 @@ Current project status, what's in progress, what's next.
 - Session 1: Pull Day — 17/03/2026 — BW 71kg
 - Session 2: Push Day — 20/03/2026 — BW 72kg (clothes, no shoes)
 
-## Dad's Email Agent (NEW — 22/04/2026)
-- For Lakira's dad, on **Mac**
-- Outlook emails via Microsoft Graph API (OAuth2, Azure app registration needed)
-- Claude API to analyse emails → generate checklist + pre-written draft replies
-- Output: terminal checklist + optional Obsidian note
-- Drafts created directly in Outlook via Graph API (dad reviews before sending)
-- Run on demand
-- **Blocked:** confirm dad has Python installed on Mac before starting
+## Dad's Email Agent (23/04/2026) — ALMOST DONE ⚠️
+- For Lakira's dad (Lahiru), on **Mac**, email: laahiru@ttcsrilanka.com
+- Script lives at: `/Users/laahirujayamanne/Documents/email_agent.py`
+- User manual: `Email Agent Guide.md` (on Lakira's Desktop, needs sending over)
+- Azure app registered ✓ (App: "Email Agent", single tenant)
+- Permissions granted ✓ (Mail.Read, Mail.ReadWrite, Mail.Send)
+- Dependencies installed on Mac ✓ (msal, requests, anthropic, Python 3.10)
+- Microsoft auth flow working ✓ (device code, token cached)
+- Email fetching working ✓ (fetches 30 unread emails)
+- **BLOCKED: Anthropic API has no credits** — dad needs to add $5 minimum at console.anthropic.com → Plans & Billing
+- Once credits added: run `python3 ~/Documents/email_agent.py` — works immediately, no setup needed
 
 ## Desktop Only
 - **Guide Tracker app** — project for Lakira's dad (Mac, not Windows — correction from earlier).
