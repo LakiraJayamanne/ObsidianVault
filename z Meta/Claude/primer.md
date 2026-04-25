@@ -97,9 +97,10 @@ Current project status, what's in progress, what's next.
 
 ## CO1109 Coursework — Enron Assignment (DUE 27/04/2026 noon) ⚠️ URGENT
 - Full notes in `Lecture Notes/CO1109/CO1109 Coursework — Enron Assignment.md`
-- 5-min video (face on cam) + 2500 word report, one file via Blackboard
-- Structure agreed: Mark-to-market → Cash flow monitoring | Shell companies → Entity verification | Andersen failure → Immutable audit trail
-- Starting tomorrow (24/04)
+- Slides DONE ✓ — C:\Users\lakir\Downloads\The-Enron-Scandal.pptx
+- Video recording tonight (phone, downstairs)
+- **Report NOT written yet** — must be done before Monday noon
+- Submit as ONE file via Blackboard
 
 ## Priority Order (next session)
 1. **Minecraft server** — boot the Aternos server and test it works clean (40 mods loaded)

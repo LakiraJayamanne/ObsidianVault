@@ -10,6 +10,16 @@ Running log of every Claude session — what was built, changed, or decided.
 
 ---
 
+## 25/04/2026 — Session 51 (desktop, Windows, 12:44pm–3:35pm)
+- CO1109 Enron assignment — slides built using Gamma.app (Paste in text method)
+- 10 slide PPTX generated, content accurate, Gamma watermark removed via Slide Master
+- PPTX at C:\Users\lakir\Downloads\The-Enron-Scandal.pptx
+- Video recording tonight (phone, downstairs when quiet, slides on screen)
+- Report not yet written — needs to be done today/Sunday morning before noon submission
+- Crimson Desert settings optimised: FSR Quality, High on Lighting/Model/Shadow/Foliage, RT on, Frame Gen off
+- OptiScaler attempted but blocked by Denuvo crack conflict — removed, back to stock FSR 3.1
+- Game: playing Crimson Desert (pirated, so OptiScaler not viable)
+
 ## 23/04/2026 — Session 49 (desktop, Windows, 12:45pm–1am)
 - Built dad's email agent end to end
 - Azure app registered, single tenant, permissions granted (Mail.Read, Mail.ReadWrite, Mail.Send)
