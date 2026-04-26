@@ -49,6 +49,23 @@ Current project status, what's in progress, what's next.
   - Next fix to try: remove Citadel from client (leftover Alex's Mobs dependency, not on server)
   - Hosting: Aternos (free, hibernates when empty — chosen over Oracle due to signup friction)
   - Full mod list in Gaming/Minecraft Server.md
+- **Crimson Desert settings** — DONE ✓ (26/04/2026)
+  - Settings log at C:\Users\lakir\Desktop\crimson_desert_settings.txt
+  - 1080p native, FSR Native AA, Lighting Ultra, RT ON, Power Limit +15%, Fan 100%
+
+## CO1109 Enron Assignment — DUE MONDAY 27/04/2026 NOON ⚠️ URGENT
+- Report: WRITTEN, needs final touches before submission
+  - File: C:\Users\lakir\Desktop\Enron_Report.docx
+  - Word count: ~2250+ words ✓
+  - **TODO: Reword Executive Summary + Methodology sections (AI risk)**
+  - **TODO: Fix typos — "hundres", "Everon's"**
+  - **TODO: Fill in word count on title page**
+- Video: NOT YET RECORDED ⚠️
+  - Script saved: Lecture Notes/CO1109/CO1109 Enron Video Script.md
+  - Slides: C:\Users\lakir\Downloads\The-Enron-Scandal.pptx
+  - Method: PowerPoint Record Slide Show with webcam overlay
+  - 5 minutes, face on camera required
+- Submission: ONE file only via Blackboard (video + report combined)
 
 ## Voice Assistant — Current Stack
 | Component | Choice |
@@ -66,53 +83,17 @@ Current project status, what's in progress, what's next.
 - Project at: `/home/Lakira/Documents/PROGRAMMING/PERSONAL/MyPersona/` (laptop + desktop, synced via GitHub)
 - Full build notes: `Programming/Personal Projects/Jarvis/Persona Build Notes.md`
 
-## JARVIS — Architecture Decisions (07/04/2026)
-- Runs as a persistent background process — never cold-starts on wake word
-- Memory lives in Obsidian vault at `z Meta/JARVIS/` — separate from Claude's `z Meta/Claude/`
-- Claude reads JARVIS memory, JARVIS reads Claude memory — cross-readable, separately writable
-- Discord as messaging layer (proper bot API, works on phone + desktop)
-- Brain upgraded to tool-calling loop — JARVIS can execute actions, not just reply
-- Inspiration: claw-code agentic loop + openclaw.ai action model
-- Ollama network sharing planned: desktop runs Ollama, laptop + phone point to it over LAN
-
-## JARVIS — File Plan
-| File | Status | Role |
-|---|---|---|
-| config.py | ✓ | All settings |
-| tts.py | ✓ | Speak responses |
-| brain.py | ✓ | LLM + tool-calling loop |
-| stt.py | ✓ written, not tested | Whisper STT |
-| wake.py | not started | OpenWakeWord trigger |
-| tools.py | not started | All actions JARVIS can take |
-| discord_bot.py | not started | Text channel on phone/desktop |
-| input.py | not started | Routes voice + Discord into brain |
-| main.py | not started | Ties everything together |
-
-## GRUB State (desktop) — needs cleanup
-- Theme: DISABLED (Valhalla caused silent black screen)
-- GRUB_TERMINAL_OUTPUT=console (text mode)
-- GRUB_CMDLINE_LINUX="nomodeset" — still present, should be removed
-- Only one kernel: 6.19.10-200.fc43 (6.17.1 removed ✓)
-- Goal: remove nomodeset, switch to gfxterm, apply Gorgeous-GRUB Matrix/Morpheus theme (Fedora + Windows version)
-
-## CO1109 Coursework — Enron Assignment (DUE 27/04/2026 noon) ⚠️ URGENT
-- Full notes in `Lecture Notes/CO1109/CO1109 Coursework — Enron Assignment.md`
-- Slides DONE ✓ — C:\Users\lakir\Downloads\The-Enron-Scandal.pptx
-- Video recording tonight (phone, downstairs)
-- **Report NOT written yet** — must be done before Monday noon
-- Submit as ONE file via Blackboard
-
-## Priority Order (next session)
-1. **Minecraft server** — boot the Aternos server and test it works clean (40 mods loaded)
-2. **wake.py** — OpenWakeWord (stt.py written, not yet tested)
-3. **Test stt.py** — Whisper STT on laptop
-4. **input.py** — terminal text input
-5. **main.py** — tie everything together
-6. **Dad's Email Agent** — check if dad has Python on Mac, then build
-7. **GRUB theme** — Gorgeous-GRUB, remove nomodeset
-8. **Plymouth boot animation**
-9. **Gym Tracker Phase 2**
-10. **Guide Tracker app** (for Lakira's dad — NOTE: dad is on Mac, not Windows)
+## Priority Order (next session — AFTER submission)
+1. **CO1109 submission** — finish video, submit by noon Monday
+2. **Minecraft server** — boot Aternos and test (40 mods loaded)
+3. **wake.py** — OpenWakeWord
+4. **Test stt.py** — Whisper STT on laptop
+5. **input.py** — terminal text input
+6. **main.py** — tie everything together
+7. **Dad's Email Agent** — blocked on Anthropic API credits ($5 needed at console.anthropic.com)
+8. **GRUB theme** — Gorgeous-GRUB, remove nomodeset
+9. **Plymouth boot animation**
+10. **Gym Tracker Phase 2**
 
 ## Caelestia Notes (desktop)
 - Installed via EnceladusII/caelestia-fedora (abandoned Fedora fork, frozen Aug 2025)
@@ -122,36 +103,6 @@ Current project status, what's in progress, what's next.
 - User overrides go in ~/.config/caelestia/hypr-vars.conf and hypr-user.conf
 - Keybinds at ~/.config/hypr/hyprland/keybinds.conf
 - Bar is on the left (default)
-
-## Laptop Plan (keep Waybar — iGPU can't handle full Quickshell bar)
-- Tighten island layout, pill workspaces
-- Add 1-2 lightweight Quickshell popups (music, calendar)
-- Upgrade matugen pipeline to MatugenColors.qml live polling
-- Configure Hypridle
-- Keep Persona blade menu on laptop only
-
-## Already Working on Laptop (don't redo)
-- `Super+Q` → Persona Quickshell blade menu (POWER/STATS/CLAUDE)
-- `Super+W` → wallpaper picker
-- `Super+Shift+W` → cycle wallpaper
-- `Super+Ctrl+B` → waybar style switcher
-- `Super+Alt+B` → waybar layout switcher
-- `Super+L` → hyprlock
-- `Super+E` → Nautilus
-- Power button left-click → wlogout
-- `Super+D` → rofi app launcher
-- `Super+Tab` → rofi window switcher
-- Fish + spidey oh-my-posh prompt + fastfetch on startup
-- Dynamic theming via matugen
-- Dynamic papirus folder colors
-
-## Game Setup Notes (laptop)
-- Undertale: `bash /home/Lakira/Games/Undertale/launch.sh` (needs DISPLAY=:0, fuse-overlayfs)
-- Wine+DXVK: `DISPLAY=:0 WINEDLLOVERRIDES="d3d11,dxgi=n" wine game.exe`
-- jc141 native builds: need fuse-overlayfs, run start.n.sh from within game directory
-- FitGirl repacks: `DISPLAY=:0 wine setup.exe`, install to ~/Games/
-- Omori: IGG Windows build + Wine → ~/Games/OMORI
-- Ender Magnolia: FitGirl + winetricks vcrun2022
 
 ## Gym Tracker Build Phases
 1. [x] Phase 1 — models.py (ExerciseSet, Session, Log)
@@ -166,31 +117,8 @@ Current project status, what's in progress, what's next.
 - **Phone app — DECIDED AGAINST for now** — finish terminal version first, use it, port to PWA later if needed
 - **Draw HEAVY inspiration from tracked.gg** (by Keenan) — reference it for UX, features, and flow decisions
 
-## Gym Data Logged So Far
-- Session 1: Pull Day — 17/03/2026 — BW 71kg
-- Session 2: Push Day — 20/03/2026 — BW 72kg (clothes, no shoes)
-
-## Dad's Email Agent (23/04/2026) — ALMOST DONE ⚠️
+## Dad's Email Agent (23/04/2026) — BLOCKED ⚠️
 - For Lakira's dad (Lahiru), on **Mac**, email: laahiru@ttcsrilanka.com
 - Script lives at: `/Users/laahirujayamanne/Documents/email_agent.py`
-- User manual: `Email Agent Guide.md` (on Lakira's Desktop, needs sending over)
-- Azure app registered ✓ (App: "Email Agent", single tenant)
-- Permissions granted ✓ (Mail.Read, Mail.ReadWrite, Mail.Send)
-- Dependencies installed on Mac ✓ (msal, requests, anthropic, Python 3.10)
-- Microsoft auth flow working ✓ (device code, token cached)
-- Email fetching working ✓ (fetches 30 unread emails)
 - **BLOCKED: Anthropic API has no credits** — dad needs to add $5 minimum at console.anthropic.com → Plans & Billing
-- Once credits added: run `python3 ~/Documents/email_agent.py` — works immediately, no setup needed
-
-## Desktop Only
-- **Guide Tracker app** — project for Lakira's dad (Mac, not Windows — correction from earlier).
-
-## ilyamiro/nixos-configuration — Key Patterns Worth Stealing
-1. Morphing master window
-2. MatugenColors.qml live-polling
-3. Focus time daemon (Python + SQLite)
-4. DDG wallpaper search in picker
-5. Calendar time-of-day color mapping
-6. Workspace pills with staggered startup animation
-7. Custom lock screen QML with Quickshell.Services.Pam
-8. Plymouth: 80-frame animation + 80-frame progress sequence
+- Once credits added: run `python3 ~/Documents/email_agent.py` — works immediately

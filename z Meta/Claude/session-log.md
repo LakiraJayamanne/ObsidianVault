@@ -10,6 +10,22 @@ Running log of every Claude session — what was built, changed, or decided.
 
 ---
 
+## 26/04/2026 — Session 52 (desktop, Windows, 3:37pm–11:10pm)
+- AMD Radeon RX 6700 XT settings fully researched and optimised for Crimson Desert at 1080p native
+- Adrenalin: Anti-Lag+ ON, VSync OFF, Enhanced Sync ON, Surface Format Optimisation OFF, AF OFF, Power Limit +15%, Fan Speed 100%, Resizable BAR already enabled
+- Crimson Desert in-game: FSR Native AA, Lighting Ultra, RT ON, everything else Cinematic, sharpness 30-40%, CA off, DoF off
+- Config file tip: _renderAheadLimit 0 + _enableFramePacing False (optional, low risk)
+- Settings saved to C:\Users\lakir\Desktop\crimson_desert_settings.txt
+- CO1109 Enron report — NEARLY DONE (still needs video recording)
+  - Full report written (~2250+ words) at C:\Users\lakir\Desktop\Enron_Report.docx
+  - Structure: Title Page, Executive Summary, Intro, Methodology, 3 Points + IT Solutions, Consequences, Conclusion, References
+  - Lakira rewrote main body sections himself (amber AI policy compliance)
+  - Executive Summary and Methodology still need rewording before submission
+  - Video script saved to Obsidian: Lecture Notes/CO1109/CO1109 Enron Video Script.md
+  - References: Harvard format, 5 sources, accessed date 26 April 2026
+  - Submit as ONE file via Blackboard by noon Monday 27/04/2026
+- CO1109 Enron assignment notes formatting fixed in Obsidian (tab indent removed)
+
 ## 25/04/2026 — Session 51 (desktop, Windows, 12:44pm–3:35pm)
 - CO1109 Enron assignment — slides built using Gamma.app (Paste in text method)
 - 10 slide PPTX generated, content accurate, Gamma watermark removed via Slide Master
