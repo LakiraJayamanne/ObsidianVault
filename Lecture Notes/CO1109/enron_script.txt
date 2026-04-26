@@ -1,0 +1,102 @@
+CO1109 ENRON VIDEO SCRIPT
+5 minutes | Lakira Jayamanne
+==============================================
+
+
+SLIDE 1 — The Enron Scandal (title slide)
+----------------------------------------------
+Hi, my name is Lakira Jayamanne and this presentation is about the Enron scandal — one of the biggest cases of corporate fraud in history.
+
+In 2001, Enron collapsed, taking thousands of jobs with it and filing for the largest bankruptcy the US had ever seen.
+
+I'm going to cover three key ways they pulled it off, and for each one, an IT solution that could have stopped it.
+
+
+SLIDE 2 — From Hero to Zero in 11 Days
+----------------------------------------------
+In the year 2000, Enron was America's most celebrated company — a Fortune 500 giant worth over 60 billion dollars.
+
+By December 2001, it had filed for bankruptcy. 5,600 employees lost their jobs practically overnight.
+
+The question is: how did no one catch it? And what IT systems could have prevented it?
+
+
+SLIDE 3 — Fraud Mechanism 1: Mark-to-Market Accounting
+----------------------------------------------
+The first method was mark-to-market accounting abuse.
+
+Normally this is a legitimate technique — but Enron weaponised it. Say they signed a 10-year energy contract worth 100 million dollars. They'd book that entire amount as profit immediately, on day one, even if not a single dollar had come in yet.
+
+This made their finances look incredible on paper, while in reality they were haemorrhaging cash.
+
+
+SLIDE 4 — Profits on Paper, Nothing in the Bank
+----------------------------------------------
+You can see it clearly in the numbers. Reported profits soared year on year — but actual cash coming in was a fraction of what was claimed.
+
+The gap between Enron's books and reality was wider than the entire legitimate business.
+
+The IT solution here is a real-time cash flow monitoring system. It automatically compares reported profits against actual cash arriving. If the numbers don't match, it raises an alert — and executives can't manually override it.
+
+
+SLIDE 5 — Fraud Mechanism 2: Special Purpose Entities
+----------------------------------------------
+The second method was hiding debt through shell companies.
+
+CFO Andrew Fastow created hundreds of fake external companies — with names like LJM and Raptor — and transferred Enron's bad debts into them. On paper, the debt was gone.
+
+But these companies were secretly backed by Enron's own stock and run by Fastow himself. The debt never actually left — it was just hidden from investors and regulators.
+
+
+SLIDE 6 — How the SPE Network Operated
+----------------------------------------------
+The structure was essentially circular. Enron transferred assets to the shell companies, the shell companies borrowed against those assets, and then Enron secretly guaranteed that debt with its own stock.
+
+So the losses never truly left Enron — they just cycled back in disguise.
+
+The IT solution is an automated entity verification system. Any company Enron does business with gets instantly cross-referenced against registration databases and ownership records. If a supposedly external company is secretly linked back to Enron executives, the system flags it and the transaction can't proceed.
+
+
+SLIDE 7 — Fraud Mechanism 3: Arthur Andersen
+----------------------------------------------
+The third and probably most disturbing factor was the failure of Arthur Andersen — Enron's auditing firm.
+
+Andersen were being paid a million dollars a week by Enron — for both auditing and consulting. They knew something was wrong, but kept signing off on the accounts anyway.
+
+When investigators came knocking, Andersen employees shredded tonnes of documents and deleted thousands of emails. The firm was convicted of obstruction of justice and collapsed entirely, ending a 90-year legacy.
+
+
+SLIDE 8 — The Three Audit Failures
+----------------------------------------------
+So to summarise the three failures that allowed all of this to happen:
+
+First — cash discrepancies were ignored. Reported profits bore no relation to actual cash, and nobody challenged it.
+
+Second — entity verification never happened. The shell company ownership links back to Enron were never independently checked.
+
+Third — there were no immutable records. Documents could be destroyed, and they were.
+
+
+SLIDE 9 — What Modern IT Audit Would Have Caught
+----------------------------------------------
+Each of these failures maps directly to an IT solution that exists today.
+
+Real-time cash flow monitoring would have made mark-to-market fraud immediately visible.
+
+Third-party entity verification would have exposed the shell company network the moment it was created.
+
+And an immutable audit trail — records stored on a write-once, independently managed system — would have made document destruction technically impossible. Shredding paper becomes irrelevant when everything is already backed up externally.
+
+
+SLIDE 10 — Key Takeaways
+----------------------------------------------
+Enron's fraud lasted as long as it did because there was nothing in place to automatically catch it.
+
+The three IT solutions I've outlined wouldn't have needed advanced technology. They would just have made it impossible to hide the truth.
+
+Revenue without cash is a red flag. Related-party transactions must be transparent. And audit trails must be immutable.
+
+Thanks for watching.
+
+==============================================
+END
