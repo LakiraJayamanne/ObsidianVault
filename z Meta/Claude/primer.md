@@ -53,7 +53,7 @@ Current project status, what's in progress, what's next.
   - Settings log at C:\Users\lakir\Desktop\crimson_desert_settings.txt
   - 1080p native, FSR Native AA, Lighting Ultra, RT ON, Power Limit +15%, Fan 100%
 
-## CO1109 Enron Assignment — DUE MONDAY 27/04/2026 NOON ⚠️ URGENT
+## CO1109 Enron Assignment — SUBMITTED ✓ (27/04/2026 1:30am)
 - Report: WRITTEN, needs final touches before submission
   - File: C:\Users\lakir\Desktop\Enron_Report.docx
   - Word count: ~2250+ words ✓

@@ -10,6 +10,13 @@ Running log of every Claude session — what was built, changed, or decided.
 
 ---
 
+## 26-27/04/2026 — Session 52 (desktop, Windows, 3:37pm–1:30am)
+- CO1109 Enron assignment SUBMITTED ✓ (1:30am, 10.5 hours before deadline)
+  - Report: 259026599_CO1109_Enron_Report.docx (2253 words)
+  - Video: 259026599_CO1109_Enron_Presentation.mp4 (143MB)
+  - Submitted as 2 separate files on Blackboard (confirmed by classmates this is correct)
+- See previous checkpoint entry for full session details
+
 ## 26/04/2026 — Session 52 (desktop, Windows, 3:37pm–11:10pm)
 - AMD Radeon RX 6700 XT settings fully researched and optimised for Crimson Desert at 1080p native
 - Adrenalin: Anti-Lag+ ON, VSync OFF, Enhanced Sync ON, Surface Format Optimisation OFF, AF OFF, Power Limit +15%, Fan Speed 100%, Resizable BAR already enabled
