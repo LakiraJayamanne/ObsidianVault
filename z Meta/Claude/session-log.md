@@ -846,3 +846,16 @@ Running log of every Claude session — what was built, changed, or decided.
   - Removed Farmer's Delight from client (not on server) — didn't fix it
   - Next: remove Citadel from client (leftover from Alex's Mobs, not on server, likely registering entity data)
 - Server is up and running, just can't connect yet
+
+---
+
+## 28/04/2026 — GroundLink session (Windows, continued from previous compacted context)
+- Session picked up mid-checkpoint-1 (previous context ran out)
+- Full app scaffold confirmed working: Prisma 5 + SQLite, Next.js 16 App Router, custom JWT auth
+- All DMC dashboard pages done: overview, bookings list, new booking, booking detail (guide assignment + vehicle + status transitions), guide directory, admin queue
+- Fixed: "User must belong to an organisation" error — added organisationName field + prisma.$transaction to register route
+- Fixed: dark mode CSS bug — removed @media(prefers-color-scheme: dark) from globals.css
+- Fixed: withErrorHandling generic type, RouteContext replaced with explicit Promise param types
+- Guide onboarding wizard written (3-step: type/licence/rate → languages/zones → specialisms/bio) — NOT YET COMMITTED
+- Login page still needs guide/driver redirect to /onboarding (currently always → /dashboard)
+- User interrupted to save memory checkpoint — will resume commit next session

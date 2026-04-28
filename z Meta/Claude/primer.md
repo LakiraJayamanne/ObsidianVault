@@ -62,21 +62,29 @@ Current project status, what's in progress, what's next.
 - Custom JWT auth (jose + bcryptjs)
 - No AI API in app (pure logic)
 
-### What's been built (Session 53, 28/04/2026)
+### What's been built (as of 28/04/2026)
 - Full Prisma schema: organisations, users, guide_profiles, vehicles, availability, bookings, gps_events, sleep_logs, documents, ratings, notifications
-- API routes: POST/GET /api/auth/register, login, /api/guides, /api/guides/:id, /api/bookings, /api/bookings/:id, /api/vehicles, /api/admin/verify/:userId
-- DMC dashboard: overview with stats + bookings table, bookings list with status filter, new booking form, guide directory with language/type/date filters
+- API routes: register, login, /api/guides, /api/guides/:id, /api/bookings, /api/bookings/:id, /api/vehicles, /api/admin/verify/:userId, /api/admin/pending
+- DMC dashboard: overview stats + bookings table, bookings list with status filter tabs, new booking form, booking detail page with status transitions + guide assignment slide-in panel + vehicle slot
+- Guide directory: card grid with language/type/date filters, star ratings, language badges
+- Admin queue: pending user cards with approve/reject
 - JWT auth with role guard (dmc_ops, transport_mgr, guide, driver, supplier, admin)
-- Zero TypeScript errors, dev server live on localhost:3000
+- Organisation auto-created at registration for dmc_ops/transport_mgr/supplier
+- Dark mode CSS bug fixed (globals.css — removed dark media query, forced light colour-scheme)
+- `withErrorHandling<C>` made generic for typed route contexts
+- Guide onboarding wizard written (`src/app/onboarding/page.tsx`) — 3-step: guide type + SLTDA licence + day rate → languages + zones → specialisms + bio
+
+### What's IN PROGRESS / NOT YET COMMITTED
+- `src/app/onboarding/page.tsx` — written, not committed, not type-checked
+- `src/app/login/page.tsx` — needs redirect to `/onboarding` after guide/driver registration (currently always goes to `/dashboard`)
+- Several modified files unstaged: register/route.ts, guides/page.tsx, globals.css, login/page.tsx
 
 ### What's next (Phase 1 completion)
-1. Booking detail page + guide assignment UI (assign guide/vehicle to a draft booking)
-2. Guide onboarding flow (register → upload docs → admin verification queue)
-3. Admin dashboard (pending verifications queue, approve/reject)
-4. Organisation creation at registration
-5. Guide PWA: diary view (upcoming bookings), accept/decline requests
-6. Document upload (file storage — needs S3 or local for dev)
-7. GPS position endpoint + live map placeholder
+1. **Commit checkpoint 1** — onboarding wizard + login redirect for guides/drivers
+2. **Checkpoint 2** — Role-aware dashboard: guides see their own booking diary with accept/decline, not DMC table
+3. **Checkpoint 3** — Toast notifications (guide assigned, status changed)
+4. **Checkpoint 4** — Document upload flow (S3 or local for dev)
+5. **Checkpoint 5** — GPS position endpoint + live map placeholder (Phase 2)
 
 ## Voice Assistant — Current Stack
 | Component | Choice |
