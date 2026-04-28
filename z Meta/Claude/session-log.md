@@ -10,6 +10,22 @@ Running log of every Claude session — what was built, changed, or decided.
 
 ---
 
+## 28/04/2026 — Session 53 (desktop, Windows, 5:16pm–?)
+- GroundLink Sri Lanka project kicked off — PRIORITY #1 (for dad's company TTC Sri Lanka)
+- Old Python/FastAPI GuideTracker prototype reviewed and scrapped in favour of Next.js 16 rebuild
+- Full scaffold built from scratch:
+  - Next.js 16 + TypeScript + Tailwind + Prisma 5 + SQLite
+  - Full DB schema: 11 tables (organisations, users, guide_profiles, vehicles, availability, bookings, gps_events, sleep_logs, documents, ratings, notifications)
+  - Auth: JWT (jose + bcryptjs), role-based guards (dmc_ops, transport_mgr, guide, driver, supplier, admin)
+  - API routes: auth (register/login), guides (list/get/update), bookings (CRUD), vehicles, admin verify
+  - DMC dashboard UI: overview stats, bookings table with status filters, guide directory with language/type/date filters, new booking form
+  - Zero TypeScript errors, server live on localhost:3000
+- GitHub: https://github.com/LakiraJayamanne/groundlink (private)
+- Decision: code-writing rule overridden for GroundLink — it's a real client deliverable, not a learning project
+- Next session: booking detail/guide assignment page, admin verification queue, organisation creation flow
+
+---
+
 ## 26-27/04/2026 — Session 52 (desktop, Windows, 3:37pm–1:30am)
 - CO1109 Enron assignment SUBMITTED ✓ (1:30am, 10.5 hours before deadline)
   - Report: 259026599_CO1109_Enron_Report.docx (2253 words)

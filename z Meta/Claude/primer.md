@@ -41,31 +41,42 @@ Current project status, what's in progress, what's next.
   - main.py — not started
 - **Gym Tracker** — Phase 1 complete. Phase 2 not started.
 - **Memory system** — Fully in Obsidian vault ✓
-- **Minecraft Server (Aternos)** — IN PROGRESS ⚠️
-  - Client profile: mostly done, still debugging connection issues
-  - Server: boots successfully (174 mods), but client can't connect yet
-  - Current error: "Invalid entity data item type for field 17 on PlayerEntity" — mod mismatch
-  - Removed from client so far: Krypton (Netty pipeline crash), Farmer's Delight (entity data mismatch)
-  - Next fix to try: remove Citadel from client (leftover Alex's Mobs dependency, not on server)
-  - Hosting: Aternos (free, hibernates when empty — chosen over Oracle due to signup friction)
-  - Full mod list in Gaming/Minecraft Server.md
+- **Minecraft Server (Aternos)** — DEPRIORITISED (Lakira lost interest)
 - **Crimson Desert settings** — DONE ✓ (26/04/2026)
   - Settings log at C:\Users\lakir\Desktop\crimson_desert_settings.txt
   - 1080p native, FSR Native AA, Lighting Ultra, RT ON, Power Limit +15%, Fan 100%
 
 ## CO1109 Enron Assignment — SUBMITTED ✓ (27/04/2026 1:30am)
-- Report: WRITTEN, needs final touches before submission
-  - File: C:\Users\lakir\Desktop\Enron_Report.docx
-  - Word count: ~2250+ words ✓
-  - **TODO: Reword Executive Summary + Methodology sections (AI risk)**
-  - **TODO: Fix typos — "hundres", "Everon's"**
-  - **TODO: Fill in word count on title page**
-- Video: NOT YET RECORDED ⚠️
-  - Script saved: Lecture Notes/CO1109/CO1109 Enron Video Script.md
-  - Slides: C:\Users\lakir\Downloads\The-Enron-Scandal.pptx
-  - Method: PowerPoint Record Slide Show with webcam overlay
-  - 5 minutes, face on camera required
-- Submission: ONE file only via Blackboard (video + report combined)
+
+## GroundLink Sri Lanka — IN PROGRESS 🔥 PRIORITY #1
+- **What it is:** SaaS platform for guide/driver/vehicle management in Sri Lankan inbound tourism
+- **Client:** TTC Sri Lanka (dad's company — laahiru@ttcsrilanka.com)
+- **Project path:** C:\Users\lakir\Documents\Projects\groundlink
+- **Old Python prototype:** C:\Users\lakir\Documents\Projects\GuideTracker (scrapped)
+- **GitHub:** https://github.com/LakiraJayamanne/groundlink (private)
+- **Docs:** C:\Users\lakir\Documents\Projects\GuideTracker\DOCS\ (groundlink-techspec.docx + groundlink-flows.html)
+
+### Stack
+- Next.js 16, TypeScript, Tailwind CSS
+- Prisma 5 + SQLite (dev) → PostgreSQL (prod)
+- Custom JWT auth (jose + bcryptjs)
+- No AI API in app (pure logic)
+
+### What's been built (Session 53, 28/04/2026)
+- Full Prisma schema: organisations, users, guide_profiles, vehicles, availability, bookings, gps_events, sleep_logs, documents, ratings, notifications
+- API routes: POST/GET /api/auth/register, login, /api/guides, /api/guides/:id, /api/bookings, /api/bookings/:id, /api/vehicles, /api/admin/verify/:userId
+- DMC dashboard: overview with stats + bookings table, bookings list with status filter, new booking form, guide directory with language/type/date filters
+- JWT auth with role guard (dmc_ops, transport_mgr, guide, driver, supplier, admin)
+- Zero TypeScript errors, dev server live on localhost:3000
+
+### What's next (Phase 1 completion)
+1. Booking detail page + guide assignment UI (assign guide/vehicle to a draft booking)
+2. Guide onboarding flow (register → upload docs → admin verification queue)
+3. Admin dashboard (pending verifications queue, approve/reject)
+4. Organisation creation at registration
+5. Guide PWA: diary view (upcoming bookings), accept/decline requests
+6. Document upload (file storage — needs S3 or local for dev)
+7. GPS position endpoint + live map placeholder
 
 ## Voice Assistant — Current Stack
 | Component | Choice |
@@ -83,17 +94,13 @@ Current project status, what's in progress, what's next.
 - Project at: `/home/Lakira/Documents/PROGRAMMING/PERSONAL/MyPersona/` (laptop + desktop, synced via GitHub)
 - Full build notes: `Programming/Personal Projects/Jarvis/Persona Build Notes.md`
 
-## Priority Order (next session — AFTER submission)
-1. **CO1109 submission** — finish video, submit by noon Monday
-2. **Minecraft server** — boot Aternos and test (40 mods loaded)
-3. **wake.py** — OpenWakeWord
-4. **Test stt.py** — Whisper STT on laptop
-5. **input.py** — terminal text input
-6. **main.py** — tie everything together
-7. **Dad's Email Agent** — blocked on Anthropic API credits ($5 needed at console.anthropic.com)
-8. **GRUB theme** — Gorgeous-GRUB, remove nomodeset
-9. **Plymouth boot animation**
-10. **Gym Tracker Phase 2**
+## Priority Order
+1. **GroundLink Sri Lanka** — booking detail + guide assignment, then admin queue
+2. **JARVIS — wake.py** — OpenWakeWord
+3. **Test stt.py** — Whisper STT on laptop
+4. **GRUB theme** — Gorgeous-GRUB, remove nomodeset
+5. **Plymouth boot animation**
+6. **Gym Tracker Phase 2**
 
 ## Caelestia Notes (desktop)
 - Installed via EnceladusII/caelestia-fedora (abandoned Fedora fork, frozen Aug 2025)
