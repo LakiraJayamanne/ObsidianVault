@@ -62,29 +62,28 @@ Current project status, what's in progress, what's next.
 - Custom JWT auth (jose + bcryptjs)
 - No AI API in app (pure logic)
 
-### What's been built (as of 28/04/2026)
-- Full Prisma schema: organisations, users, guide_profiles, vehicles, availability, bookings, gps_events, sleep_logs, documents, ratings, notifications
-- API routes: register, login, /api/guides, /api/guides/:id, /api/bookings, /api/bookings/:id, /api/vehicles, /api/admin/verify/:userId, /api/admin/pending
-- DMC dashboard: overview stats + bookings table, bookings list with status filter tabs, new booking form, booking detail page with status transitions + guide assignment slide-in panel + vehicle slot
-- Guide directory: card grid with language/type/date filters, star ratings, language badges
-- Admin queue: pending user cards with approve/reject
-- JWT auth with role guard (dmc_ops, transport_mgr, guide, driver, supplier, admin)
-- Organisation auto-created at registration for dmc_ops/transport_mgr/supplier
-- Dark mode CSS bug fixed (globals.css — removed dark media query, forced light colour-scheme)
-- `withErrorHandling<C>` made generic for typed route contexts
-- Guide onboarding wizard written (`src/app/onboarding/page.tsx`) — 3-step: guide type + SLTDA licence + day rate → languages + zones → specialisms + bio
+### What's been built (as of 29/04/2026) — PHASE 1 COMPLETE ✅
+- Full Prisma schema (11 tables), all API routes, full role-based auth
+- **DMC:** overview stats, bookings list + filter, new booking form, booking detail (status flow, guide + vehicle assignment panels, live map when active, rate guide on completion)
+- **Guide:** 3-step onboarding wizard, diary view (upcoming/past), accept/decline pending bookings, share live location button on active bookings, document upload card
+- **Admin:** verification queue with expandable doc preview, approve/reject
+- **Transport manager / Supplier:** fleet management page (add vehicle modal, class filter)
+- **All roles:** settings page (name, phone, password change)
+- Guide profile detail pages (ratings, bio, zones, specialisms, reviews)
+- Guide directory cards clickable through to profile
+- Toast notifications system (slide-up, 3.5s, success/error/info)
+- GPS tracking: POST /api/gps (guide pushes position), GET polls latest for booking, Leaflet map on booking detail (polls every 15s)
+- Post-tour rating modal (star picker + notes, updates guide aggregate)
+- Admin doc review: expandable panel per user, view uploaded files inline
+- Vehicle assignment panel (mirrors guide panel UX)
+- PATCH /api/me: name/phone/password with current password verification
 
-### What's IN PROGRESS / NOT YET COMMITTED
-- `src/app/onboarding/page.tsx` — written, not committed, not type-checked
-- `src/app/login/page.tsx` — needs redirect to `/onboarding` after guide/driver registration (currently always goes to `/dashboard`)
-- Several modified files unstaged: register/route.ts, guides/page.tsx, globals.css, login/page.tsx
-
-### What's next (Phase 1 completion)
-1. **Commit checkpoint 1** — onboarding wizard + login redirect for guides/drivers
-2. **Checkpoint 2** — Role-aware dashboard: guides see their own booking diary with accept/decline, not DMC table
-3. **Checkpoint 3** — Toast notifications (guide assigned, status changed)
-4. **Checkpoint 4** — Document upload flow (S3 or local for dev)
-5. **Checkpoint 5** — GPS position endpoint + live map placeholder (Phase 2)
+### What's next (Phase 2 / nice-to-have)
+1. Email notifications (Resend) — guide assigned, guide accepts
+2. PWA manifest — guides add to phone home screen
+3. PDF/CSV export for bookings
+4. Notification bell (model exists, just needs UI)
+5. Programme/itinerary builder (route planner in booking)
 
 ## Voice Assistant — Current Stack
 | Component | Choice |
@@ -103,7 +102,7 @@ Current project status, what's in progress, what's next.
 - Full build notes: `Programming/Personal Projects/Jarvis/Persona Build Notes.md`
 
 ## Priority Order
-1. **GroundLink Sri Lanka** — booking detail + guide assignment, then admin queue
+1. **GroundLink Sri Lanka** — Phase 1 DONE ✅, show dad for review, then Phase 2
 2. **JARVIS — wake.py** — OpenWakeWord
 3. **Test stt.py** — Whisper STT on laptop
 4. **GRUB theme** — Gorgeous-GRUB, remove nomodeset

@@ -859,3 +859,19 @@ Running log of every Claude session — what was built, changed, or decided.
 - Guide onboarding wizard written (3-step: type/licence/rate → languages/zones → specialisms/bio) — NOT YET COMMITTED
 - Login page still needs guide/driver redirect to /onboarding (currently always → /dashboard)
 - User interrupted to save memory checkpoint — will resume commit next session
+
+---
+
+## 29/04/2026 — GroundLink Phase 1 complete (Windows)
+- Resumed from mid-checkpoint-1 (previous context had compacted)
+- Completed all 7 checkpoints in one session:
+  1. Guide onboarding wizard (3-step) + login redirect for guide/driver roles
+  2. Role-aware dashboard — guide diary with accept/decline, DMC stats overview
+  3. Toast notifications (slide-up, 3.5s, success/error/info) wired throughout
+  4. Document upload API + guide dashboard card (PDF/image, 10MB, local storage)
+  5. GPS tracking — POST/GET /api/gps, Leaflet live map on booking detail (15s poll), Share Location button in guide diary
+  6. Fleet management page, guide profile detail pages, post-tour rating modal + API, admin doc review with expandable file panel
+  7. Settings page (name/phone/password), vehicle assignment panel on booking detail, GET/PATCH /api/me
+- Phase 1 fully complete and running on localhost:3000
+- Lakira testing the full flow (register DMC → create booking → register guide → onboard → assign → accept → active → location share → complete → rate)
+- Next: dad reviews, then Phase 2 (email notifications, PWA manifest)
