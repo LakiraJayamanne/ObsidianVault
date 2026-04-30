@@ -10,6 +10,15 @@ Running log of every Claude session — what was built, changed, or decided.
 
 ---
 
+## 30/04/2026 — Session 54 (desktop, Windows, 12:40pm–2:31pm)
+- Short housekeeping session — no code written
+- Discovered home directory (`C:\Users\lakir`) had an orphan git repo tracking groundlink files (one commit, no remote)
+- Deleted `C:\Users\lakir\.git` — home directory is no longer a git repo, files unaffected
+- GroundLink groundlink repo confirmed clean and up to date (Checkpoint 7 was last commit)
+- Next: show dad (Lahiru) the Phase 1 build for review before starting Phase 2
+
+---
+
 ## 28/04/2026 — Session 53 (desktop, Windows, 5:16pm–?)
 - GroundLink Sri Lanka project kicked off — PRIORITY #1 (for dad's company TTC Sri Lanka)
 - Old Python/FastAPI GuideTracker prototype reviewed and scrapped in favour of Next.js 16 rebuild
