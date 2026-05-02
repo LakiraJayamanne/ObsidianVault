@@ -10,6 +10,29 @@ Running log of every Claude session — what was built, changed, or decided.
 
 ---
 
+## 02/05/2026 — Session (Windows, desktop) — Pi planning + WiFi troubleshooting
+
+### Friend's WiFi 7 issue
+- Friend bought NEWFAST WiFi 7 6500M USB adapter (Amazon no-name, sold by SEHU NT, £66.99)
+- Router: TP-Link Archer BE6500 (tri-band WiFi 7, 2.4/5/6GHz)
+- Issue: password goes in, times out — likely WPA3 mismatch
+- Fix to try: set router security to WPA2/WPA3 mixed mode in router admin (192.168.0.1)
+- If still failing: split SSIDs and try 2.4GHz specifically
+- Long-term: adapter is no-name garbage, recommend TP-Link/ASUS replacement
+
+### Brother's Arduino kit (ELEGOO UNO R3)
+- Standard starter kit — concluded projects are boring for Lakira's level
+- Arduino is useful as a peripheral component, not a standalone project
+- Lakira won't be building anything with it
+
+### Raspberry Pi projects planned
+- **Portable JARVIS**: Pi Zero 2 W + INMP441 mic + Alexa as Bluetooth speaker + power bank — ~£29 to buy
+- **Pi-hole**: Pi Zero W + micro SD — ~£14 to buy
+- Combined: ~£43. Lakira already has power bank, Alexa, micro USB cable
+- Alexa confirmed as Bluetooth speaker output (NOT mic input — locked to Amazon firmware)
+- INMP441 I2S mic chosen over USB audio path for cleaner portable build
+- Full hardware list saved to primer.md
+
 ## 02/05/2026 — Session (Windows, desktop) — Quick checkpoint
 - No code written this session
 - Discussed proactive AI phone call concept (AI initiates outbound call autonomously)

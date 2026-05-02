@@ -109,6 +109,20 @@ Current project status, what's in progress, what's next.
 5. **Plymouth boot animation**
 6. **Gym Tracker Phase 2**
 
+## Raspberry Pi Projects — PLANNED (02/05/2026)
+### Portable JARVIS (Pi Zero 2 W) — ~£29
+- Pi Zero 2 W (£15) + 16GB micro SD (£7) + INMP441 I2S mic (£5) + micro USB OTG adapter (£2)
+- Already have: power bank, Alexa as Bluetooth speaker, micro USB cable
+- Architecture: same as desktop JARVIS — wake word → Whisper STT → Claude API → edge-tts → Alexa speaker
+- Needs soldering: header pins on Pi Zero 2 W + INMP441 wiring to GPIO
+
+### Pi-hole (Pi Zero W) — ~£14
+- Pi Zero W (£9) + 8GB micro SD (£5)
+- Network-wide ad blocker — plug in near router, set as DNS in router settings, done
+- Runs completely headlessly, totally separate from JARVIS Pi
+
+### Combined total: ~£43 for both
+
 ## Caelestia Notes (desktop)
 - Installed via EnceladusII/caelestia-fedora (abandoned Fedora fork, frozen Aug 2025)
 - Quickshell installed via COPR (errornointernet/quickshell)
