@@ -38,7 +38,7 @@ Current project status, what's in progress, what's next.
   - stt.py ✓ (fixed 48kHz sample rate, resample to 16kHz for Whisper)
   - wake.py ✓ (debounce working, fires once per detection)
   - main.py ✓ (full pipeline: wake → STT → brain → TTS → loop)
-  - **BOTTLENECK: Whisper tiny on CPU = ~24s. Need GPU STT solution.**
+  - **BOTTLENECK: Whisper tiny on CPU = ~24s. Full optimization plan researched and logged.**
   - discord_bot.py — not started
   - tools.py — not started
   - input.py — not started
@@ -55,7 +55,7 @@ Current project status, what's in progress, what's next.
 - **What it is:** SaaS platform for guide/driver/vehicle management in Sri Lankan inbound tourism
 - **Client:** TTC Sri Lanka (dad's company — laahiru@ttcsrilanka.com)
 - **Project path:** C:\Users\lakir\Documents\Projects\groundlink
-- **Old Python prototype:** C:\Users\lakir\Documents\Projects\GuideTracker (scrapped)
+- **Old Python prototype:** C:\Users\lakir\Documents\Projects\GuideTracker (SCRAPPED + REPO DELETED 08/05/2026)
 - **GitHub:** https://github.com/LakiraJayamanne/groundlink (private)
 - **Docs:** C:\Users\lakir\Documents\Projects\GuideTracker\DOCS\ (groundlink-techspec.docx + groundlink-flows.html)
 
@@ -81,9 +81,11 @@ Current project status, what's in progress, what's next.
 - Vehicle assignment panel (mirrors guide panel UX)
 - PATCH /api/me: name/phone/password with current password verification
 
-### Dad review (08/05/2026)
-- Exposed app via ngrok: https://ferally-tridactyl-eleanore.ngrok-free.app (session-only URL, will change next time)
-- Testing guide written and saved to groundlink-testing-guide.txt in project root
+### ngrok fix (08/05/2026) ✓
+- Added `allowedDevOrigins` to next.config.ts for all ngrok domains (*.ngrok-free.app, *.ngrok-free.dev, *.ngrok.io, *.ngrok.app)
+- Added `suppressHydrationWarning` to body in layout.tsx (AdBlock Plus injects vc-init class → hydration mismatch)
+- Both fixes pushed to GitHub
+- To re-expose for dad: `npm run dev` in one terminal, `ngrok http 3000` in another. New URL each session.
 - Dad has not yet completed review — awaiting feedback before starting Phase 2
 
 ### What's next (Phase 2 / nice-to-have)
@@ -97,21 +99,30 @@ Current project status, what's in progress, what's next.
 | Component | Choice |
 |---|---|
 | Wake word | OpenWakeWord (fully local, no account needed) |
-| STT | Whisper base (local) |
-| Brain | Ollama — llama3.1 8B + tool-calling loop |
-| TTS | edge-tts — en-GB-RyanNeural |
-| Text input | Discord bot |
-| Actions | tools.py (system control, file I/O, web search etc.) |
+| STT | Whisper tiny (local, CPU — SLOW, needs replacing) |
+| Brain | Ollama — llama3.2:3b on GPU (~0.5s) |
+| TTS | edge-tts — en-GB-RyanNeural (cloud, needs replacing) |
+| Text input | Discord bot (not started) |
+| Actions | tools.py (not started) |
 | Memory | Obsidian vault — z Meta/JARVIS/ |
 
 - Wake word: "Persona"
 - Assistant name: **JARVIS / Persona** (Persona game character, TBD)
 - Project at: `/home/Lakira/Documents/PROGRAMMING/PERSONAL/MyPersona/` (laptop + desktop, synced via GitHub)
-- Full build notes: `Programming/Personal Projects/Jarvis/Persona Build Notes.md`
+- Full build notes + optimization plan: `Programming/Personal Projects/Jarvis/Persona Build Notes.md`
+
+### STT Optimization Plan (researched 08/05/2026)
+**Step 1 (quick win):** Switch to `faster_whisper` with `compute_type="int8"`, pre-load model once at startup + add Silero VAD. The 24s is likely a code issue, not a GPU issue.
+**Step 2:** Try Moonshine STT (`pip install moonshine-voice`) — ~270ms on CPU, beats Whisper Large V3 accuracy.
+**Step 3:** Swap edge-tts → Piper TTS (`en_GB-alan-medium` voice) with streaming synthesis.
+**Step 4:** Stream LLM tokens → TTS (sentence buffer pattern) — biggest single architecture win.
+**Step 5 (optional):** whisper.cpp with Vulkan (`-DGGML_VULKAN=1`) for GPU STT on RX 6700.
+
+**Acknowledgement pattern:** For long tasks, JARVIS speaks an immediate ack ("On it sir, researching xyz") then does the work in background and reports when done.
 
 ## Priority Order
-1. **GroundLink Sri Lanka** — awaiting dad's feedback (files on Windows, ngrok needs to be rerun there)
-2. **JARVIS STT speed** — fix Whisper CPU bottleneck (faster-whisper or whisper.cpp ROCm)
+1. **GroundLink Sri Lanka** — awaiting dad's feedback
+2. **JARVIS STT optimization** — clear plan ready, do on Fedora
 3. **JARVIS tools.py** — give Persona real-time data (time, weather, etc.)
 4. **GRUB theme** — Gorgeous-GRUB, remove nomodeset
 5. **Plymouth boot animation**

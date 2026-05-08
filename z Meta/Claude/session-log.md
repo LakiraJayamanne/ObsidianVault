@@ -938,3 +938,17 @@ Running log of every Claude session — what was built, changed, or decided.
 - BOTTLENECK: Whisper tiny on CPU = ~24s transcription. Brain on GPU = 0.5s. STT is the problem.
 - Next: fix STT speed (faster-whisper or whisper.cpp with ROCm), then tools.py
 - GroundLink: files still on Windows, ngrok needs rerunning there before dad can review
+
+---
+
+## 08/05/2026 — Session 73 (Windows) — GroundLink ngrok fix + Persona research
+- GroundLink: fixed register button not working via ngrok
+  - Added `allowedDevOrigins` to next.config.ts (*.ngrok-free.app, *.ngrok-free.dev, *.ngrok.io, *.ngrok.app)
+  - Added `suppressHydrationWarning` to body in layout.tsx (AdBlock injects vc-init class → hydration mismatch)
+  - Pushed to GitHub
+- Deleted GuideTracker repo from GitHub (scrapped, no longer needed)
+- Persona deep research: full STT optimization plan researched and logged in Persona Build Notes
+  - Key finding: 24s STT is likely a code issue (wrong library / no VAD), not a GPU issue
+  - Recommended path: faster-whisper + Silero VAD → Moonshine STT → Piper TTS → streaming LLM→TTS → whisper.cpp Vulkan
+  - Acknowledgement pattern logged: JARVIS speaks immediate ack for long tasks, reports when done
+- Dad review still pending — ngrok URL is session-only, needs rerunning next time
