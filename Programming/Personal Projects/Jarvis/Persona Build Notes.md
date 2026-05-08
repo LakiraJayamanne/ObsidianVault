@@ -101,10 +101,46 @@ if __name__ == "__main__":
    - Silero VAD is fine on CPU for this
 4. **Stream TTS tokens** as LLM generates (don't wait for full response)
 
-**Don't use faster-whisper** — CUDA-only, no AMD support.
-**LLM is already fine** — llama3.2:3b at 0.5s on GPU, leave it.
+**Updated findings (deep research 08/05/2026):**
+- The 24s STT is likely a code issue, not a GPU issue. Check:
+  - Using `openai-whisper` instead of `faster-whisper` (4-10x slower)
+  - Model reloading on every call instead of once at startup
+  - No VAD — recording 15-20s of silence before sending
+- **Moonshine STT** (`pip install moonshine-voice`) — ~270ms on CPU, beats Whisper Large V3 accuracy. Try this first.
+- **whisper.cpp with Vulkan** (`-DGGML_VULKAN=1`) — easier than ROCm HIP on Fedora, ~0.2s on GPU. ROCm HIP PR doesn't cover gfx1030 (RX 6700) — use Vulkan instead.
+- **Silero VAD** — stops recording the moment speech ends instead of waiting for silence timeout
+- **Streaming LLM → TTS** — buffer into sentences, start TTS on first sentence while LLM still generating the rest. Biggest single architecture win.
+- **Piper TTS** (`en_GB-alan-medium` voice) — fully local, streaming synthesis, sub-1s on CPU
+- **Qwen3:1.7b** — may outperform llama3.2:3b for voice. Use `/no_think` mode + `num_predict 150`
+- **Custom "Persona" wake word** — CoreWorxLab/openwakeword-training, 20-50 voice samples + 4-8hr training
 
-**Target after fixes:** ~3-5s full pipeline (wake → spoken response)
+**Don't bother with:** faster-whisper (CUDA-only officially), ROCm HIP whisper.cpp on gfx1030, Bark TTS, StyleTTS2, openai-whisper library
+
+**Target after fixes:** ~1.5s to first spoken word (Moonshine + streaming LLM→TTS)
+
+**Top repos to reference:**
+- sancliffe/ollama-STT-TTS — nearly identical stack, clean code
+- KoljaB/RealtimeVoiceChat — gold standard pipeline, sentence streaming pattern
+- isair/jarvis — dual model + tool routing
+- eauchs/speech-to-speech-pipeline — barge-in/interrupt implementation
+- beecave-homelab/insanely-fast-whisper-rocm — full ROCm GPU STT if needed later
+
+---
+
+## Acknowledgement Pattern (UX idea — 08/05/2026)
+
+For long tasks (deep research, file ops, etc.) — don't make the user wait in silence.
+JARVIS should immediately speak a short acknowledgement, THEN do the work:
+
+> "On it sir, researching xyz — I'll report back when it's done."
+
+**How it works:**
+1. STT captures the query
+2. LLM does a fast intent classification (is this a quick answer or a long task?)
+3. If long task → speak acknowledgement immediately → run task in background → speak result when done
+4. If quick answer → respond normally
+
+This makes latency feel near-zero regardless of actual task duration.
 
 ---
 
