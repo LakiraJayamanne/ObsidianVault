@@ -28,17 +28,20 @@ Current project status, what's in progress, what's next.
 - **Zen Browser** — Installed via Flatpak ✓
 - **Spicetify** — DONE ✓
 - **Wallpapers** — Synced from laptop ✓
-- **Ollama** — Installed, llama3.1 8B pulled and working ✓
-- **Voice Assistant (JARVIS)** — IN PROGRESS ⚠️
-  - config.py ✓ (added stt_model = "base")
-  - tts.py ✓ (tested, working)
-  - brain.py ✓ (ollama.chat() working, tested, ~4s response time)
-  - stt.py ✓ (Whisper base, sounddevice, written + pushed — NOT YET TESTED)
-  - wake.py — not started
+- **Ollama** — llama3.1 8B + llama3.2:3b pulled, 100% GPU via ROCm (HSA_OVERRIDE_GFX_VERSION=10.3.0 in systemd override) ✓
+- **System font** — Segoe UI (copied from Windows partition), set via gsettings + GTK3/4 ✓
+- **Mouse sensitivity** — flat accel, sensitivity -0.15 ✓
+- **Voice Assistant (JARVIS/Persona)** — PIPELINE WORKING END TO END ⚠️ (STT slow)
+  - config.py ✓ (brain_model = llama3.2:3b, stt_model = "tiny", timeout = 3)
+  - tts.py ✓
+  - brain.py ✓ (~0.5s on GPU)
+  - stt.py ✓ (fixed 48kHz sample rate, resample to 16kHz for Whisper)
+  - wake.py ✓ (debounce working, fires once per detection)
+  - main.py ✓ (full pipeline: wake → STT → brain → TTS → loop)
+  - **BOTTLENECK: Whisper tiny on CPU = ~24s. Need GPU STT solution.**
   - discord_bot.py — not started
   - tools.py — not started
   - input.py — not started
-  - main.py — not started
 - **Gym Tracker** — Phase 1 complete. Phase 2 not started.
 - **Memory system** — Fully in Obsidian vault ✓
 - **Minecraft Server (Aternos)** — DEPRIORITISED (Lakira lost interest)
@@ -107,9 +110,9 @@ Current project status, what's in progress, what's next.
 - Full build notes: `Programming/Personal Projects/Jarvis/Persona Build Notes.md`
 
 ## Priority Order
-1. **GroundLink Sri Lanka** — Phase 1 DONE ✅, show dad for review, then Phase 2
-2. **JARVIS — wake.py** — OpenWakeWord
-3. **Test stt.py** — Whisper STT on laptop
+1. **GroundLink Sri Lanka** — awaiting dad's feedback (files on Windows, ngrok needs to be rerun there)
+2. **JARVIS STT speed** — fix Whisper CPU bottleneck (faster-whisper or whisper.cpp ROCm)
+3. **JARVIS tools.py** — give Persona real-time data (time, weather, etc.)
 4. **GRUB theme** — Gorgeous-GRUB, remove nomodeset
 5. **Plymouth boot animation**
 6. **Gym Tracker Phase 2**

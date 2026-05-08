@@ -923,3 +923,18 @@ Running log of every Claude session — what was built, changed, or decided.
 - Phase 1 fully complete and running on localhost:3000
 - Lakira testing the full flow (register DMC → create booking → register guide → onboard → assign → accept → active → location share → complete → rate)
 - Next: dad reviews, then Phase 2 (email notifications, PWA manifest)
+
+---
+
+## 08/05/2026 — Session 72 (desktop/Fedora) — JARVIS pipeline complete + system tweaks
+- Mouse: flat accel, sensitivity -0.15 (was 0)
+- System font: Segoe UI copied from Windows partition (nvme0n1p3), set via gsettings + GTK3/4 settings.ini
+- ROCm 6.4 installed, Ollama GPU acceleration enabled via HSA_OVERRIDE_GFX_VERSION=10.3.0 in /etc/systemd/system/ollama.service.d/override.conf
+- llama3.2:3b pulled — 100% GPU, 2.8GB VRAM, ~0.5s response time
+- wake.py: debounce implemented (global last_triggered + 1s cooldown), working correctly — fires once per detection
+- stt.py: fixed Invalid sample rate error — record at 48kHz, resample_poly down to 16kHz for Whisper
+- main.py: full pipeline written and tested — wake → STT → brain → TTS → loop back
+- Full pipeline WORKING end to end (said "what's the time", got spoken response)
+- BOTTLENECK: Whisper tiny on CPU = ~24s transcription. Brain on GPU = 0.5s. STT is the problem.
+- Next: fix STT speed (faster-whisper or whisper.cpp with ROCm), then tools.py
+- GroundLink: files still on Windows, ngrok needs rerunning there before dad can review
