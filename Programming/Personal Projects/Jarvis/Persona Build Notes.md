@@ -82,6 +82,32 @@ if __name__ == "__main__":
 ## TTS — Pronunciation Fix
 - "Kira" replace → "Keera" before passing to edge-tts
 
+## STT Optimization Plan (researched 08/05/2026)
+
+**Problem:** Whisper tiny on CPU = ~24s. Kills the pipeline.
+
+**Fix — in order:**
+1. **Build whisper.cpp with ROCm/HIP on Fedora**
+   - Target: `gfx1031` (RX 6700)
+   - Use `base` model (better accuracy than tiny, still fast on GPU)
+   - Expected: 2-4s (down from 24s)
+   - Fedora gotcha: LLVM is at `/usr/lib64/llvm18/bin` not `/opt/rocm/bin` — expect build pain
+   - Guides: AMD ROCm blog "Speech-to-Text on AMD GPU", davidguttman/whisper-rocm on GitHub
+2. **Swap edge-tts → Piper TTS**
+   - edge-tts phones home to Microsoft servers (network latency)
+   - Piper is fully local, sub-1s on CPU, drop-in replacement
+3. **Add VAD (voice activity detection)**
+   - Start transcription the moment speech ends instead of fixed silence window
+   - Silero VAD is fine on CPU for this
+4. **Stream TTS tokens** as LLM generates (don't wait for full response)
+
+**Don't use faster-whisper** — CUDA-only, no AMD support.
+**LLM is already fine** — llama3.2:3b at 0.5s on GPU, leave it.
+
+**Target after fixes:** ~3-5s full pipeline (wake → spoken response)
+
+---
+
 ## Planned Features
 - Voice input (wake word → speak)
 - Text input via terminal
