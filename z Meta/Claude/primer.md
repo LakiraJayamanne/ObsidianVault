@@ -48,7 +48,7 @@ Current project status, what's in progress, what's next.
 
 ## CO1109 Enron Assignment — SUBMITTED ✓ (27/04/2026 1:30am)
 
-## GroundLink Sri Lanka — IN PROGRESS 🔥 PRIORITY #1
+## GroundLink Sri Lanka — DAD REVIEW IN PROGRESS 🔥 PRIORITY #1
 - **What it is:** SaaS platform for guide/driver/vehicle management in Sri Lankan inbound tourism
 - **Client:** TTC Sri Lanka (dad's company — laahiru@ttcsrilanka.com)
 - **Project path:** C:\Users\lakir\Documents\Projects\groundlink
@@ -77,6 +77,11 @@ Current project status, what's in progress, what's next.
 - Admin doc review: expandable panel per user, view uploaded files inline
 - Vehicle assignment panel (mirrors guide panel UX)
 - PATCH /api/me: name/phone/password with current password verification
+
+### Dad review (08/05/2026)
+- Exposed app via ngrok: https://ferally-tridactyl-eleanore.ngrok-free.app (session-only URL, will change next time)
+- Testing guide written and saved to groundlink-testing-guide.txt in project root
+- Dad has not yet completed review — awaiting feedback before starting Phase 2
 
 ### What's next (Phase 2 / nice-to-have)
 1. Email notifications (Resend) — guide assigned, guide accepts

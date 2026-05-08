@@ -4,6 +4,13 @@ tags:
   - claude/log
 ---
 
+## 08/05/2026 — Session (Windows desktop, 10:54am–11:24am)
+- GroundLink: exposed app to dad via ngrok for user testing (URL: ferally-tridactyl-eleanore.ngrok-free.app — session-only)
+- Wrote and saved testing guide (groundlink-testing-guide.txt) covering full DMC → guide → admin → assign → accept → GPS → complete → rate flow
+- Dad has not yet reviewed — awaiting feedback before Phase 2
+- Confirmed MyPersona (JARVIS) is not cloned on Windows — only lives on Fedora machines
+- Switching to Fedora desktop to continue JARVIS work (next: test stt.py, then wake.py)
+
 # Session Log
 
 Running log of every Claude session — what was built, changed, or decided.
