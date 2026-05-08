@@ -31,17 +31,17 @@ Current project status, what's in progress, what's next.
 - **Ollama** — llama3.1 8B + llama3.2:3b pulled, 100% GPU via ROCm (HSA_OVERRIDE_GFX_VERSION=10.3.0 in systemd override) ✓
 - **System font** — Segoe UI (copied from Windows partition), set via gsettings + GTK3/4 ✓
 - **Mouse sensitivity** — flat accel, sensitivity -0.15 ✓
-- **Voice Assistant (JARVIS/Persona)** — PIPELINE WORKING END TO END ⚠️ (STT slow)
-  - config.py ✓ (brain_model = llama3.2:3b, stt_model = "tiny", timeout = 3)
-  - tts.py ✓
-  - brain.py ✓ (~0.5s on GPU)
-  - stt.py ✓ (fixed 48kHz sample rate, resample to 16kHz for Whisper)
-  - wake.py ✓ (debounce working, fires once per detection)
-  - main.py ✓ (full pipeline: wake → STT → brain → TTS → loop)
-  - **BOTTLENECK: Whisper tiny on CPU = ~24s. Full optimization plan researched and logged.**
+- **Voice Assistant (JARVIS/Persona)** — PIPELINE FULLY OPTIMISED ✅ (09/05/2026)
+  - config.py ✓ (brain_model = llama3.2:3b, wake = Alexa model, JARVIS personality)
+  - stt.py ✓ Moonshine tiny-en — 24s → <1s transcription. Records at 48kHz, resamples to 16kHz.
+  - tts.py ✓ Kokoro ONNX (bm_lewis) — fully local, natural voice. Model files NOT in git (gitignored).
+  - brain.py ✓ think_stream() added — token-by-token streaming via ollama
+  - wake.py ✓ Alexa wake word model. Mic conflict fixed (stop stream → STT → restart). Debounce resets after full pipeline.
+  - main.py ✓ Sentence-buffer streaming loop — speaks first sentence while LLM still generating rest
+  - **Next: tools.py** — give JARVIS real data (time, weather, Obsidian vault RAG, timers)
   - discord_bot.py — not started
-  - tools.py — not started
   - input.py — not started
+  - **Custom "Persona" wake word** — needs training (CoreWorxLab/openwakeword-training, 20-50 samples). Using Alexa for now.
 - **Gym Tracker** — Phase 1 complete. Phase 2 not started.
 - **Memory system** — Fully in Obsidian vault ✓
 - **Minecraft Server (Aternos)** — DEPRIORITISED (Lakira lost interest)

@@ -4,6 +4,21 @@ tags:
   - claude/log
 ---
 
+## 09/05/2026 — Session (Fedora desktop, midnight)
+
+### JARVIS full optimization pass
+- **STT**: swapped openai-whisper → Moonshine tiny-en (`moonshine-voice` pip package). 24s → <1s. Had to fix: wrong import name (`moonshine_voice`), resample 48kHz→16kHz still needed, correct API is `Transcriber(model_path, model_arch=ModelArch.TINY).transcribe_without_streaming()`.
+- **TTS**: swapped edge-tts → Kokoro ONNX (`kokoro-onnx` pip package, bm_lewis voice). Tried alan-medium (robotic), ryan-high (robotic), daniel, onyx — lewis sounds best. Model files gitignored (170MB).
+- **Streaming LLM→TTS**: brain.py gets `think_stream()` using `ollama.chat(stream=True)`. main.py has sentence-buffer loop — speaks first sentence while rest generates. Massive perceived latency improvement.
+- **Wake word**: fixed mic conflict (stream.stop() before STT, stream.start() after). Fixed debounce bug (last_triggered wasn't updating global). Switched hey_jarvis → alexa model (hey_jarvis scores near-zero). Debounce now resets after full pipeline to prevent TTS output re-triggering.
+- **Concept clarified**: project is "MyPersona" — JARVIS is the name, Persona is the concept (like the games, he's a manifestation of Lakira). Personality updated to reflect this.
+- All pushed to GitHub.
+
+### Decisions
+- bm_lewis is the chosen Kokoro voice
+- Custom "Persona" wake word training is a future task
+- Next: tools.py — real-time data (time, weather, Obsidian vault)
+
 ## 08/05/2026 — Session (Windows desktop, 10:54am–11:24am)
 - GroundLink: exposed app to dad via ngrok for user testing (URL: ferally-tridactyl-eleanore.ngrok-free.app — session-only)
 - Wrote and saved testing guide (groundlink-testing-guide.txt) covering full DMC → guide → admin → assign → accept → GPS → complete → rate flow
