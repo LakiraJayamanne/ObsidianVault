@@ -18,7 +18,7 @@ Started: 08/05/2026
 
 | # | Movie | Year | Watched |
 |---|-------|------|---------|
-| 1 | Iron Man | 2008 | [ ] |
+| 1 | Iron Man | 2008 | [x] |
 | 2 | The Incredible Hulk | 2008 | [ ] |
 | 3 | Iron Man 2 | 2010 | [ ] |
 | 4 | Thor | 2011 | [ ] |
@@ -59,4 +59,4 @@ Started: 08/05/2026
 
 ---
 
-**Next up: #1 — Iron Man (2008)**
+**Next up: #2 — The Incredible Hulk (2008)**
