@@ -967,3 +967,19 @@ Running log of every Claude session — what was built, changed, or decided.
   - Recommended path: faster-whisper + Silero VAD → Moonshine STT → Piper TTS → streaming LLM→TTS → whisper.cpp Vulkan
   - Acknowledgement pattern logged: JARVIS speaks immediate ack for long tasks, reports when done
 - Dad review still pending — ngrok URL is session-only, needs rerunning next time
+
+---
+
+## 09/05/2026 — Session 74 (desktop/Fedora) — JARVIS tools + conversational mode
+- Swapped brain model: llama3.2:3b → qwen3:8b (Q4_K_M, ~20-40 tok/s, smarter instruction following)
+- tools.py built: 12 tools with Ollama function-calling schemas and dispatcher
+  - get_time, get_date, get_weather (wttr.in), set_timer (threading), get_system_stats (sysfs GPU temp)
+  - open_app (subprocess), set_volume/mute (wpctl), add_note, add_task (vault), web_search (DDG), remember
+- brain.py rewritten: tool-calling pipeline, ack phrases spoken before tool execution, 20-msg conversation history, load_memory() injected into system prompt, /no_think prefix for Qwen3
+- main.py: conversational loop — say wake word once, converse freely, 20s silence → returns to standby
+- stt.py: energy threshold (0.001 RMS) to skip silence hallucination, strip Moonshine [X.XXs] timestamp markers
+- Tested: time tool working, timer working (set_timer called correctly despite garbled STT), conversational mode partially working (energy threshold needs tuning per mic)
+- Decisions: keeping fully local for now (privacy/cost), Claude API as brain is future option if latency matters
+- Researched other JARVIS builds: ethanplusai (Claude API brain, Mac), huwprosser (MLX Mac), tom_visionai_pro (tutorial)
+- Key insight from research: multi-command chaining (multiple tool calls per query) already supported by Ollama tool API, worth testing
+- Pushed to GitHub: LakiraJayamanne/MyPersona

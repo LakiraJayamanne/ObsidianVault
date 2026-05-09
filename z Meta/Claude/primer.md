@@ -31,14 +31,19 @@ Current project status, what's in progress, what's next.
 - **Ollama** — llama3.1 8B + llama3.2:3b pulled, 100% GPU via ROCm (HSA_OVERRIDE_GFX_VERSION=10.3.0 in systemd override) ✓
 - **System font** — Segoe UI (copied from Windows partition), set via gsettings + GTK3/4 ✓
 - **Mouse sensitivity** — flat accel, sensitivity -0.15 ✓
-- **Voice Assistant (JARVIS/Persona)** — PIPELINE FULLY OPTIMISED ✅ (09/05/2026)
-  - config.py ✓ (brain_model = llama3.2:3b, wake = Alexa model, JARVIS personality)
-  - stt.py ✓ Moonshine tiny-en — 24s → <1s transcription. Records at 48kHz, resamples to 16kHz.
-  - tts.py ✓ Kokoro ONNX (bm_lewis) — fully local, natural voice. Model files NOT in git (gitignored).
-  - brain.py ✓ think_stream() added — token-by-token streaming via ollama
-  - wake.py ✓ Alexa wake word model. Mic conflict fixed (stop stream → STT → restart). Debounce resets after full pipeline.
-  - main.py ✓ Sentence-buffer streaming loop — speaks first sentence while LLM still generating rest
-  - **Next: tools.py** — give JARVIS real data (time, weather, Obsidian vault RAG, timers)
+- **Voice Assistant (JARVIS/Persona)** — TOOLS + CONVERSATIONAL MODE ✅ (09/05/2026)
+  - config.py ✓ (brain_model = qwen3:8b, conversation_silence = 20s)
+  - stt.py ✓ Moonshine tiny-en. Energy threshold (0.001 RMS) skips silence. Timestamp markers stripped.
+  - tts.py ✓ Kokoro ONNX (bm_lewis) — fully local, natural voice.
+  - brain.py ✓ Full tool-calling pipeline — Ollama tool schemas, ack before action, 20-msg history, memory in system prompt, /no_think for Qwen3
+  - wake.py ✓ Alexa wake word, debounce
+  - main.py ✓ Conversational loop — stays active after wake word, 20s silence → "Standing by, sir."
+  - tools.py ✓ 12 tools: get_time, get_date, get_weather, set_timer, get_system_stats, open_app, set_volume, mute, add_note, add_task, web_search, remember
+  - memory.md in vault (z Meta/JARVIS/) — persistent facts loaded into system prompt each session
+  - **Next: tune ENERGY_THRESHOLD** (debug rms prints still in stt.py — remove when happy)
+  - **Next: Obsidian vault RAG** — search vault notes for context (separate session)
+  - **Next: Claude API as brain option** — ~0.3s to first token vs ~3-5s local. Hybrid approach.
+  - **Next: custom "Persona" wake word** — CoreWorxLab/openwakeword-training, 20-50 samples
   - discord_bot.py — not started
   - input.py — not started
   - **Custom "Persona" wake word** — needs training (CoreWorxLab/openwakeword-training, 20-50 samples). Using Alexa for now.
