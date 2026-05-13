@@ -1075,3 +1075,13 @@ Running log of every Claude session — what was built, changed, or decided.
 - Zen Browser set as system default browser
 - Decided to keep JARVIS fully local (no Claude API) — get as close as possible with qwen3:8b + tooling
 - Next session: Discord bot, pull gemma3:4b for screen awareness, custom wake word
+
+---
+
+## 13/05/2026 — Session 77 (Windows) — JARVIS research + OOP test + watch stuff
+- OOP test completed: output tracing, UML analysis, fill-in-the-blanks, keyword matching, Java error finding (4 errors)
+- Deep research on JARVIS architecture: vierisid/jarvis, isair/jarvis, Vocalis — feature ideas logged in Persona Build Notes
+- New features noted: barge-in, proactive mode, presence detection (DroidCam on M21), intent classification, MCP, dictation mode, Apple Watch integration
+- Apple Watch Series 3 (dad's) set up — Omnitrix photo face, watchOS 8.8.1, no jailbreak. Battery degraded ~3hrs.
+- Researched CMF Watch Pro 3 vs Apple Watch SE 2 vs Galaxy Watch — Galaxy Watch incompatible with iPhone, SE 2 refurb from CEX best value
+- Vault conflict resolved — Fedora session (76) had already pushed detailed JARVIS research notes, kept those
