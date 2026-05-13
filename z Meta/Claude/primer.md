@@ -32,7 +32,7 @@ Current project status, what's in progress, what's next.
 - **System font** — Segoe UI (copied from Windows partition), set via gsettings + GTK3/4 ✓
 - **Mouse sensitivity** — flat accel, sensitivity -0.15 ✓
 - **Voice Assistant (JARVIS/Persona)** — TOOLS + CONVERSATIONAL MODE ✅ (09/05/2026)
-  - config.py ✓ (brain_model = qwen3:8b, conversation_silence = 20s)
+  - config.py ✓ (brain_model = qwen3:8b → SWITCHING TO qwen3:1.7b — see research below)
   - stt.py ✓ Moonshine tiny-en. Energy threshold (0.001 RMS) skips silence. Timestamp markers stripped.
   - tts.py ✓ Kokoro ONNX (bm_lewis) — fully local, natural voice.
   - brain.py ✓ Full tool-calling pipeline — Ollama tool schemas, ack before action, 20-msg history, memory in system prompt, /no_think for Qwen3
@@ -40,6 +40,19 @@ Current project status, what's in progress, what's next.
   - main.py ✓ Conversational loop — stays active after wake word, 20s silence → "Standing by, sir."
   - tools.py ✓ 12 tools: get_time, get_date, get_weather, set_timer, get_system_stats, open_app, set_volume, mute, add_note, add_task, web_search, remember
   - memory.md in vault (z Meta/JARVIS/) — persistent facts loaded into system prompt each session
+
+  ### LLM Model Research (13/05/2026) — CONCLUSION: Switch to qwen3:1.7b
+  - Deep research done on 21-model tool-calling benchmark (Mike Veerman, Feb 2026)
+  - qwen3:1.7b scored 0.960 agent score — HIGHEST of all 21 models tested
+  - qwen3:8b: ~25–35 tok/s, ~6s TTFT. qwen3:1.7b: ~100–140 tok/s, sub-1s TTFT expected on RX 6700
+  - qwen3:4b: same agent score as qwen3:0.6b (0.880) — worse than 1.7b, not worth it
+  - phi4-mini: confirmed broken tool_calls on Ollama (GitHub issue #9437), skip
+  - llama3.2:3b: calls tools on EVERY prompt — unusable
+  - Action: `ollama pull qwen3:1.7b`, create Modelfile with `num_ctx 2048` + `num_predict 256`
+  - Also add `OLLAMA_KEEP_ALIVE=-1` to systemd ROCm override
+  - Try `OLLAMA_FLASH_ATTENTION=1` + `OLLAMA_KV_CACHE_TYPE=q8_0` (may or may not activate on RDNA2)
+
+  - **Next: SWITCH brain_model to qwen3:1.7b and test** ← PRIORITY
   - **Next: tune ENERGY_THRESHOLD** (debug rms prints still in stt.py — remove when happy)
   - **Next: barge-in / interrupt mid-speech** — see Vocalis (Lex-au/Vocalis) for pattern
   - **Next: proactive JARVIS** — background daemon that speaks unprompted on triggers

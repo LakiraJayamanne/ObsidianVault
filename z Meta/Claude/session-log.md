@@ -4,6 +4,23 @@ tags:
   - claude/log
 ---
 
+## 13/05/2026 — Session (Fedora desktop) — LLM model research for JARVIS
+
+### Deep research: best model for voice assistant + tool calling on RX 6700 / ROCm / Ollama
+
+- Investigated 21-model tool-calling benchmark (Mike Veerman, Feb 2026) + VRAM/speed data
+- **Conclusion: switch brain_model from qwen3:8b → qwen3:1.7b**
+- qwen3:1.7b = 0.960 agent score, highest of all 21 models tested — beats 4b and 8b on tool judgment
+- qwen3:8b gives ~6s TTFT, ~25–35 tok/s. 1.7b should give sub-1s TTFT, ~100–140 tok/s on RX 6700
+- qwen3:4b (0.880) is worse than 1.7b at tool calling and slower — no reason to use it
+- phi4-mini has confirmed broken tool_calls in Ollama (issue #9437) — do not use
+- llama3.2:3b calls tools on every prompt — do not use
+- Latency optimisation plan: Modelfile with num_ctx 2048 + num_predict 256, OLLAMA_KEEP_ALIVE=-1, test FLASH_ATTENTION + KV_CACHE_TYPE=q8_0
+
+### Decisions
+- qwen3:1.7b is the new brain model — to be tested next session
+- qwen3:8b kept as fallback only
+
 ## 09/05/2026 — Session (Fedora desktop, midnight)
 
 ### JARVIS full optimization pass
