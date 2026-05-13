@@ -4,6 +4,28 @@ tags:
   - claude/log
 ---
 
+## 13/05/2026 — Session (Fedora desktop) — STT deep research for JARVIS accent issues
+
+### Deep research: best STT for RX 6700 + British/Sri Lankan accent + low latency
+
+- Investigated 7 options: Moonshine, Whisper variants (whisper.cpp/faster-whisper/distil), Parakeet, Vosk, wav2vec2, RealtimeSTT
+- Root cause of Moonshine failures identified: trained on American English (LibriSpeech) only — accent-blind
+- Moonshine base (10.07% WER) vs tiny (12.66%) — base is better but same accent blindness problem
+- **Conclusion: switch to whisper.cpp + Vulkan + small.en model**
+- Vulkan backend: no ROCm/HSA_OVERRIDE needed, works on all AMD GPUs including gfx1031 via standard driver
+- Build: `cmake -B build -DGGML_VULKAN=1 && cmake --build build -j`
+- Python: `GGML_VULKAN=1 pip install git+https://github.com/absadiki/pywhispercpp`
+- Expected latency on RX 6700: ~300–600ms per 3–5s utterance (extrapolated from RX 6600 HIP: ~1s/min audio)
+- CPU fallback: faster-whisper base.en int8 → ~800ms–1.5s on i5-12400F
+- Accent research: Whisper large >> medium >> small >> tiny on accent diversity; small.en is trained on 680k hrs diverse web audio
+- Distil-whisper AVOIDED: specifically underperforms on accent-diverse benchmarks (EdAcc, AfriSpeech OOD)
+- Parakeet AVOIDED: CUDA-only, no AMD path whatsoever
+- Vosk AVOIDED: Kaldi-based, acceptable latency but accuracy tier below Whisper small
+
+### Decisions
+- Switch stt.py from moonshine-voice to pywhispercpp with Vulkan + small.en
+- Keep faster-whisper base.en int8 as CPU fallback option
+
 ## 13/05/2026 — Session (Fedora desktop) — LLM model research for JARVIS
 
 ### Deep research: best model for voice assistant + tool calling on RX 6700 / ROCm / Ollama

@@ -52,7 +52,26 @@ Current project status, what's in progress, what's next.
   - Also add `OLLAMA_KEEP_ALIVE=-1` to systemd ROCm override
   - Try `OLLAMA_FLASH_ATTENTION=1` + `OLLAMA_KV_CACHE_TYPE=q8_0` (may or may not activate on RDNA2)
 
+  ### STT Research (13/05/2026) — CONCLUSION: Switch to whisper.cpp small.en + Vulkan
+  - Deep research on 7 STT options for RX 6700 (gfx1031), British/Sri Lankan accent, low latency
+  - Moonshine tiny-en root cause: trained only on American English (LibriSpeech), 12.66% WER — accent-blind
+  - Moonshine base: 10.07% WER but still American-only training — won't fix accent issue
+  - **VERDICT: whisper.cpp + Vulkan backend + small.en model**
+    - Vulkan works on all AMD GPUs including gfx1031 — NO HSA_OVERRIDE needed (not ROCm)
+    - Build: `cmake -B build -DGGML_VULKAN=1 && cmake --build build -j --config Release`
+    - Python via pywhispercpp: `GGML_VULKAN=1 pip install git+https://github.com/absadiki/pywhispercpp`
+    - Whisper small.en: 244M params, 466MB, multilingual-trained → accent-robust
+    - Expected latency: ~300–600ms for 3–5s utterance on RX 6700 via Vulkan (similar to RX 6600 HIP at ~1s/min)
+    - Whisper small on Indian accent: 17.36% WER fine-tuned, untuned but much better than Moonshine tiny on accents
+    - Larger whisper consistently beats smaller on accent diversity (large >> medium >> small >> tiny)
+    - Alternative (CPU fallback): faster-whisper base.en int8 — ~800ms–1.5s on i5-12400F — acceptable
+    - Why NOT distil-whisper: distilled models specifically underperform on accent-diverse benchmarks (EdAcc, AfriSpeech)
+    - Why NOT Parakeet: CUDA-only, no AMD GPU path, CPU latency unknown but designed for NVIDIA
+    - Why NOT Vosk: Kaldi-based, good for low-power but noticeably lower accuracy than Whisper
+    - Why NOT wav2vec2: 37% WER on clean audio in 2025 benchmarks — worse than Whisper on everything
+    - Model file: `models/ggml-small.en.bin` (~466MB), download with `bash models/download-ggml-model.sh small.en`
   - **Next: SWITCH brain_model to qwen3:1.7b and test** ← PRIORITY
+  - **Next: Replace stt.py with whisper.cpp + Vulkan + small.en** ← STT priority
   - **Next: tune ENERGY_THRESHOLD** (debug rms prints still in stt.py — remove when happy)
   - **Next: barge-in / interrupt mid-speech** — see Vocalis (Lex-au/Vocalis) for pattern
   - **Next: proactive JARVIS** — background daemon that speaks unprompted on triggers
