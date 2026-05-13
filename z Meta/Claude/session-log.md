@@ -1034,3 +1034,24 @@ Running log of every Claude session — what was built, changed, or decided.
 - New features noted for Persona: barge-in/interrupt, proactive mode, presence detection (DroidCam on M21), intent classification, MCP integrations, dictation mode, Apple Watch integration
 - Full feature priority list saved to Persona Build Notes.md
 - Heading to Fedora to work on JARVIS STT energy threshold tuning
+
+---
+
+## 13/05/2026 — Session 76 (desktop/Fedora) — JARVIS major session
+
+- STT: swapped Moonshine → faster-whisper small.en int8 CPU for accent handling (Sri Lankan/British accent was causing bad transcriptions like "pause"→"pulse", "Hey Jarvis"→"Tayman Parler")
+- STT: rewrote recording loop to use VAD-based streaming (stops on silence ~400ms, not fixed timeout — short commands now ~0.5s instead of 6s)
+- Brain: qwen3:8b → jarvis-brain (qwen3:1.7b, num_ctx 2048, num_predict 256) — ~4s → ~2.5s latency
+- Brain: added direct tool responses (bypasses second LLM call for simple tools)
+- Brain: intent classifier — garbage filter + keyword routing (time/weather/mute/media/open = instant, 0ms LLM)
+- TTS: barge-in/interrupt with 0.3s echo delay to prevent speaker feedback triggering it
+- TTS: speak lock for thread safety with proactive daemon
+- Tools: media controls (play/pause/next/prev/stop) with smooth fade in/out via wpctl
+- Tools: mute fix (was using "default" instead of @DEFAULT_AUDIO_SINK@), media_stop uses playerctl pause for Spotify compat
+- Wake: changed from Alexa → hey_jarvis_v0.1.onnx
+- Proactive daemon: weather watcher, Outlook calendar via MS Graph (OAuth registered under lakirajay@gmail.com, client ID in memory), morning briefing, 90min focus session, GPU health
+- Ollama systemd override: FLASH_ATTENTION=1, KV_CACHE q8_0, KEEP_ALIVE=-1
+- Volume: 120% via wpctl, persistent in Hyprland execs.conf
+- Azure app: JARVIS registered, client ID 9dbc5c1d-bc52-4733-ae82-ae52390a6cbd (lakirajay@gmail.com), Calendars.Read + User.Read
+- Vulkan whisper.cpp attempted but blocked (glslc not in Fedora repos) — CPU faster-whisper is sufficient
+- Pushed to GitHub: LakiraJayamanne/MyPersona (commit 6598bc1)

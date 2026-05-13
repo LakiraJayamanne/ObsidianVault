@@ -72,12 +72,21 @@ Current project status, what's in progress, what's next.
     - Model file: `models/ggml-small.en.bin` (~466MB), download with `bash models/download-ggml-model.sh small.en`
   - **Next: SWITCH brain_model to qwen3:1.7b and test** ← PRIORITY
   - **Next: Replace stt.py with whisper.cpp + Vulkan + small.en** ← STT priority
-  - **Next: tune ENERGY_THRESHOLD** (debug rms prints still in stt.py — remove when happy)
-  - **Next: barge-in / interrupt mid-speech** — see Vocalis (Lex-au/Vocalis) for pattern
-  - **Next: proactive JARVIS** — background daemon that speaks unprompted on triggers
-  - **Next: presence detection** — DroidCam on Samsung M21 → OpenCV face detection
+  - STT: faster-whisper small.en int8 CPU (replaces Moonshine — much better accent handling)
+  - STT: VAD streaming (stops on silence ~400ms, no fixed timeout)
+  - Brain: jarvis-brain (qwen3:1.7b, num_ctx 2048) — ~2-4s response
+  - Brain: direct tool responses + intent keyword routing (time/weather/mute/media = instant)
+  - Brain: garbage filter (drops STT noise before LLM)
+  - TTS: barge-in/interrupt with echo delay, speak lock for thread safety
+  - Tools: media controls with fade in/out, mute fix, Spotify-compatible stop
+  - Wake: hey_jarvis_v0.1.onnx (was Alexa)
+  - Proactive: weather watcher, Outlook calendar (MS Graph OAuth done), morning briefing, focus session, GPU health
+  - Ollama: FLASH_ATTENTION=1, KV_CACHE q8_0, KEEP_ALIVE=-1
   - **Next: custom "Persona" wake word** — CoreWorxLab/openwakeword-training, 20-50 samples
-  - Full feature priority list in Persona Build Notes.md
+  - **Next: always-on media/mute hotwords** — parallel listener, no wake word needed
+  - **Next: STT fine-tuning** — train faster-whisper small on Lakira's voice (~1-2hr recording)
+  - **Next: dictation mode** — hotkey → speak → paste into any app
+  - **Next: presence detection** — DroidCam on Samsung M21 (deprioritised, last on list)
   - discord_bot.py — not started
   - input.py — not started
 - **Apple Watch (Series 3)** — Dad's old watch, set up with Omnitrix photo face. Battery degraded (~3hrs). watchOS 8.8.1, no jailbreak possible. Clockology not compatible. Decent for step tracking/notifications as-is. Considering SE 2nd gen refurb from CEX (~£105) eventually.
