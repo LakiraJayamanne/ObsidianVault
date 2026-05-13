@@ -41,12 +41,14 @@ Current project status, what's in progress, what's next.
   - tools.py ✓ 12 tools: get_time, get_date, get_weather, set_timer, get_system_stats, open_app, set_volume, mute, add_note, add_task, web_search, remember
   - memory.md in vault (z Meta/JARVIS/) — persistent facts loaded into system prompt each session
   - **Next: tune ENERGY_THRESHOLD** (debug rms prints still in stt.py — remove when happy)
-  - **Next: Obsidian vault RAG** — search vault notes for context (separate session)
-  - **Next: Claude API as brain option** — ~0.3s to first token vs ~3-5s local. Hybrid approach.
+  - **Next: barge-in / interrupt mid-speech** — see Vocalis (Lex-au/Vocalis) for pattern
+  - **Next: proactive JARVIS** — background daemon that speaks unprompted on triggers
+  - **Next: presence detection** — DroidCam on Samsung M21 → OpenCV face detection
   - **Next: custom "Persona" wake word** — CoreWorxLab/openwakeword-training, 20-50 samples
+  - Full feature priority list in Persona Build Notes.md
   - discord_bot.py — not started
   - input.py — not started
-  - **Custom "Persona" wake word** — needs training (CoreWorxLab/openwakeword-training, 20-50 samples). Using Alexa for now.
+- **Apple Watch (Series 3)** — Dad's old watch, set up with Omnitrix photo face. Battery degraded (~3hrs). watchOS 8.8.1, no jailbreak possible. Clockology not compatible. Decent for step tracking/notifications as-is. Considering SE 2nd gen refurb from CEX (~£105) eventually.
 - **Gym Tracker** — Phase 1 complete. Phase 2 not started.
 - **Memory system** — Fully in Obsidian vault ✓
 - **Minecraft Server (Aternos)** — DEPRIORITISED (Lakira lost interest)
@@ -55,6 +57,13 @@ Current project status, what's in progress, what's next.
   - 1080p native, FSR Native AA, Lighting Ultra, RT ON, Power Limit +15%, Fan 100%
 
 ## CO1109 Enron Assignment — SUBMITTED ✓ (27/04/2026 1:30am)
+
+## OOP Test — COMPLETED (13/05/2026)
+- Q1: polymorphism/method overriding output trace (B)
+- Q2: UML diagram false statements (B, D, E)
+- Q3: fill-in-the-blanks on abstract classes, super, overriding, polymorphism
+- Q4: keyword matching (final, static, implements, super)
+- Q5: Java error finding — 4 errors (extend→extends, this.name→super(name,price), discount missing (), main missing static)
 
 ## GroundLink Sri Lanka — DAD REVIEW IN PROGRESS 🔥 PRIORITY #1
 - **What it is:** SaaS platform for guide/driver/vehicle management in Sri Lankan inbound tourism
@@ -103,35 +112,25 @@ Current project status, what's in progress, what's next.
 ## Voice Assistant — Current Stack
 | Component | Choice |
 |---|---|
-| Wake word | OpenWakeWord (fully local, no account needed) |
-| STT | Whisper tiny (local, CPU — SLOW, needs replacing) |
-| Brain | Ollama — llama3.2:3b on GPU (~0.5s) |
-| TTS | edge-tts — en-GB-RyanNeural (cloud, needs replacing) |
+| Wake word | OpenWakeWord (Alexa) — custom "Persona" wake word planned |
+| STT | Moonshine tiny-en (local, ~270ms CPU) |
+| Brain | Ollama — qwen3:8b on GPU |
+| TTS | Kokoro ONNX (bm_lewis) — fully local |
 | Text input | Discord bot (not started) |
-| Actions | tools.py (not started) |
 | Memory | Obsidian vault — z Meta/JARVIS/ |
 
-- Wake word: "Persona"
-- Assistant name: **JARVIS / Persona** (Persona game character, TBD)
-- Project at: `/home/Lakira/Documents/PROGRAMMING/PERSONAL/MyPersona/` (laptop + desktop, synced via GitHub)
-- Full build notes + optimization plan: `Programming/Personal Projects/Jarvis/Persona Build Notes.md`
-
-### STT Optimization Plan (researched 08/05/2026)
-**Step 1 (quick win):** Switch to `faster_whisper` with `compute_type="int8"`, pre-load model once at startup + add Silero VAD. The 24s is likely a code issue, not a GPU issue.
-**Step 2:** Try Moonshine STT (`pip install moonshine-voice`) — ~270ms on CPU, beats Whisper Large V3 accuracy.
-**Step 3:** Swap edge-tts → Piper TTS (`en_GB-alan-medium` voice) with streaming synthesis.
-**Step 4:** Stream LLM tokens → TTS (sentence buffer pattern) — biggest single architecture win.
-**Step 5 (optional):** whisper.cpp with Vulkan (`-DGGML_VULKAN=1`) for GPU STT on RX 6700.
-
-**Acknowledgement pattern:** For long tasks, JARVIS speaks an immediate ack ("On it sir, researching xyz") then does the work in background and reports when done.
+- Project at: `/home/Lakira/Documents/PROGRAMMING/PERSONAL/MyPersona/` (synced via GitHub)
+- Full build notes + feature roadmap: `Programming/Personal Projects/Jarvis/Persona Build Notes.md`
 
 ## Priority Order
 1. **GroundLink Sri Lanka** — awaiting dad's feedback
-2. **JARVIS STT optimization** — clear plan ready, do on Fedora
-3. **JARVIS tools.py** — give Persona real-time data (time, weather, etc.)
-4. **GRUB theme** — Gorgeous-GRUB, remove nomodeset
-5. **Plymouth boot animation**
-6. **Gym Tracker Phase 2**
+2. **JARVIS — STT energy threshold tuning** — do on Fedora, remove debug prints when done
+3. **JARVIS — barge-in/interrupt** — Vocalis pattern
+4. **JARVIS — proactive mode** — background trigger daemon
+5. **JARVIS — presence detection** — DroidCam on Samsung M21
+6. **GRUB theme** — Gorgeous-GRUB, remove nomodeset
+7. **Plymouth boot animation**
+8. **Gym Tracker Phase 2**
 
 ## Raspberry Pi Projects — PLANNED (02/05/2026)
 ### Portable JARVIS (Pi Zero 2 W) — ~£29

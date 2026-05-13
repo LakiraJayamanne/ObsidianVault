@@ -151,3 +151,91 @@ This makes latency feel near-zero regardless of actual task duration.
 - Voice always speaks back (edge-tts)
 - Persistent memory / Obsidian vault RAG (v2)
 - Assistant name: JARVIS (placeholder until Persona game character chosen)
+
+---
+
+## Deep Research: Architecture Ideas (13/05/2026)
+
+### Barge-in / Interrupt Mid-Speech
+- **Vocalis** (github.com/Lex-au/Vocalis) — gold standard for this. Speech-to-speech with mid-speech interruption, chunked TTS streaming, silence detector + interrupt detector running in parallel. Clean Python, worth reading the architecture.
+- Pattern: frontend audio buffer → silence detector → interrupt detector → backend interrupt handler
+- Current Persona gap: no way to stop JARVIS mid-response
+
+### Presence Detection (no wake word needed)
+- Webcam + OpenCV — detect when you sit down at your desk, greet automatically. Know when you've walked away.
+- No need to say wake word every time. JARVIS just knows you're there.
+- Project reference: vannu07/jarvis (face recognition + hotword detection combo)
+
+### Emotion Detection
+- BERT model reads voice tone — frustrated → responds differently than curious/happy
+- Makes the interaction feel natural rather than robotic
+- v3/v4 feature, not urgent
+
+### MCP Integrations
+- Home Assistant has an official MCP server — when Pi-hole/smart home is set up, JARVIS controls it natively
+- No custom tool code needed for: GitHub, Notion, Slack, databases — all plug straight in via MCP
+- isair/jarvis uses embedding-based tool selection — picks relevant tools per query instead of passing everything to the LLM each time. Keeps context clean and fast.
+
+### Proactive JARVIS (biggest idea)
+- Instead of only responding when called, JARVIS watches for triggers and speaks up unprompted
+- Examples: "You have a lecture in 10 minutes", "Your build finished", "Weather's changed", "It's been 2 hours since you last drank water"
+- This is what separates a voice chatbot from a real assistant
+- Implementation: background daemon with scheduled checks + event listeners → speaks when condition met
+
+### Intent Classification
+- Tiny separate model just to classify intent before the main brain handles it
+- isair/jarvis uses gemma4:e2b for this
+- Prevents false triggers, routes to right tool faster, stops the main LLM wasting context on "did you mean to talk to me?"
+
+### Dictation Mode
+- Hold a hotkey → speak → transcription pasted into any app
+- Free offline alternative to WisprFlow / Whisper Flow
+- Useful outside of assistant interactions — notes, messages, code comments
+
+---
+
+## Research: vierisid/jarvis (13/05/2026)
+
+Studied the open-source [usejarvis.dev](https://usejarvis.dev) project for architecture ideas. Fully open source, supports Ollama (free), Docker-based.
+
+**Ideas worth stealing:**
+
+1. **Sidecar architecture** — a lightweight Go binary runs on the machine and gives the brain "hands": desktop automation, Win32 API on Windows, X11 on Linux. This is the biggest gap in the current Persona stack — no desktop control at all.
+
+2. **Authority engine** — gates actions and keeps audit logs before executing anything. Good for safety when tools can open apps, run commands, etc.
+
+3. **Multi-agent** — specialist LLMs for different task types rather than one brain doing everything. e.g. a fast model for quick answers, a smarter model for complex tasks.
+
+4. **Screen awareness** — the daemon can see what's on screen and act on it. Combined with sidecar desktop control, this is what makes it feel like a real JARVIS.
+
+5. **Visual workflow builder** — React UI with 50+ node types for building automations. Overkill for now but interesting longer term.
+
+**Stack:** Bun + TypeScript (daemon), Go (sidecar), React 19 + Tailwind (UI), SQLite (memory/logs), openwakeword (same as Persona).
+
+**Repo:** https://github.com/vierisid/jarvis
+
+---
+
+## Feature Priority Order (13/05/2026)
+
+1. **STT latency (Moonshine)** — nothing else matters if the pipeline feels slow. Do on Fedora first.
+2. **Barge-in / interrupt** — makes it feel like a real conversation. Vocalis has the pattern.
+3. **Proactive JARVIS** — background daemon watching for triggers, speaks unprompted. Makes it feel alive.
+4. **Presence detection** — DroidCam on Samsung M21 → OpenCV face detection. No webcam needed.
+5. **Intent classification** — tiny model to prevent false triggers (gemma4:e2b pattern from isair/jarvis).
+6. **MCP integrations** — once pipeline is solid. Home Assistant, GitHub etc.
+7. **Dictation mode** — hold hotkey → speak → paste into any app. Offline WisprFlow alternative.
+8. **Apple Watch integration** — Watch → iPhone Shortcut → HTTP POST → Persona Flask/FastAPI endpoint. Also works in reverse: Persona pushes notifications → appear on watch. ~10 lines to add the API.
+9. **Emotion detection** — v3/v4, not urgent.
+
+---
+
+## Reference: openclaw.ai (noted 02/04/2026, confirmed 13/05/2026)
+
+- Persistent local AI assistant by Peter Steinberger
+- Controlled via WhatsApp/Telegram/Discord/Signal/iMessage
+- Browser control, file read/write, command execution, 50+ integrations
+- Supports Claude, GPT, local models
+- Free and open source
+- Ismail (Lakira's friend) uses this for his own JARVIS setup
+- Different approach to Persona — messaging-app controlled vs voice-first

@@ -983,3 +983,15 @@ Running log of every Claude session — what was built, changed, or decided.
 - Researched other JARVIS builds: ethanplusai (Claude API brain, Mac), huwprosser (MLX Mac), tom_visionai_pro (tutorial)
 - Key insight from research: multi-command chaining (multiple tool calls per query) already supported by Ollama tool API, worth testing
 - Pushed to GitHub: LakiraJayamanne/MyPersona
+
+---
+
+## 11/05/2026 — Session 75 (Windows) — Apple Watch setup + OOP test
+- Set up dad's old Apple Watch Series 3 (watchOS 8.8.1) — reset, paired, set Omnitrix photo face
+- Attempted Clockology sideload via ipatool — downloaded IPA but app crashed (signing/compatibility issue)
+- Explored CEX for Apple Watch SE 2 refurb — £105 for Grade B 40mm looks like best value
+- Helped with OOP test: method overriding output trace, UML false statement analysis, fill-in-the-blanks, keyword matching, Java error finding (4 errors found)
+- Deep research session: vierisid/jarvis + isair/jarvis + Vocalis architecture
+- New features noted for Persona: barge-in/interrupt, proactive mode, presence detection (DroidCam on M21), intent classification, MCP integrations, dictation mode, Apple Watch integration
+- Full feature priority list saved to Persona Build Notes.md
+- Heading to Fedora to work on JARVIS STT energy threshold tuning
