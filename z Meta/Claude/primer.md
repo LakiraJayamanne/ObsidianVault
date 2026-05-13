@@ -70,25 +70,28 @@ Current project status, what's in progress, what's next.
     - Why NOT Vosk: Kaldi-based, good for low-power but noticeably lower accuracy than Whisper
     - Why NOT wav2vec2: 37% WER on clean audio in 2025 benchmarks — worse than Whisper on everything
     - Model file: `models/ggml-small.en.bin` (~466MB), download with `bash models/download-ggml-model.sh small.en`
-  - **Next: SWITCH brain_model to qwen3:1.7b and test** ← PRIORITY
-  - **Next: Replace stt.py with whisper.cpp + Vulkan + small.en** ← STT priority
-  - STT: faster-whisper small.en int8 CPU (replaces Moonshine — much better accent handling)
-  - STT: VAD streaming (stops on silence ~400ms, no fixed timeout)
-  - Brain: jarvis-brain (qwen3:1.7b, num_ctx 2048) — ~2-4s response
-  - Brain: direct tool responses + intent keyword routing (time/weather/mute/media = instant)
-  - Brain: garbage filter (drops STT noise before LLM)
-  - TTS: barge-in/interrupt with echo delay, speak lock for thread safety
-  - Tools: media controls with fade in/out, mute fix, Spotify-compatible stop
-  - Wake: hey_jarvis_v0.1.onnx (was Alexa)
-  - Proactive: weather watcher, Outlook calendar (MS Graph OAuth done), morning briefing, focus session, GPU health
-  - Ollama: FLASH_ATTENTION=1, KV_CACHE q8_0, KEEP_ALIVE=-1
+  ### Session 77 changes (13/05/2026)
+  - Brain: qwen3:1.7b → jarvis-brain (qwen3:8b, num_ctx 8192, num_predict 1024, think=True for tool decisions)
+  - Memory: about-lakira.md loaded into system prompt every session ✓
+  - Memory: async proactive extraction after each LLM turn (background thread, strict prompt)
+  - Intent: apostrophe normalisation fix, threshold lowered to 4 words, many new intent words
+  - Intent: set_personality removed from LLM tools — keyword-routed only (no more hallucination)
+  - Intent: routes for now_playing, notes, tasks, clipboard, screen, personality
+  - Brain: _strip_think on all responses, think=True on tool-decision call
+  - Tools added: read_notes, read_tasks, get_now_playing, remind_at, read_clipboard, log_gym, describe_screen
+  - Tools: web_research upgraded — DDG HTML search + fetches 3 sources, combines results
+  - main.py: last_speech reset after _respond (standby timer fix)
+  - wake.py: debug score print removed
+  - Zen Browser set as system default browser
+  - psutil installed (CPU/RAM now show in system stats)
   - **Next: custom "Persona" wake word** — CoreWorxLab/openwakeword-training, 20-50 samples
   - **Next: always-on media/mute hotwords** — parallel listener, no wake word needed
   - **Next: STT fine-tuning** — train faster-whisper small on Lakira's voice (~1-2hr recording)
   - **Next: dictation mode** — hotkey → speak → paste into any app
+  - **Next: Discord bot** — discord_bot.py, text input to JARVIS via Discord channel
+  - **Next: screen awareness** — pull gemma3:4b (`ollama pull gemma3:4b`), then describe_screen works
   - **Next: presence detection** — DroidCam on Samsung M21 (deprioritised, last on list)
   - discord_bot.py — not started
-  - input.py — not started
 - **Apple Watch (Series 3)** — Dad's old watch, set up with Omnitrix photo face. Battery degraded (~3hrs). watchOS 8.8.1, no jailbreak possible. Clockology not compatible. Decent for step tracking/notifications as-is. Considering SE 2nd gen refurb from CEX (~£105) eventually.
 - **Gym Tracker** — Phase 1 complete. Phase 2 not started.
 - **Memory system** — Fully in Obsidian vault ✓

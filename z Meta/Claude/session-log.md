@@ -1055,3 +1055,23 @@ Running log of every Claude session — what was built, changed, or decided.
 - Azure app: JARVIS registered, client ID 9dbc5c1d-bc52-4733-ae82-ae52390a6cbd (lakirajay@gmail.com), Calendars.Read + User.Read
 - Vulkan whisper.cpp attempted but blocked (glslc not in Fedora repos) — CPU faster-whisper is sufficient
 - Pushed to GitHub: LakiraJayamanne/MyPersona (commit 6598bc1)
+
+---
+
+## 13/05/2026 — Session 77 (desktop/Fedora) — JARVIS tools, memory, qwen3:8b
+
+- Continued straight from Session 76
+- Brain upgraded: qwen3:1.7b → qwen3:8b (num_ctx 8192, think=True for tool decisions)
+- Memory system: about-lakira.md now loaded into system prompt every session — JARVIS knows who Lakira is
+- Async proactive memory extraction after every LLM turn (background thread, strict "stable long-term facts only" prompt)
+- Fixed standby timer bug: last_speech now resets after JARVIS finishes responding
+- Fixed intent filter: apostrophe normalisation (what's→whats), threshold lowered to 4 words
+- Fixed set_personality hallucination: removed from LLM tools, keyword-routed only
+- Fixed set_volume: was using 'default' instead of @DEFAULT_AUDIO_SINK@
+- Fixed psutil: installed in venv (CPU/RAM now show in system stats)
+- Added TARS-style humour/sarcasm settings (0-100 dials, voice-adjustable)
+- Added tools: read_notes, read_tasks, get_now_playing, remind_at, read_clipboard, log_gym, describe_screen
+- web_research upgraded to multi-source (DDG HTML + 3 page fetch + combine)
+- Zen Browser set as system default browser
+- Decided to keep JARVIS fully local (no Claude API) — get as close as possible with qwen3:8b + tooling
+- Next session: Discord bot, pull gemma3:4b for screen awareness, custom wake word
