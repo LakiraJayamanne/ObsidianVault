@@ -4,6 +4,13 @@ tags:
   - claude/log
 ---
 
+## 14/05/2026 — Session (Windows) — Nutrition chat
+
+- Looked up calories for Thai Grass Coventry Korean fried chicken + sticky rice (~950–1,050 kcal estimated, no official nutrition data available)
+- Full macro breakdown provided: ~41g protein, ~33g fat, ~97g carbs, ~1,050mg sodium
+- Corrected cut targets in memory: 2000 kcal / 120g protein / 240g carbs / 62g fat
+- Recommended tuna + rice cakes for remaining macros (33g protein, 400 kcal, 50g carbs, 22g fat)
+
 ## 13/05/2026 — Session (Fedora desktop) — STT deep research for JARVIS accent issues
 
 ### Deep research: best STT for RX 6700 + British/Sri Lankan accent + low latency
