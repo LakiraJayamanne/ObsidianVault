@@ -1092,3 +1092,29 @@ Running log of every Claude session — what was built, changed, or decided.
 - Apple Watch Series 3 (dad's) set up — Omnitrix photo face, watchOS 8.8.1, no jailbreak. Battery degraded ~3hrs.
 - Researched CMF Watch Pro 3 vs Apple Watch SE 2 vs Galaxy Watch — Galaxy Watch incompatible with iPhone, SE 2 refurb from CEX best value
 - Vault conflict resolved — Fedora session (76) had already pushed detailed JARVIS research notes, kept those
+
+---
+
+## 15/05/2026 — Session 78 (Windows desktop) — SPID planning + homelab design
+
+- Researched self-hosting and home servers from scratch
+- **SPID** named and defined — Self-hosted Personal Intelligence Daemon, pronounced "Spidy" (Spider-Man reference)
+- SPID is the entire homelab, not just the voice assistant
+- Hardware decision: Raspberry Pi 5 4GB (~£128 total: Pi + PSU + cooler + microSD + 2TB HDD)
+- Services: Pi-hole + Jellyfin (1080p) + Nextcloud + SPID voice layer + SPID web UI — all Docker on Pi 5
+- Dropped Immich (too heavy for Pi 5), dropped separate Pi Zero W for Pi-hole (runs on Pi 5 instead)
+- Brain routing decision: Claude Sonnet API as primary always-on brain, Ollama qwen3:8b on desktop GPU as upgrade when VRAM > 6GB free
+- Dynamic routing: Pi 5 checks desktop VRAM via rocm-smi over SSH before each request
+- Running cost: ~£3.60/month total (Pi electricity + Claude API) — cheaper than Claude subscription
+- Switching to Claude API means SPID IS essentially Claude, with memory/personality ported via system prompt
+- Mobile: iPhone Shortcuts → Pi 5 → response. Apple Watch triggers Shortcut from wrist.
+- Web UI: PWA, installable on Mac/iPhone/any device, no native app needed
+- UI design: HUD + Apple glass hybrid, black (#080808) + deep crimson red (#C0001A), Superior Spider-Man inspired
+  - Radar circle centre, glass panels left/right, voice waveform + command input bottom
+  - Boot screen: terminal-style loading sequence
+  - Stats toggle: HUD-style data cards
+  - Stack: Next.js + Tailwind + Framer Motion
+- Reference: Blink JARVIS dashboard (blink.new/p/jarvis-dashboard-ui-xqnrnbw1) — no public source, building from scratch
+- Full architecture doc saved: Programming/Personal Projects/Jarvis/Homelab & JARVIS Architecture.md
+- Dad is potentially funding the hardware ✓
+- Next session: boot Fedora, cd MyPersona, mkdir ui, npx create-next-app, build radar circle component first
