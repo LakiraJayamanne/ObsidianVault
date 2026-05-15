@@ -1118,3 +1118,14 @@ Running log of every Claude session — what was built, changed, or decided.
 - Full architecture doc saved: Programming/Personal Projects/Jarvis/Homelab & JARVIS Architecture.md
 - Dad is potentially funding the hardware ✓
 - Next session: boot Fedora, cd MyPersona, mkdir ui, npx create-next-app, build radar circle component first
+
+---
+
+## 15/05/2026 — Session 79 (Fedora desktop) — SPIDy naming + UI scaffold
+
+- Correct project path confirmed: `/home/lakira/Documents/Projects/SPIDy/`
+- Project renamed: MyPersona → SPID → SPIDEY → SPIDy (final)
+- GitHub repo renamed to LakiraJayamanne/SPIDy, remote URL updated
+- Full acronym finalised: **SPIDy = Standalone Personal Intelligent Device, Yours**
+- Next.js 16 + Tailwind + Framer Motion scaffolded at `SPIDy/ui/`
+- Next: edit globals.css (background #080808, crimson #C0001A, ditch dark mode media query), then build RadarCircle component

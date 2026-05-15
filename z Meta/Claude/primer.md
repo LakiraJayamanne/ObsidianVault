@@ -76,18 +76,16 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 - **Real-time:** WebSockets for streaming responses
 - **Boot screen:** terminal-style loading sequence (monospace, progress bar)
 - **Stats toggle:** HUD-style data cards slide in when toggled
-- **WHERE TO BUILD:** inside MyPersona repo at `/home/Lakira/Documents/PROGRAMMING/PERSONAL/MyPersona/ui/`
+- **WHERE TO BUILD:** inside SPIDy repo at `/home/lakira/Documents/Projects/SPIDy/ui/`
 - **Reference design:** Blink JARVIS dashboard (blink.new/p/jarvis-dashboard-ui-xqnrnbw1) — no public source, build from scratch
 
 ### Full architecture doc
 `Programming/Personal Projects/Jarvis/Homelab & JARVIS Architecture.md`
 
 ### NEXT SESSION — START HERE
-1. Boot into Fedora
-2. `cd ~/Documents/PROGRAMMING/PERSONAL/MyPersona`
-3. `mkdir ui && cd ui`
-4. `npx create-next-app@latest . --typescript --tailwind --app`
-5. Start building the SPID UI — radar circle component first
+1. Open VS Code → `~/Documents/Projects/SPIDy/ui`
+2. Edit `app/globals.css` — set `--background: #080808`, add `--crimson: #C0001A`, remove dark mode media query, set `--foreground: #ededed`
+3. Build the radar circle component first (`app/components/RadarCircle.tsx`)
 
 ---
 
@@ -101,7 +99,7 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 | Text input | Web UI (PWA) — Discord bot deprioritised |
 | Memory | Obsidian vault — z Meta/JARVIS/ |
 
-- Project at: `/home/Lakira/Documents/PROGRAMMING/PERSONAL/MyPersona/` (synced via GitHub: LakiraJayamanne/MyPersona)
+- Project at: `/home/lakira/Documents/Projects/SPIDy/` (synced via GitHub: LakiraJayamanne/SPIDy)
 
 ---
 
