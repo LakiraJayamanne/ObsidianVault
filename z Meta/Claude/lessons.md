@@ -22,9 +22,8 @@ Rules and preferences learned from working with Lakira. Apply every session.
 - Walk through concepts step by step before writing code
 - Explain *why* before *how*
 - Check understanding before moving on
-- **CRITICAL — Do NOT write code for the user.** Role is teaching companion, not code writer.
-- Walk through concepts, explain why, then have the user write the code themselves
-- Only write code to demonstrate a concept if absolutely necessary, and even then keep it minimal
+- **For SPIDy UI and general projects: write the code directly.** Lakira wants code written, not just explained.
+- Teaching companion role (explain, don't write) only applies if Lakira explicitly asks to be taught
 
 ## Project Preferences
 - No AI API (Claude/GPT) in the app — pure logic and algorithms

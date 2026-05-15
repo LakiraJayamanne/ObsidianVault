@@ -1129,3 +1129,33 @@ Running log of every Claude session — what was built, changed, or decided.
 - Full acronym finalised: **SPIDy = Standalone Personal Intelligent Device, Yours**
 - Next.js 16 + Tailwind + Framer Motion scaffolded at `SPIDy/ui/`
 - Next: edit globals.css (background #080808, crimson #C0001A, ditch dark mode media query), then build RadarCircle component
+
+---
+
+## 15/05/2026 — Session 80 (Fedora desktop) — SPIDy UI: 3D memory graph + brain routing revision
+
+### Done
+- Built `SPIDy/ui/app/components/MemoryGraph.tsx` — full 3D memory graph with React Three Fiber
+  - Obsidian vault nodes/edges from `/api/vault` (wikilink parsing)
+  - Three animated modes: idle (sphere + auto-rotate + zoom labels), listening (wave visualiser), thinking (Bohr atom model with orbital rings)
+  - Edge fade-in after nodes settle back to sphere positions (settlement detection via maxDist < 0.25)
+  - Double-click to follow/lock camera on a node, auto-release when zoomed out past dist 7
+  - Bloom post-processing via @react-three/postprocessing v3.0.4
+- Built `app/api/vault/route.ts` — walks vault fs, parses wikilinks, returns nodes+edges JSON
+- Updated `app/page.tsx` — mode toggle buttons (idle/listening/thinking)
+- Fixed: SVG rotation origin (animateTransform), hydration error (suppressHydrationWarning), camera lock bug, edge pop-in (opacity-based fade via ref mutation)
+- GitHub commit e804ea1 pushed to LakiraJayamanne/SPIDy
+
+### Decisions
+- Brain routing revised (after Ismail's advice on Claude API cost):
+  - Desktop GPU qwen3:8b → NVIDIA NIM → Claude API (last resort)
+  - Cost: ~£1.50-3/month vs £25-35/month with Claude API as primary
+- Architecture doc updated: `Programming/Personal Projects/Jarvis/Homelab & JARVIS Architecture.md`
+- Advice from Ismail logged: `Programming/Personal Projects/Jarvis/Advice - Ismail homelab.md`
+- llm-guy/jarvis research logged: `Programming/Personal Projects/Jarvis/Research - llm-guy jarvis.md`
+
+### Next
+- Status pill component (top of screen)
+- Glass panels (left/right)
+- Command input / voice waveform (bottom)
+- Wire brain.py to UI via WebSockets

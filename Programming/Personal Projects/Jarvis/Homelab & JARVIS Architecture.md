@@ -84,11 +84,34 @@ Dad is potentially helping fund it. ✓
 - Both Ollama and Claude API use same message format — swapping is clean
 - ~30–40 lines of routing logic on top of existing brain.py
 
-### Why Claude API not Ollama as primary
-- Claude Sonnet = same intelligence as Claude.ai subscription, pay per use
-- At 20 interactions/day → ~£0.57/month. Essentially free.
-- Faster than local Ollama in most cases
-- Lets Lakira ditch the Claude subscription — SPID becomes the interface
+### ⚠️ Brain routing revised (15/05/2026)
+Original plan had Claude API as primary. This is wrong for heavy usage.
+
+**Actual usage pattern:** Long working sessions, several times a day, like using Claude Code.
+- ~50k tokens/session × 3 sessions/day = 150k tokens/day
+- Claude Sonnet at that rate: **£25-35/month** — same as a subscription, worse value
+- Ismail confirmed this: £2 in 10 minutes on Sonnet with real usage
+
+**Revised routing (locked in 15/05/2026):**
+
+```
+1. Desktop on + Ollama reachable + VRAM > 6GB? → qwen3:8b on RX 6700 (free, private)
+2. Desktop off / unavailable? → NVIDIA NIM (free, 40 RPM, 100+ models, OpenAI-compatible)
+3. NIM rate-limited or complex task? → Claude API (last resort only)
+```
+
+**Why NVIDIA NIM over Groq as cloud fallback:**
+- NIM: 40 RPM free, 100+ models including Kimi K2.5, DeepSeek, Llama
+- Groq: only 1,000 req/day free — hits limit fast with heavy use
+- Both OpenAI-compatible (one-line swap)
+- NIM recommended by Ismail, confirmed current as of May 2026
+
+**Why desktop GPU is primary, not fallback:**
+- Heavy usage (long working sessions) = Claude API would cost £25-35/month
+- Desktop is on during working sessions anyway
+- qwen3:8b free, private, fast enough for most tasks
+
+**Claude API role:** Last resort for genuinely complex reasoning. Not primary.
 
 ### Wake word
 - "Hey Spidy" — OpenWakeWord, custom wake word planned
@@ -135,14 +158,15 @@ Dad is potentially helping fund it. ✓
 - ~80W average (idle with GPU loaded)
 - **~£15/month** — 10x more expensive than Pi 5 + Claude API combined
 
-### Verdict
-| Option | Monthly cost |
-|---|---|
-| Pi 5 24/7 electricity | ~£1.50 |
-| Claude API Sonnet (20x/day) | ~£2.10 |
-| Desktop 24/7 for Ollama | ~£15 |
+### Revised verdict (heavy usage)
+| Option | Monthly cost | Notes |
+|---|---|---|
+| Pi 5 24/7 electricity | ~£1.50 | Fixed |
+| Desktop GPU (qwen3:8b) | Free | Primary brain when at desk |
+| Groq API | Free tier | Primary when away from desk |
+| Claude API | ~£0-5 | Last resort only |
 
-**Total SPID running cost: ~£3.60/month.** Cheaper than Claude subscription, better experience.
+**Total: ~£1.50-3/month** — Pi electricity + occasional Claude API. Desktop GPU + NIM handle the rest for free.
 
 ---
 

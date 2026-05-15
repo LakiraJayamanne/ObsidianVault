@@ -56,11 +56,12 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 - SPID voice layer — always-on wake word + STT + TTS
 - SPID web UI — PWA, chat interface for family
 
-### Brain routing
-- Claude Sonnet API — primary always-on brain (~£2.10/month at 20x/day)
-- Ollama qwen3:8b on desktop GPU — upgrade when at desk and VRAM > 6GB free
-- Dynamic routing: Pi 5 checks desktop VRAM via rocm-smi over SSH before each request
-- Total running cost: ~£3.60/month (Pi electricity + Claude API)
+### Brain routing (REVISED 15/05/2026 — locked in)
+1. Desktop on + Ollama reachable + VRAM > 6GB → qwen3:8b on RX 6700 (free, private, primary)
+2. Desktop off / unavailable → NVIDIA NIM (free, 40 RPM, 100+ models, OpenAI-compatible)
+3. NIM rate-limited or complex task → Claude API (last resort only)
+- **Why:** Claude Sonnet at real usage = £25-35/month. Desktop GPU is free. NIM is free.
+- Total running cost: ~£1.50-3/month (Pi electricity + occasional Claude API)
 
 ### Users
 - Lakira — main (voice + phone + Apple Watch)
@@ -69,23 +70,25 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 
 ### UI — IN PROGRESS ⚡
 - **Design:** HUD-style + Apple glass hybrid. Black (#080808) + deep crimson red (#C0001A)
-- **Inspired by:** Superior Spider-Man suit aesthetic + Iron Man HUD
-- **Components:** radar circle (centre), glass panels (left/right), voice waveform + command input (bottom), status pill (top)
-- **Stack:** Next.js + Tailwind + Framer Motion (same as GroundLink)
-- **PWA:** installable on Mac (dad), iPhone, any device
-- **Real-time:** WebSockets for streaming responses
-- **Boot screen:** terminal-style loading sequence (monospace, progress bar)
-- **Stats toggle:** HUD-style data cards slide in when toggled
-- **WHERE TO BUILD:** inside SPIDy repo at `/home/lakira/Documents/Projects/SPIDy/ui/`
-- **Reference design:** Blink JARVIS dashboard (blink.new/p/jarvis-dashboard-ui-xqnrnbw1) — no public source, build from scratch
+- **Stack:** Next.js + Tailwind + Framer Motion
+- **WHERE:** `/home/lakira/Documents/Projects/SPIDy/ui/` — GitHub: LakiraJayamanne/SPIDy
+
+#### BUILT (15/05/2026)
+- `app/components/MemoryGraph.tsx` — 3D memory graph (React Three Fiber)
+  - Reads vault nodes+edges from `/api/vault` (Obsidian wikilink parsing)
+  - Three modes: idle (sphere + auto-rotate), listening (wave), thinking (Bohr atom rings)
+  - Edge fade-in after nodes settle, double-click follow, Bloom post-processing
+- `app/api/vault/route.ts` — walks vault, returns nodes+edges JSON
+- `app/page.tsx` — mode toggle buttons
+
+#### NEXT — build in order
+1. Status pill (top: "SPID ONLINE" / "LISTENING" / "THINKING")
+2. Glass panels (left and right)
+3. Command input / voice waveform (bottom)
+4. Wire backend via WebSockets
 
 ### Full architecture doc
 `Programming/Personal Projects/Jarvis/Homelab & JARVIS Architecture.md`
-
-### NEXT SESSION — START HERE
-1. Open VS Code → `~/Documents/Projects/SPIDy/ui`
-2. Edit `app/globals.css` — set `--background: #080808`, add `--crimson: #C0001A`, remove dark mode media query, set `--foreground: #ededed`
-3. Build the radar circle component first (`app/components/RadarCircle.tsx`)
 
 ---
 
