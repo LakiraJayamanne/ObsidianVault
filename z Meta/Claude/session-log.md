@@ -1159,3 +1159,12 @@ Running log of every Claude session — what was built, changed, or decided.
 - Glass panels (left/right)
 - Command input / voice waveform (bottom)
 - Wire brain.py to UI via WebSockets
+
+## 2026-05-15 — SPIDy UI session
+- Fixed Zen Browser background transparency (Hyprland opaque windowrule)
+- MemoryGraph: click-to-follow nodes (invisible hit sphere), label fade with JetBrains Mono font, folder-based atom ring assignment (z Meta→ring0, Programming→ring1, etc.)
+- Added speaking mode; sphere-breathing RMS audio visualiser for listening/speaking
+- Apple Watch health pipeline: Health Auto Export webhook → /api/health → HealthPanel
+- StatusPill, SystemPanel glass overlays
+- VoiceBar component (waveform canvas + text input)
+- Committed locally (a0d73f1), not pushed
