@@ -1168,3 +1168,62 @@ Running log of every Claude session — what was built, changed, or decided.
 - StatusPill, SystemPanel glass overlays
 - VoiceBar component (waveform canvas + text input)
 - Committed locally (a0d73f1), not pushed
+
+---
+
+## 15/05/2026 — Session 81 (Fedora desktop) — SPIDy backend wiring + health tools
+
+### Done
+- WebSocket server (ws_server.py) — broadcasts mode/rms/speech, receives text queries
+- Full state machine in main.py — listening/thinking/speaking/idle with stop phrases ("standby", "that's all", "goodbye" etc.)
+- Real RMS streaming from tts.py → frontend speaking mode visualiser
+- get_health tool with step goal context and contextual comments
+- get_health_trends tool with 90-day history
+- Intent routing for health queries (too greedy — needs fix)
+- Health queries skip both LLM calls via _RESPONSES — ~1-2s response time
+- VoiceBar wired (text input → WebSocket → brain → TTS)
+- lastSpeech text display above input bar in UI
+- Dev mode toggle button (⌥) for mode buttons
+- Bloom polish: thinking nodes flat, central node pulses
+- Mode transition: smoothstep scale on thinking entry
+- Recency glow on recently modified vault nodes
+- venv + wake.py paths fixed (old MyPersona references)
+- Git commit: c9e0e67 (local only, not pushed)
+
+### Known bugs
+- Intent router health regex too greedy — "heart" in any context triggers get_health
+- wake.py crash at line 39 (seen in terminal, needs investigation)
+- Text query ends with "listening" broadcast instead of "idle"
+
+### Decisions
+- interruptible=False for text input queries (voice queries remain interruptible)
+- Step goal: 10,000–12,000 steps/day (saved to JARVIS memory)
+- PPL split memory removed (was wrong)
+- Not pushing to GitHub this session (local checkpoint only at c9e0e67)
+
+---
+
+## 2026-05-16 — Session 82 (Fedora desktop, 2am) — SPIDy overnight agent run
+
+### Done
+- Spotify Web API abandoned (Spicetify breaks device registration). Switched to playerctl/MPRIS for now-playing. `/api/nowplaying` route, shows track + artist + album art in SystemPanel.
+- Spotify OAuth routes fixed: localhost → 127.0.0.1 (Spotify blocks localhost for non-HTTPS apps)
+- intent.py: health regex tightened — `heart` alone no longer triggers get_health
+- main.py: text query → idle after responding (not listening). Finally block guarantees reset.
+- wake.py: 3 bugs fixed — UnboundLocalError on global, unguarded stream.stop/start, KeyError on predict dict
+- stt.py: VAD tuned for voice commands (silence 300ms, pad 100ms, energy threshold 0.003, hallucination guards)
+- wake.py: Silero VAD gate added to openWakeWord (reduces false triggers)
+- Modelfile: context 8192→2048, predict 1024→256
+- Research report written to vault: full STT/TTS/wake word/LLM/latency analysis with prioritised action list
+
+### Decisions
+- qwen3:1.7b NOT switched yet — needs testing (may be faster for tool calls)
+- OLLAMA_FLASH_ATTENTION=1 NOT enabled — confirmed ROCm regression with Qwen3 (GitHub #12432)
+- Sentence streaming in tts.py — not done yet, high priority next session
+- No Tauri packaging yet
+
+### Next
+- Test qwen3:1.7b
+- Fix sentence streaming in tts.py (40-60% latency drop)
+- Moonshine Small STT when Pi arrives
+- Train "Hey SPIDy" wake word

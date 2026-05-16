@@ -73,19 +73,40 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 - **Stack:** Next.js + Tailwind + Framer Motion
 - **WHERE:** `/home/lakira/Documents/Projects/SPIDy/ui/` — GitHub: LakiraJayamanne/SPIDy
 
-#### BUILT (15/05/2026)
-- `app/components/MemoryGraph.tsx` — 3D memory graph (React Three Fiber)
-  - Reads vault nodes+edges from `/api/vault` (Obsidian wikilink parsing)
-  - Three modes: idle (sphere + auto-rotate), listening (wave), thinking (Bohr atom rings)
-  - Edge fade-in after nodes settle, double-click follow, Bloom post-processing
-- `app/api/vault/route.ts` — walks vault, returns nodes+edges JSON
-- `app/page.tsx` — mode toggle buttons
+#### BUILT (15/05/2026 — session 81)
+- Full MemoryGraph with 4 modes: idle (sphere, word-count glow, recency boost), listening (implode), speaking (explode + real RMS), thinking (Bohr atom, smoothstep entry, central node pulse)
+- Bloom: threshold 0.1, intensity 1.4. Thinking nodes flat (emissive 0.8, no bloom). Central node pulses 2–8.
+- `ws_server.py` — WebSocket on localhost:8765, broadcasts mode/rms/speech, receives text queries
+- `main.py` — full state machine: wake→listening→thinking→speaking→listening. Stop phrases. Text input worker thread. interruptible=False for text queries
+- `tts.py` — streams real RMS every 50ms to frontend while speaking
+- `tools.py` — get_health (contextual comments, step goal awareness), get_health_trends (90-day history)
+- `intent.py` — health routes added (BROKEN — too greedy, catches "heart" in any sentence). Needs tighter regex next session
+- `brain.py` — get_health/_trends in _RESPONSES (skip 2nd LLM call). Health queries now ~1-2s
+- `VoiceBar.tsx` — bigger input (480px), no equaliser, DPI fix, dev toggle button (⌥)
+- `page.tsx` — lastSpeech display above input bar, sendQuery wired, rms passed to MemoryGraph
+- `vault/route.ts` — wordCount + mtime per node, content read once (no double-read)
+- `health/route.ts` — force-dynamic, appends to health-history.json on POST
+- venv activate script fixed (was pointing to old MyPersona path)
+- wake.py model path fixed (same issue)
 
-#### NEXT — build in order
-1. Status pill (top: "SPID ONLINE" / "LISTENING" / "THINKING")
-2. Glass panels (left and right)
-3. Command input / voice waveform (bottom)
-4. Wire backend via WebSockets
+#### DONE THIS SESSION (16/05/2026)
+- Spotify now-playing: switched from Spotify Web API to playerctl/MPRIS (`/api/nowplaying` route), shows track + artist + album art thumbnail. Works with any media player.
+- intent.py: health regex tightened (`heart` → `heart\s+rate`, no more false positives)
+- main.py: text query now returns to `idle` not `listening` after responding. `finally` block guarantees idle even if `_respond` throws.
+- wake.py: 3-bug fix committed — global declaration, stream stop/start guarding, safe dict key on predict scores
+- stt.py: VAD tuned for voice commands (silence 2000→300ms, pad 400→100ms, hallucination guards, energy threshold raised)
+- wake.py: Silero VAD gate on openWakeWord (reduces false triggers from TV/music)
+- Modelfile: num_ctx 8192→2048, num_predict 1024→256 (faster TTFT)
+- Research report written: `Programming/Personal Projects/Jarvis/Research - SPIDy Improvements.md`
+
+#### NEXT
+- **Test qwen3:1.7b** — benchmarks well for tool calling, sub-1s TTFT. `ollama pull qwen3:1.7b`, update config.py + Modelfile. Test before committing.
+- **`OLLAMA_FLASH_ATTENTION=1`** — huge win BUT confirmed regression with Qwen3 + AMD ROCm (GitHub #12432). Test carefully.
+- **Fix sentence streaming in tts.py** — synthesise N+1 while N plays. 40-60% latency drop, no model change. High priority.
+- **Swap STT to Moonshine Small** — 527ms on Pi 5 vs 10,400ms for Whisper Small. Massive win when Pi arrives.
+- **Train "Hey SPIDy" wake word** — CoreWorxLab/openwakeword-training, uses Kokoro for synthetic data
+- Custom "Spidy" wake word (replace hey_jarvis model)
+- Tauri packaging (when UI is done)
 
 ### Full architecture doc
 `Programming/Personal Projects/Jarvis/Homelab & JARVIS Architecture.md`
