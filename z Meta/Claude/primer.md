@@ -147,6 +147,11 @@ Switched from keyword-routing + LLM-fallback to **pure LLM-first tool-use**:
 ### Known tradeoff
 Pure LLM routing adds ~150-200ms vs scripted routing. Acceptable given 800ms STT overhead.
 
+---
+
+## SPIDy Feature Backlog (build after debug day)
+- **Morning alarm system** — SPIDy wakes user up at set time, speaks alarm, waits for a real voice response (not just noise), then delivers a morning greeting (weather, schedule, health summary). Needs: `set_alarm` tool, a background scheduler thread, wake-detection loop that requires an actual reply before greeting fires.
+
 #### NEXT (after fixing above)
 - Test other voice features: personality dials, echo detection, heartbeat
 - **`OLLAMA_FLASH_ATTENTION=1`** — confirmed ROCm regression with Qwen3 (GitHub #12432). Test carefully.
