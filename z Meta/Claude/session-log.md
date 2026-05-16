@@ -4,6 +4,27 @@ tags:
   - claude/log
 ---
 
+## 17/05/2026 — Session 84 continued (Fedora desktop) — SPIDy bug fixes, tee logging
+
+### Bugs found and fixed
+1. **"go to sleep" false positive** — `_is_stop()` matched "should I go to sleep now?" as a stop phrase (substring match). Fixed: questions ending in `?` now bypass the stop check entirely.
+2. **Focused node state wiped on restart** — `ws_server._current_focused_node` is in-memory. After Python backend restarts, the UI still shows the focus label (React state persists) but the server has None. User must click the node again to re-send the focus WS message. Not a code bug — limitation to document.
+3. **"read this" → silence** — two sub-bugs:
+   a. `think=True` + `num_predict 128` in Modelfile meant qwen3:1.7b burned all tokens on `<think>` blocks, leaving empty content. Fixed: `think=False` + `options={"num_predict": 512}` override on the main `ollama.chat()` call in `think_with_tools()`.
+   b. Focused-node path silently returned without yielding on read_node failure. Fixed: now yields voice error messages ("I couldn't find that note" / "I couldn't summarise it") so it's never silent.
+4. **No persistent Python logs** — all `print()` calls went to stdout with no file backup. Fixed: stdout+stderr tee'd to `spidy.log` in project root. Session banner printed on start.
+
+### Routing clarification (not a bug)
+The system IS largely scripted for common commands (time, weather, health, media, notes, screen, app launching — ~20 routes in intent.py). This is intentional for latency. General questions (not matching any route) do reach the LLM (`ollama.chat` with `think=False`). Focused-node reads go through a 2-step path: read_node → LLM summarise. User was not tweaking — the architecture is correct but routing is comprehensive enough that it feels scripted.
+
+### Debug logging added
+- `brain.py think_with_tools()`: logs text + focused_node at entry, shorthand match result, read_node output, LLM reply
+- `ws_server.py`: logs `[ws] focus → {node}` on every focus message
+- `main.py`: stdout/stderr tee to spidy.log with timestamps
+
+### Git
+Pushed to GitHub: commit 2a08d46 on master (LakiraJayamanne/SPIDy)
+
 ## 16/05/2026 — Session (Fedora desktop) — SPIDy screen awareness
 
 - Built screen awareness feature for SPIDy

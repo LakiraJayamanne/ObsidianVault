@@ -119,19 +119,29 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 - **soul.md brevity** — strengthened: hard cap 30 words, 2 sentences max, no volunteering extra info.
 - **FOCUS label in UI** — `FOCUS: {nodeName} ✕` shown above VoiceBar when node focused. ✕ clears focus.
 
-#### IN PROGRESS (STOPPED MID-SESSION — RESUME HERE)
-**Bug: "read the highlighted file" via voice → thinking → silence → listening (no speech)**
+#### IN PROGRESS — RESUME HERE (17/05/2026 session end)
 
-Root cause analysis (not yet fixed):
-1. `num_predict 128` in Modelfile is too low when `think=True` — model uses most tokens on `<think>...</think>`, leaving empty content → `_strip_think` removes it → yields "" → no sentences → no audio → silence
-2. Possibly also: WS focus message not confirmed received by ws_server (no logging added yet)
+**All known bugs from session 84 are FIXED. Pushed to GitHub (commit 2a08d46).**
 
-**Fixes needed (both):**
-- Add `print(f"[ws] focus → {_current_focused_node}")` in ws_server.py handler for `type: "focus"`
-- In brain.py `think_with_tools`: change main LLM routing call from `think=True` to `think=False` OR pass `options={"num_predict": 512}` to override Modelfile limit for that call only
-- Also consider: the focused-node read block at line 256 uses `think=False` — check if qwen3:1.7b strips that correctly
+Fixes applied this session:
+1. ✅ `think=True` → `think=False` + `num_predict 512` override on main LLM call in brain.py
+2. ✅ ws_server.py logs `[ws] focus → {node}` on focus messages
+3. ✅ Focused-node path now yields voice error instead of silence when read_node fails
+4. ✅ `_is_stop()` now ignores questions ending with `?` (was catching "go to sleep" in questions)
+5. ✅ stdout+stderr tee'd to `spidy.log` — all debug prints now persist
 
-**Files to touch:** `ws_server.py` (logging), `brain.py` (line ~297-302, the `ollama.chat(think=True)` call)
+**Remaining known issue (not a bug):**
+- `_current_focused_node` is in-memory in ws_server.py — cleared on backend restart. After restarting Python, the UI still shows the focus label, but the server has None. User must click the node again. To fix properly: send focus state in a ping/reconnect message from frontend, or persist to a small JSON file.
+
+**NOT YET TESTED after fixes:**
+- "read this" / "read the highlighted file" with focused node — the new debug prints ([think], [shorthand_match], [route] read_node, [route] focused summary reply) will show exactly where it dies
+- Check `spidy.log` for the trace after next test run
+
+**Next session should:**
+1. Restart Python backend, focus a node, say "read this", check `spidy.log` or terminal for the [think] trace
+2. If shorthand_match=False → the phrase isn't matching, extend the regex
+3. If focused_node=None → frontend didn't re-send focus after restart, click node again first
+4. If reply='' → LLM returning empty, check what qwen3:1.7b says
 
 #### NEXT (after fixing above)
 - Test other voice features: personality dials, echo detection, heartbeat
