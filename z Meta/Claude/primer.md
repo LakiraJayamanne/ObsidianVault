@@ -106,10 +106,35 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 - Google Antigravity IDE logged to vault: `Programming/Tools/Google Antigravity IDE.md`
 - Local checkpoint: git commit cd56453 (NOT pushed to GitHub)
 
-#### NEXT
-- **Test MemoryGraph search filter in browser** — hasn't been tested yet, may need fixes
-- **Test vault node tools** — say "search my notes for SPIDy", "read my note on primer", "create a note called test" — verify all 4 work
-- **Test qwen3:1.7b** — `ollama pull qwen3:1.7b`, update config.py + Modelfile, benchmark vs 8b
+#### DONE SESSION 84 (17/05/2026)
+- **qwen3:1.7b** — pulled and switched. Modelfile: `FROM qwen3:1.7b`, `num_predict 128`, `num_ctx 2048`. SystemPanel label updated. Faster TTFT confirmed.
+- **MemoryGraph: single-click focus, double-click open** — single click (220ms debounce) = focus node. Double click = open content panel. Drag detection (>5px threshold) prevents orbit from clearing focus.
+- **Controlled component: focusedNodeId as prop** — MemoryGraph no longer holds internal focus state. Parent (page.tsx) owns focus via `focusedNodeId` prop + `onFocusChange` callback. Fixed desync bug where white node showed but FOCUS label didn't.
+- **Color swap** — default node: red (#C0001A). Focused node: white (#ffffff) with higher glow intensity.
+- **Focus WS pipeline** — frontend sends `{type: "focus", node: id}` via sendFocus(). ws_server.py stores `_current_focused_node`. Voice path passes it to _respond(). Text query path passes it in dict through _query_queue.
+- **Focused node read shorthand** — brain.py: if focused_node set and user says "read this / read the highlighted file / show me this / etc." → read_node(focused_node) → strip markdown → LLM summarise → speak.
+- **Focus context injection** — for general LLM queries, focused node content is prepended to user message.
+- **Intent routing fixes** — read_node pattern moved BEFORE read_notes. Negative lookahead on read_notes. "read this" removed from clipboard pattern (was stealing focused-node reads).
+- **wake.py audio gate** — `if audio_state.speaking.is_set(): return` in audio_callback. Prevents TTS speaker audio from triggering wake word.
+- **soul.md brevity** — strengthened: hard cap 30 words, 2 sentences max, no volunteering extra info.
+- **FOCUS label in UI** — `FOCUS: {nodeName} ✕` shown above VoiceBar when node focused. ✕ clears focus.
+
+#### IN PROGRESS (STOPPED MID-SESSION — RESUME HERE)
+**Bug: "read the highlighted file" via voice → thinking → silence → listening (no speech)**
+
+Root cause analysis (not yet fixed):
+1. `num_predict 128` in Modelfile is too low when `think=True` — model uses most tokens on `<think>...</think>`, leaving empty content → `_strip_think` removes it → yields "" → no sentences → no audio → silence
+2. Possibly also: WS focus message not confirmed received by ws_server (no logging added yet)
+
+**Fixes needed (both):**
+- Add `print(f"[ws] focus → {_current_focused_node}")` in ws_server.py handler for `type: "focus"`
+- In brain.py `think_with_tools`: change main LLM routing call from `think=True` to `think=False` OR pass `options={"num_predict": 512}` to override Modelfile limit for that call only
+- Also consider: the focused-node read block at line 256 uses `think=False` — check if qwen3:1.7b strips that correctly
+
+**Files to touch:** `ws_server.py` (logging), `brain.py` (line ~297-302, the `ollama.chat(think=True)` call)
+
+#### NEXT (after fixing above)
+- Test other voice features: personality dials, echo detection, heartbeat
 - **`OLLAMA_FLASH_ATTENTION=1`** — confirmed ROCm regression with Qwen3 (GitHub #12432). Test carefully.
 - **Swap STT to Moonshine Small** — when Pi arrives (527ms vs 10,400ms)
 - **Train "Hey SPIDy" wake word** — CoreWorxLab/openwakeword-training, Kokoro synthetic data

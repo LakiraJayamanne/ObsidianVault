@@ -1262,3 +1262,27 @@ Running log of every Claude session — what was built, changed, or decided.
 - NIM stays as fallback only — not better than local Ollama on desktop
 
 ### Next session: start by testing MemoryGraph search and vault node tools, then qwen3:1.7b
+
+---
+
+## 2026-05-17 — Session 84 (Fedora desktop) — SPIDy focus system + 1.7b switch
+
+### Done
+- qwen3:1.7b pulled and switched (Modelfile updated, SystemPanel label updated). Faster than 8b.
+- MemoryGraph: single-click = focus (220ms debounce), double-click = open panel. Drag detection (>5px) prevents orbit from accidentally clearing focus.
+- MemoryGraph made into controlled component — focusedNodeId as prop from page.tsx. Fixes desync bug where node turned white but FOCUS label didn't update.
+- Color swap: default red (#C0001A), focused white (#ffffff) with higher glow.
+- Focus WS pipeline: frontend sendFocus() → ws_server._current_focused_node → voice/text paths both receive it.
+- Focused node read shorthand in brain.py: "read this / read the highlighted file" → read_node → strip markdown → LLM summarise → speak.
+- Focus context injection: general LLM queries get focused node content prepended.
+- Intent routing: read_node before read_notes (was routing "read my note on X" to read_notes). "read this" removed from clipboard pattern.
+- wake.py: audio_state.speaking gate — TTS audio no longer triggers wake word.
+- soul.md: brevity rules hardened (30 word cap, 2 sentence max).
+- FOCUS label above VoiceBar with ✕ clear button.
+
+### Decisions
+- think=True on main LLM call + num_predict=128 is too tight — model burns token budget on thinking, yields empty content, produces silence. Fix is pending.
+
+### Stopped mid-session (resume next time)
+- Bug: "read the highlighted file" via voice → thinking → silence. Root cause: num_predict=128 too low when think=True.
+- Fix: ws_server.py add focus logging. brain.py change think=True→think=False OR add options={"num_predict": 512} on line ~297 routing call.
