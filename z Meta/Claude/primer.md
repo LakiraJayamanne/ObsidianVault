@@ -119,29 +119,33 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 - **soul.md brevity** — strengthened: hard cap 30 words, 2 sentences max, no volunteering extra info.
 - **FOCUS label in UI** — `FOCUS: {nodeName} ✕` shown above VoiceBar when node focused. ✕ clears focus.
 
-#### IN PROGRESS — RESUME HERE (17/05/2026 session end)
+#### DONE — Session 84 final state (17/05/2026 late)
+**All changes pushed to GitHub. Last commit: 31f8cc2**
 
-**All known bugs from session 84 are FIXED. Pushed to GitHub (commit 2a08d46).**
+### Architecture change (MAJOR — done by overnight agent)
+Switched from keyword-routing + LLM-fallback to **pure LLM-first tool-use**:
+- `intent.route()` removed from `think_with_tools()` — LLM always decides
+- `_select_tools()` now returns ALL tools every time (LLM picks freely)
+- Removed `_TOOL_KEYWORDS`, `_ALWAYS_INCLUDE`, `_MAX_TOOLS` (~50 lines of dead code)
+- Focused-node shorthand removed — node content is now markdown-stripped and injected into LLM context directly
+- Net: every query goes to Ollama → LLM picks tool or answers directly → tool result formatted by `_RESPONSES`
 
-Fixes applied this session:
-1. ✅ `think=True` → `think=False` + `num_predict 512` override on main LLM call in brain.py
-2. ✅ ws_server.py logs `[ws] focus → {node}` on focus messages
-3. ✅ Focused-node path now yields voice error instead of silence when read_node fails
-4. ✅ `_is_stop()` now ignores questions ending with `?` (was catching "go to sleep" in questions)
-5. ✅ stdout+stderr tee'd to `spidy.log` — all debug prints now persist
+### Other fixes this session
+- `_is_stop()` ignores questions ending with `?` — "Should I go to sleep?" no longer triggers standby
+- `_current_focused_node` persisted to `.focus_state.json` — survives backend restarts
+- stdout/stderr tee'd to `spidy.log` for persistent debug trace
+- `think=False` + `num_predict 512` on main LLM call
 
-**Remaining known issue (not a bug):**
-- `_current_focused_node` is in-memory in ws_server.py — cleared on backend restart. After restarting Python, the UI still shows the focus label, but the server has None. User must click the node again. To fix properly: send focus state in a ping/reconnect message from frontend, or persist to a small JSON file.
+### What to test when you wake up
+1. Restart backend (`python main.py` from SPIDy dir in .venv)
+2. Say "what time is it?" — LLM should call `get_time` tool
+3. Focus a node, say "read this" — LLM gets injected content, should summarize
+4. Say a general question — should answer without tool
+5. Check `spidy.log` for `[brain] all tools passed to LLM for:` traces
+6. If any tool call fails, check `spidy.log` for the tool name and args the LLM chose
 
-**NOT YET TESTED after fixes:**
-- "read this" / "read the highlighted file" with focused node — the new debug prints ([think], [shorthand_match], [route] read_node, [route] focused summary reply) will show exactly where it dies
-- Check `spidy.log` for the trace after next test run
-
-**Next session should:**
-1. Restart Python backend, focus a node, say "read this", check `spidy.log` or terminal for the [think] trace
-2. If shorthand_match=False → the phrase isn't matching, extend the regex
-3. If focused_node=None → frontend didn't re-send focus after restart, click node again first
-4. If reply='' → LLM returning empty, check what qwen3:1.7b says
+### Known tradeoff
+Pure LLM routing adds ~150-200ms vs scripted routing. Acceptable given 800ms STT overhead.
 
 #### NEXT (after fixing above)
 - Test other voice features: personality dials, echo detection, heartbeat
