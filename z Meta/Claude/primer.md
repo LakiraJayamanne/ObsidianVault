@@ -98,8 +98,10 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 - wake.py: Silero VAD gate on openWakeWord (reduces false triggers from TV/music)
 - Modelfile: num_ctx 8192→2048, num_predict 1024→256 (faster TTFT)
 - Research report written: `Programming/Personal Projects/Jarvis/Research - SPIDy Improvements.md`
+- Screen awareness: `describe_screen()` → `get_screen(question)` in tools.py. Uses grim (Wayland), POSTs to Ollama REST API at /api/generate with model=gemma3:4b. Intent patterns expanded to catch "look at my screen", "what does this say/show", "read my screen", "what am I looking at". Full user query passed as `question` param to vision model. brain.py _ACKS/_RESPONSES updated. NOTE: gemma3:4b not yet pulled — need `ollama pull gemma3:4b` before this works.
 
 #### NEXT
+- **`ollama pull gemma3:4b`** — screen awareness is coded and wired, just needs the model pulled. ~3GB.
 - **Test qwen3:1.7b** — benchmarks well for tool calling, sub-1s TTFT. `ollama pull qwen3:1.7b`, update config.py + Modelfile. Test before committing.
 - **`OLLAMA_FLASH_ATTENTION=1`** — huge win BUT confirmed regression with Qwen3 + AMD ROCm (GitHub #12432). Test carefully.
 - **Fix sentence streaming in tts.py** — synthesise N+1 while N plays. 40-60% latency drop, no model change. High priority.
@@ -165,13 +167,13 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 
 ## Priority Order
 1. **GroundLink Sri Lanka** — awaiting dad's feedback
-2. **SPID UI** — build on Fedora, Next.js inside MyPersona/ui/
-3. **SPID — custom "Spidy" wake word** — CoreWorxLab/openwakeword-training, 20–50 samples
-4. **SPID — Discord bot** — deprioritised (web UI takes priority now)
-5. **SPID — screen awareness** — pull gemma3:4b
-6. **GRUB theme** — Gorgeous-GRUB, remove nomodeset
-7. **Plymouth boot animation**
-8. **Gym Tracker Phase 2**
+2. **SPIDy — test qwen3:1.7b** — benchmark vs qwen3:8b for tool calls, sub-1s TTFT
+3. **SPIDy — sentence streaming in tts.py** — synthesise N+1 while N plays, 40-60% latency drop
+4. **SPIDy — screen awareness** — gemma3:4b (multimodal), not yet specced
+5. **SPIDy — custom "Hey SPIDy" wake word** — CoreWorxLab/openwakeword-training, Kokoro synthetic data
+6. **SPIDy — Moonshine Small STT** — when Pi arrives (527ms vs 10,400ms)
+7. **SPIDy — Tauri packaging** — when UI is feature-complete
+8. **Gym Tracker** — rebuild later, SPIDy-integrated (trends + progressive overload via SPIDy brain/tools)
 
 ---
 
@@ -196,18 +198,8 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 
 ---
 
-## Gym Tracker Build Phases
-1. [x] Phase 1 — models.py (ExerciseSet, Session, Log)
-2. [ ] Phase 2 — storage.py (save/load JSON)
-3. [ ] Phase 3 — main.py (text menu)
-4. [ ] Phase 4 — algorithms.py (overload, plateau, bodyweight trend)
-5. [ ] Phase 5 — Polish
-
-## Gym Tracker — Confirmed Changes (07/04/2026)
-- **RIR instead of RPE** — swap effort rating system in data model
-- **Weekly Volume tracker** — total sets per muscle group per week (add to Phase 4)
-- **Phone app — DECIDED AGAINST for now** — finish terminal version first
-- **Draw HEAVY inspiration from tracked.gg** (by Keenan)
+## Gym Tracker — SCRAPPED (16/05/2026)
+Standalone CLI version scrapped. Will be rebuilt as a SPIDy-integrated feature — log workouts via voice/text, trend analysis and progressive overload suggestions routed through SPIDy's brain/tools layer. Reference: tracked.gg (by Keenan). RIR rating, weekly volume tracking still planned for the rebuild.
 
 ---
 

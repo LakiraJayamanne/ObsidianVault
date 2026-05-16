@@ -4,6 +4,18 @@ tags:
   - claude/log
 ---
 
+## 16/05/2026 — Session (Fedora desktop) — SPIDy screen awareness
+
+- Built screen awareness feature for SPIDy
+- `describe_screen()` renamed to `get_screen(question)` in tools.py — accepts the full user query so the vision model knows what to focus on
+- Uses `grim` (Wayland screenshot tool, confirmed at /usr/bin/grim) — not scrot (X11 only)
+- POSTs to Ollama REST API (`/api/generate`) with model=gemma3:4b, passes image as base64
+- Temp screenshot written and deleted immediately after reading
+- Intent patterns expanded: "look at my screen", "what's on my screen", "what does this say/show", "read my screen", "what am I looking at", "describe the screen", "screenshot"
+- Full user query passed as `question` arg so vision model has context
+- brain.py _ACKS and _RESPONSES updated to use new `get_screen` tool name
+- NOTE: gemma3:4b not pulled yet — run `ollama pull gemma3:4b` to activate
+
 ## 14/05/2026 — Session (Windows) — Nutrition chat
 
 - Looked up calories for Thai Grass Coventry Korean fried chicken + sticky rice (~950–1,050 kcal estimated, no official nutrition data available)
