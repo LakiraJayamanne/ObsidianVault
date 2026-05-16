@@ -1239,3 +1239,26 @@ Running log of every Claude session — what was built, changed, or decided.
 - Fix sentence streaming in tts.py (40-60% latency drop)
 - Moonshine Small STT when Pi arrives
 - Train "Hey SPIDy" wake word
+
+---
+
+## 2026-05-16 — Session 83 (Fedora desktop, morning–afternoon)
+
+### Done
+- Sentence streaming: tts.py split into synthesize()/play_audio(), _respond() pipelines synth ahead by 1 sentence. Thread-leak fix via stop_event. Double idle broadcast bug fixed.
+- Screen awareness: get_screen() with grim + magick resize + gemma3:4b. Prompt tuned for spoken sentences, no markdown. Ack fixed in intent routing path. Working.
+- Intent routing fixed: "what's on my screen" was matching get_now_playing (|on was too greedy). Fixed. "what is on my screen" regex also added.
+- Sleep Shortcut rebuilt from scratch: correct loop over segments, source filter to prevent iPhone+Watch double-count. 7.07h displaying correctly.
+- Steps Shortcut fixed: removed Limit 1, source filter. 13,539 correct.
+- Gym calendar anchor fixed: 16/05/2026 = Upper.
+- Vault node CRUD: search_nodes, read_node, create_node, append_node tools built and wired.
+- MemoryGraph search filter: type to filter nodes, non-matches fade, labels show for matches, Escape/Backspace to clear.
+- Google Antigravity IDE researched and logged to vault.
+
+### Decisions
+- Gym Tracker CLI scrapped — will rebuild as SPIDy-integrated feature later
+- GRUB/Plymouth deprioritised — removed from priority list
+- Screen awareness uses gemma3:4b (pulled, working). Not switching to Piper TTS yet (Pi will need it).
+- NIM stays as fallback only — not better than local Ollama on desktop
+
+### Next session: start by testing MemoryGraph search and vault node tools, then qwen3:1.7b

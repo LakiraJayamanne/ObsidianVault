@@ -89,26 +89,31 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 - venv activate script fixed (was pointing to old MyPersona path)
 - wake.py model path fixed (same issue)
 
-#### DONE THIS SESSION (16/05/2026)
-- Spotify now-playing: switched from Spotify Web API to playerctl/MPRIS (`/api/nowplaying` route), shows track + artist + album art thumbnail. Works with any media player.
-- intent.py: health regex tightened (`heart` → `heart\s+rate`, no more false positives)
-- main.py: text query now returns to `idle` not `listening` after responding. `finally` block guarantees idle even if `_respond` throws.
-- wake.py: 3-bug fix committed — global declaration, stream stop/start guarding, safe dict key on predict scores
-- stt.py: VAD tuned for voice commands (silence 2000→300ms, pad 400→100ms, hallucination guards, energy threshold raised)
-- wake.py: Silero VAD gate on openWakeWord (reduces false triggers from TV/music)
-- Modelfile: num_ctx 8192→2048, num_predict 1024→256 (faster TTFT)
-- Research report written: `Programming/Personal Projects/Jarvis/Research - SPIDy Improvements.md`
-- Screen awareness: `describe_screen()` → `get_screen(question)` in tools.py. Uses grim (Wayland), POSTs to Ollama REST API at /api/generate with model=gemma3:4b. Intent patterns expanded to catch "look at my screen", "what does this say/show", "read my screen", "what am I looking at". Full user query passed as `question` param to vision model. brain.py _ACKS/_RESPONSES updated. NOTE: gemma3:4b not yet pulled — need `ollama pull gemma3:4b` before this works.
+#### DONE SESSION 83 (16/05/2026)
+- Spotify now-playing: switched from Spotify Web API to playerctl/MPRIS (`/api/nowplaying` route)
+- intent.py: health regex tightened, now_playing regex fixed (was catching "what's on my screen")
+- main.py: text query → idle after responding. finally block guarantees reset.
+- wake.py: 3-bug fix. Silero VAD gate added.
+- stt.py: VAD tuned for voice commands
+- Modelfile: num_ctx 8192→2048, num_predict 1024→256
+- **Sentence streaming** — tts.py split into synthesize() + play_audio(). main.py _respond() pipelines synth N+1 while playing N. stop_event fixes thread-leak on interrupt. Double idle broadcast bug fixed.
+- **Screen awareness** — get_screen(question) in tools.py. grim (Wayland) → resize to 1280px via magick → base64 → gemma3:4b via Ollama REST. Prompt tuned for 1-2 spoken sentences, no markdown. Ack fires in intent routing path (was missing). gemma3:4b pulled and working.
+- **Sleep tracking fixed** — iOS Shortcuts rebuilt: Find Health Samples (Sleep, Asleep, today), loop End-Start per segment, sum minutes ÷ 60. Source filter added to stop iPhone+Watch double-counting. 7h 6m displaying correctly.
+- **Steps fixed** — removed Limit 1, added source filter. 13,539 steps correct.
+- **Gym calendar fixed** — anchor moved to 16/05/2026 (today = Upper). Tomorrow = Lower.
+- **Vault node CRUD** — 4 new tools: search_nodes, read_node, create_node, append_node. Intent patterns + brain.py wiring. JARVIS can now search, read, create, append vault nodes via voice.
+- **MemoryGraph search filter** — type any letter on the graph to enter search mode. Non-matching nodes fade to near-invisible, matching nodes stay bright with labels. Overlay shows query + match count. Escape/Backspace to clear.
+- Google Antigravity IDE logged to vault: `Programming/Tools/Google Antigravity IDE.md`
+- Local checkpoint: git commit cd56453 (NOT pushed to GitHub)
 
 #### NEXT
-- **`ollama pull gemma3:4b`** — screen awareness is coded and wired, just needs the model pulled. ~3GB.
-- **Test qwen3:1.7b** — benchmarks well for tool calling, sub-1s TTFT. `ollama pull qwen3:1.7b`, update config.py + Modelfile. Test before committing.
-- **`OLLAMA_FLASH_ATTENTION=1`** — huge win BUT confirmed regression with Qwen3 + AMD ROCm (GitHub #12432). Test carefully.
-- **Fix sentence streaming in tts.py** — synthesise N+1 while N plays. 40-60% latency drop, no model change. High priority.
-- **Swap STT to Moonshine Small** — 527ms on Pi 5 vs 10,400ms for Whisper Small. Massive win when Pi arrives.
-- **Train "Hey SPIDy" wake word** — CoreWorxLab/openwakeword-training, uses Kokoro for synthetic data
-- Custom "Spidy" wake word (replace hey_jarvis model)
-- Tauri packaging (when UI is done)
+- **Test MemoryGraph search filter in browser** — hasn't been tested yet, may need fixes
+- **Test vault node tools** — say "search my notes for SPIDy", "read my note on primer", "create a note called test" — verify all 4 work
+- **Test qwen3:1.7b** — `ollama pull qwen3:1.7b`, update config.py + Modelfile, benchmark vs 8b
+- **`OLLAMA_FLASH_ATTENTION=1`** — confirmed ROCm regression with Qwen3 (GitHub #12432). Test carefully.
+- **Swap STT to Moonshine Small** — when Pi arrives (527ms vs 10,400ms)
+- **Train "Hey SPIDy" wake word** — CoreWorxLab/openwakeword-training, Kokoro synthetic data
+- Tauri packaging (when UI is feature-complete)
 
 ### Full architecture doc
 `Programming/Personal Projects/Jarvis/Homelab & JARVIS Architecture.md`
