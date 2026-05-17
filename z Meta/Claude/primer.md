@@ -119,33 +119,41 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 - **soul.md brevity** — strengthened: hard cap 30 words, 2 sentences max, no volunteering extra info.
 - **FOCUS label in UI** — `FOCUS: {nodeName} ✕` shown above VoiceBar when node focused. ✕ clears focus.
 
-#### DONE — Session 84 final state (17/05/2026 late)
-**All changes pushed to GitHub. Last commit: 31f8cc2**
+#### DONE — Session 85 (17/05/2026 — debug day)
 
-### Architecture change (MAJOR — done by overnight agent)
-Switched from keyword-routing + LLM-fallback to **pure LLM-first tool-use**:
-- `intent.route()` removed from `think_with_tools()` — LLM always decides
-- `_select_tools()` now returns ALL tools every time (LLM picks freely)
-- Removed `_TOOL_KEYWORDS`, `_ALWAYS_INCLUDE`, `_MAX_TOOLS` (~50 lines of dead code)
-- Focused-node shorthand removed — node content is now markdown-stripped and injected into LLM context directly
-- Net: every query goes to Ollama → LLM picks tool or answers directly → tool result formatted by `_RESPONSES`
+**Switched back to qwen3:8b** — 1.7b was calling get_now_playing for "what time is it?". Too small for reliable tool selection with 20+ tools. Modelfile updated, jarvis-brain rebuilt.
 
-### Other fixes this session
-- `_is_stop()` ignores questions ending with `?` — "Should I go to sleep?" no longer triggers standby
-- `_current_focused_node` persisted to `.focus_state.json` — survives backend restarts
-- stdout/stderr tee'd to `spidy.log` for persistent debug trace
-- `think=False` + `num_predict 512` on main LLM call
+**`_clean_text()` in brain.py** — strips bold, italic, code, headings, bullets, numbered lists, emojis. Both LLM response paths go through it.
 
-### What to test when you wake up
-1. Restart backend (`python main.py` from SPIDy dir in .venv)
-2. Say "what time is it?" — LLM should call `get_time` tool
-3. Focus a node, say "read this" — LLM gets injected content, should summarize
-4. Say a general question — should answer without tool
-5. Check `spidy.log` for `[brain] all tools passed to LLM for:` traces
-6. If any tool call fails, check `spidy.log` for the tool name and args the LLM chose
+**Brevity hard cap** — `num_predict: 80` on both LLM calls. Model cannot ramble.
 
-### Known tradeoff
-Pure LLM routing adds ~150-200ms vs scripted routing. Acceptable given 800ms STT overhead.
+**soul.md hardened** — never ask follow-up questions, never say "would you like", if action can be taken, take it.
+
+**`is_valid` filter fixed** — yes/no/okay/please/yeah now pass through to LLM instead of being dropped.
+
+**`check_off_item` tool** — reads note, finds `[ ]` row by fuzzy name match, replaces with `[x]`. Replaces broken `edit_node` approach.
+
+**`get_health` metric filter** — optional `metric` param (steps/heart rate/hrv/sleep). Returns only what was asked.
+
+**`read_node` removed from _RESPONSES** — now goes through second LLM call so vault content is spoken naturally.
+
+**MemoryGraph polls every 10s** — new/edited notes appear in graph automatically.
+
+**Camera focus on single-click — idle only** — modeRef in GraphScene gates camera movement to idle mode only.
+
+**`SOUL.md`** — vault note at `z Meta/Claude/SOUL.md` documenting SPIDy's personality system.
+
+**Backend port 8765 stale process** — if backend crashes, run `fuser -k 8765/tcp` before restarting.
+
+### Tests pending (task list in Claude Code)
+1. "What time is it?" → get_time (was calling get_now_playing)
+2. "How many steps today?" → steps only
+3. "Check off Iron Man 2 in my MCU tracker" → check_off_item, verify [x] in note
+4. "Tell me a fun fact" → no asterisks, no emoji, ≤2 sentences
+5. Short replies ("yes", "okay") → reach LLM, not filtered
+6. "Read this" on focused node → one spoken sentence
+7. Single-click in idle → camera moves. In listening → no move.
+8. Edit vault note → appears in graph within 10s
 
 ---
 

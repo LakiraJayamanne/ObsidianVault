@@ -1307,3 +1307,27 @@ Running log of every Claude session — what was built, changed, or decided.
 ### Stopped mid-session (resume next time)
 - Bug: "read the highlighted file" via voice → thinking → silence. Root cause: num_predict=128 too low when think=True.
 - Fix: ws_server.py add focus logging. brain.py change think=True→think=False OR add options={"num_predict": 512} on line ~297 routing call.
+
+---
+
+## 2026-05-17 — Session 85 (Fedora desktop, morning–evening, debug day)
+
+### Done
+- Switched back to qwen3:8b — 1.7b too small for reliable tool selection (was calling get_now_playing for "what time is it?")
+- _clean_text() strips all markdown/emoji from LLM output before TTS
+- num_predict: 80 cap on both LLM paths — no more rambling
+- soul.md hardened: never ask follow-up questions, take action without asking permission
+- is_valid filter: yes/no/okay/please etc. now pass through (were being dropped, breaking conversational replies)
+- check_off_item tool: fuzzy name match on [ ] rows, replaces with [x]. Replaces broken edit_node approach
+- get_health metric filter: optional param routes to steps/heart rate/hrv/sleep only
+- read_node removed from _RESPONSES: vault reads now rephrase via LLM instead of dumping raw markdown
+- MemoryGraph polls /api/vault every 10s — real-time node updates
+- Camera focus on single-click: idle mode only (modeRef gate)
+- SOUL.md created in vault
+- Discovered stale port 8765 bug: backend crash leaves port occupied, fix is fuser -k 8765/tcp
+
+### Decisions
+- qwen3:8b stays as primary — speed tradeoff acceptable vs broken tool calls
+- check_off_item is the right pattern for structured note edits — LLM cannot reliably construct exact find strings
+
+### Next session: work through the 8-item test list, then move to feature backlog (morning alarm system)
