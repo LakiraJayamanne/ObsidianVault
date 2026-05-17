@@ -1352,4 +1352,4 @@ Running log of every Claude session — what was built, changed, or decided.
 - Moonshine STT: switch next session on desktop, not waiting for Pi
 - Chatterbox Turbo: next session, not Orpheus (too slow, overkill)
 - huwprosser's repos: not integrating anything
-- Step competition with Sahil tomorrow (18/05/2026)
+- Step competition with Sahil tomorrow (18/05/2026) — Sahil's record 33k, Lakira's 16k. Plan: treadmill at gym (Avengers 1, ~2h23m), shopping, Thai Grass, walk more. Breakfast: overnight oats (65g oats, 250ml whole milk, honey) + 3 eggs, ~700kcal, 38g protein, 70g carbs, 31g fat. Thai Grass order: chicken basil with fried egg.
