@@ -30,3 +30,4 @@
 - [2026-05-17] The user is planning to rewatch the full MCU leading up to Avengers: Doomsday.
 - [2026-05-17] The user has a cardio schedule linked to their movie list.
 - [2026-05-17] The user has a treadmill routine synced with their MCU movie list.
+- [2026-05-17] Goal: Rewatch the full MCU on cardio days leading up to Avengers: Doomsday.
