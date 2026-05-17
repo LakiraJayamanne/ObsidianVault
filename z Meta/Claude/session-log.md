@@ -1331,3 +1331,25 @@ Running log of every Claude session — what was built, changed, or decided.
 - check_off_item is the right pattern for structured note edits — LLM cannot reliably construct exact find strings
 
 ### Next session: work through the 8-item test list, then move to feature backlog (morning alarm system)
+
+---
+
+## 2026-05-17 — Session 86 (Windows desktop, 9pm) — research session, no code
+
+### Done
+- No code written. Research and discussion session.
+- Reviewed huwprosser's repos: fury-sdk, jarvis-mlx, cluster-fk, web-whisper
+  - Nothing worth integrating. SPIDy already matches or exceeds all of them.
+  - One useful concept: `ricky0123/vad` (browser-side VAD) — bookmark for PWA voice input on Pi
+  - Fury's history auto-compaction is the only novel idea, not needed yet
+- Discussed CNNs/NNs for SPIDy with friend: wake word training is the most practical use case (spectrograms → CNN classifier). Already planned.
+- SPIDy TTS and STT upgrade path confirmed:
+  - **Moonshine Small** — swap immediately next session, not waiting for Pi. 527ms vs ~1.5s.
+  - **Chatterbox Turbo** — `resemble-ai/chatterbox` + `devnen/Chatterbox-TTS-Server`, ROCm confirmed, emotion tags, voice cloning. Replace Kokoro bm_lewis.
+  - Orpheus TTS (3B, ~300-600ms) noted as longer-term upgrade after Chatterbox.
+
+### Decisions
+- Moonshine STT: switch next session on desktop, not waiting for Pi
+- Chatterbox Turbo: next session, not Orpheus (too slow, overkill)
+- huwprosser's repos: not integrating anything
+- Step competition with Sahil tomorrow (18/05/2026)

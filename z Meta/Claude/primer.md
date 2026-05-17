@@ -160,10 +160,15 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 ## SPIDy Feature Backlog (build after debug day)
 - **Morning alarm system** — SPIDy wakes user up at set time, speaks alarm, waits for a real voice response (not just noise), then delivers a morning greeting (weather, schedule, health summary). Needs: `set_alarm` tool, a background scheduler thread, wake-detection loop that requires an actual reply before greeting fires.
 
-#### NEXT (after fixing above)
+#### NEXT (Fedora desktop — next session)
+1. **Moonshine Small STT** — `pip install moonshine-voice`, swap faster-whisper in stt.py. 527ms vs ~1.5s.
+2. **Chatterbox Turbo TTS** — `resemble-ai/chatterbox` + `devnen/Chatterbox-TTS-Server` (docker-compose-rocm.yml, HSA_OVERRIDE_GFX_VERSION=10.3.0). Emotion tags: `[laugh]`, `[sigh]`, `[chuckle]`. Voice clone from ~10s audio.
+3. Work through the 8-item test list
+4. Feature backlog: morning alarm system
+
+#### After that
 - Test other voice features: personality dials, echo detection, heartbeat
 - **`OLLAMA_FLASH_ATTENTION=1`** — confirmed ROCm regression with Qwen3 (GitHub #12432). Test carefully.
-- **Swap STT to Moonshine Small** — when Pi arrives (527ms vs 10,400ms)
 - **Train "Hey SPIDy" wake word** — CoreWorxLab/openwakeword-training, Kokoro synthetic data
 - Tauri packaging (when UI is feature-complete)
 
@@ -176,9 +181,9 @@ SPID is the entire homelab system running on a Raspberry Pi 5. Not just a voice 
 | Component | Choice |
 |---|---|
 | Wake word | hey_jarvis_v0.1.onnx → rename to "Hey Spidy" custom wake word (planned) |
-| STT | faster-whisper small.en int8 CPU (~800ms–1.5s) |
-| Brain | Claude Sonnet API (primary) + Ollama qwen3:8b (desktop GPU fallback) |
-| TTS | Kokoro ONNX (bm_lewis) — fully local |
+| STT | faster-whisper small.en int8 CPU (~800ms–1.5s) → **Moonshine Small next session** |
+| Brain | Ollama qwen3:8b on RX 6700 XT (primary) → NVIDIA NIM → Claude API (last resort) |
+| TTS | Kokoro ONNX (bm_lewis) → **Chatterbox Turbo next session** |
 | Text input | Web UI (PWA) — Discord bot deprioritised |
 | Memory | Obsidian vault — z Meta/JARVIS/ |
 
