@@ -28,3 +28,4 @@
 - [2026-05-17] The user is tracking movies to watch as part of an MCU treadmill tracker.
 - [2026-05-17] The user is planning to rewatch the full Marvel Cinematic Universe leading up to Avengers: Doomsday.
 - [2026-05-17] The user is planning to rewatch the full MCU leading up to Avengers: Doomsday.
+- [2026-05-17] The user has a cardio schedule linked to their movie list.

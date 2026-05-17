@@ -59,4 +59,4 @@ Started: 08/05/2026
 
 ---
 
-**Next up: #3 — Iron Man 2 (2010) [Checked]**
+**Next up: #3 — Iron Man 2 (2010) [Checked off]**
