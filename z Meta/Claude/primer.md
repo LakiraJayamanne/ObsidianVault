@@ -42,15 +42,21 @@ Current project status, what's in progress, what's next.
 
 ### Brain system — FULLY WORKING ✓ (session 89, 20/05/2026)
 
-- `memory.py` — ChromaDB persistent vector DB + vault .md files
+- `memory.py` — ChromaDB persistent vector DB + vault .md files. add(), search(), all_memories(), delete() functions.
 - 4 types: fact, observation, reflection, connection
 - Each memory stored at `z Meta/SPIDy/brain/<type>/` in vault AND embedded in ChromaDB
-- SPIDy writes his own memories via `remember` tool
-- Every query fires ChromaDB search → matching nodes light up white on MemoryGraph (neurons)
-- `_extract_and_save` — FIXED: dedup check was always false (load_memory() with no query returns ""). Fixed to load_memory(fact). Error handling fixed (was silently swallowed, now prints errors).
-- Vault + ChromaDB sync confirmed working. Orphaned vault files cleaned up.
+- `_extract_and_save` — FIXED: dedup check was always false. Error handling fixed.
+- Vault + ChromaDB sync confirmed working.
 - Brain-fill questions working (_generate_brain_question)
-- Autonomous connections wired (proactive.py, 600s timer) — code verified, not yet tested live
+- Tags stored in frontmatter and returned by brain API
+
+### Autonomous features (session 91, 20/05/2026)
+- `seed_brain.py` — bulk-loaded 49 facts from vault into ChromaDB. 52 total nodes.
+- `_autonomous_connections` in proactive.py — fires every 5min, semantic seed+neighbor clustering, produces non-obvious insights
+- `_proactive_research` in proactive.py — fires every 30min, picks random memory, DDG search, extracts 1-2 obs facts
+- `_soul_tuning` in proactive.py — fires every 60min, reviews last 12 exchanges, appends self-observation to soul.md (max 5 notes)
+- brain.py: `_SELF_RECALL_RE` — "tell me everything about me" triggers all_memories() path, no 2-sentence limit
+- Wrong "Coventry University" nodes deleted. Correct "University of Leicester" node confirmed.
 
 ### Current stack
 | Component | Choice |
@@ -61,26 +67,21 @@ Current project status, what's in progress, what's next.
 | TTS | Chatterbox Turbo (3.3s/sentence — ROCm GEMM issue, known) |
 | Memory | ChromaDB + vault at `z Meta/SPIDy/brain/` |
 
-### UI — DONE ✓ (session 90, 20/05/2026)
+### UI — Updated ✓ (session 91, 20/05/2026)
 
-**Full redesign completed. Stack: Next.js, React, Framer Motion, Three.js**
+**Stack: Next.js, React, Framer Motion, Three.js**
+**Design: dark glassmorphism, JetBrains Mono throughout**
 
-**Design: dark glassmorphism, black & white accent, JetBrains Mono throughout**
+- MemoryGraph: force-directed 3D layout, cluster labels (IDENTITY/FITNESS/GAMING etc.), colored nodes per cluster, no edges
+- Cluster colors: blue=Identity, mint=Fitness, orange=Gaming, purple=Media, cyan=Education, amber=Routine, pink=Projects, teal=Connections, lime=Research
+- StatusPill, VoiceBar, TextChat all working
+- TextChat: T button toggle, sidebars dim to 15%
 
-- Background: animated nebula breathing (CSS keyframes)
-- Panels: dark glass `rgba(10,10,12,0.54)`, left crimson→white accent bar for section labels, 4px stat bars with glowing leading edge
-- MemoryGraph: nodes white (#DEDEDE), TYPE_COLOR → white opacity variants, orbit rings white
-- StatusPill: dot/pulse/sequential-dots by mode, white glow
-- VoiceBar: idle dot → 16 animated waveform bars on listening/speaking
-- Terminal: scanline texture overlay
-- HealthPanel + SystemPanel: fully redesigned, large display numbers
-- TextChat: centered glass chat panel (640px), user bubbles right, SPIDy left with dot avatar, thinking indicator, top fade gradient, dims sidebars + graph to 15%
-- Toggle: `T` button next to VoiceBar, `⌥` dev controls
-
-### Next up
-1. **Brain seeder script** — bulk-load `about-lakira.md`, `tech-setup.md`, `projects.md` from vault into ChromaDB as fact nodes. SPIDy goes from ~1 node to ~50 overnight.
-2. **Proactive web research** — SPIDy autonomously researches topics related to existing memories on a timer (similar to autonomous connections)
-3. **Autonomous connections live test** — needs 10min runtime + 2+ memories
+### Remaining / Next up
+1. **Self-code modification** — SPIDy reading and editing his own code (ambitious, needs guardrails)
+2. **Fix "OTHER" cluster** — nodes with unrecognized tags falling into gray OTHER bucket
+3. **Firing animation visibility** — verify node flash is visible on query
+4. **Games list outdated** — need to update `3ffe97eb` node with current games
 
 ### Full architecture doc
 `Programming/Personal Projects/Jarvis/Homelab & JARVIS Architecture.md`
@@ -102,7 +103,6 @@ Current project status, what's in progress, what's next.
 ---
 
 ## Priority Order
-1. **SPIDy brain seeder** — next task this session
+1. **SPIDy self-code modification** — next ambitious feature
 2. **GroundLink** — awaiting dad's feedback
-3. **SPIDy proactive web research** — after seeder
-4. **SPIDy autonomous connections live test** — lower priority
+3. **SPIDy misc fixes** — OTHER cluster, games node update

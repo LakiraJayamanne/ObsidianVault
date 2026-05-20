@@ -1450,3 +1450,24 @@ Running log of every Claude session — what was built, changed, or decided.
 - Brain seeder script planned: bulk-load about-lakira.md, tech-setup.md, projects.md into ChromaDB
 
 ### Next session: build brain seeder script, then proactive web research
+
+---
+
+## 2026-05-20 — Session 91 (Desktop, ~12:45–14:10 BST)
+
+### Done
+- Built and ran seed_brain.py — 49 facts bulk-loaded from about-lakira.md, tech-setup.md, projects.md into ChromaDB. Brain went from 1 node to 52.
+- Fixed brain self-recall: _SELF_RECALL_RE detects "tell me everything about me", injects all_memories() + removes 2-sentence limit
+- Added memory.delete() — used to remove 2 wrong "Coventry University" hallucinated nodes
+- Improved _autonomous_connections: semantic seed+neighbor approach, non-obvious insight prompt, duplicate skip, 5min timer
+- Built _proactive_research: DDG HTML search (uddg= URL extraction), LLM fact extraction, saves as observation nodes, 30min timer
+- Built _soul_tuning: reads last 12 exchanges + soul.md, appends self-observation (max 5), 60min timer
+- Full MemoryGraph redesign: force-directed layout, tag-based edges (max 3/node), cluster labels, colored nodes per cluster, radius boundary cap, edges removed per Lakira's preference
+- Git commit: e462f52
+
+### Decisions
+- Edges removed from graph — too visually distracting
+- Colors added per cluster: blue=Identity, mint=Fitness, orange=Gaming, etc.
+- Self-code modification identified as next ambitious feature
+
+### Next session: SPIDy self-code modification, fix OTHER cluster, update games node
