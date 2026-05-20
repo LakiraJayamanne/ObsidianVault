@@ -1471,3 +1471,27 @@ Running log of every Claude session — what was built, changed, or decided.
 - Self-code modification identified as next ambitious feature
 
 ### Next session: SPIDy self-code modification, fix OTHER cluster, update games node
+
+---
+
+## 2026-05-20 — Session 92 (Desktop, ~14:21–15:15 BST)
+
+### Done
+- Full brain graph revamp: force sim → radial tree layout (core → cluster hubs → leaf nodes), batched LineSegments edges, hub meshes with labels
+- Fixed 10-second simulation reset (nodeIdKey memo, no random in useMemo)
+- Performance fix: pre-allocated Vector3 scratch vars, eliminated ~150 GC allocs/frame
+- Silent text mode: _respond_silent() skips TTS for text chat queries
+- OTHER cluster fix: TYPE_CLUSTER fallback by node.type
+- Gender fix: deleted wrong female nodes, added correct male ones, identity lock + memory filter updated
+- Pronoun fix: soul.md HARD RULES now enforces you/your in direct address
+- Web search fallback: falls back to web_research() on no results
+- Games node updated: Deadlock, The Finals, Crimson Desert
+- Self-code modification: read_own_source, edit_soul, set_config, propose_code_change tools added
+- Git commit: 1263f88
+
+### Decisions
+- Tree layout chosen over force-directed — cleaner hierarchy, more readable
+- Self-code changes: soul.md = full edit, config = whitelisted keys, code = proposals only (Lakira reviews)
+- Text mode stays silent by default — voice = TTS, text = chat only
+
+### Next session: clean research branch garbage nodes, test self-code mod, verify firing animation
