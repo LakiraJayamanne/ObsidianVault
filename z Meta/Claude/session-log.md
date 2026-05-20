@@ -1581,3 +1581,30 @@ Running log of every Claude session — what was built, changed, or decided.
 - Response latency (5-8s first sentence)
 - Proactive commentary
 - Memory surfacing in conversation
+
+---
+
+## 2026-05-20 — Session 97 (Desktop, ~22:00+ BST)
+
+### Done
+- Brain cleanup: deleted 13 bad observations (GroundLink contamination, Oxford OOP, duplicates/noise) + 44 redundant connections. ChromaDB desynced after rm bypass (169 vs 113 vault files). Fixed with memory.resync() — 50 stale entries pruned.
+- Theme diversity: _saturated_themes() in proactive.py. THEME_CAP=3. Autonomous connections prompt includes AVOID block for saturated themes. Dedup distance 0.30→0.40, last 25 connections shown (was 15).
+- Latency: tool-routing switched to qwen3:1.7b. Routing decision now fast.
+- Memory surfacing: single ChromaDB search (n=6), hits injected into system prompt + broadcast_neurons. increment_referenced() called after fire.
+- memory.py rewrite: group, expires_at, referenced_count fields. Group 3 expiry 14d, cap 60, promote at 3 refs. New: _update_frontmatter, increment_referenced, expire_old, enforce_group3_cap, migrate_v2.
+- Brain API route: returns new fields.
+- Atom memory graph (MemoryGraph.tsx): full rewrite. 3-tier orbital layout. Nucleus golden sphere (G1). Inner shells 2 rings (G2). Outer shells 3 rings (G3). Dynamic ring spawning, orbital animation, node decay, MIN_RING_FILL filter, ice-white nucleus, bloom reduced.
+
+### Decisions
+- ChromaDB + vault dual storage: vault is source of truth, resync() reconciles drift
+- MIN_ARC_SPACING = 0.42, ring capacity = floor(2πr / 0.42)
+- G2 inclinations: 18°, 40°. G3: 13°, -45°, 64°
+- Orbital speeds: G2 = 0.012–0.020 rad/s, G3 = 0.006–0.011 rad/s
+
+### Open bug
+- Group 2/3 orbital nodes not visible — render at [0,0,0] inside nucleus. Vault data correct. Bug in MemoryGraph.tsx useFrame or initial position assignment.
+
+### Next session
+- Fix orbital node rendering bug (group 2/3 invisible)
+- Proactive commentary
+- Q13-style sharp answers
