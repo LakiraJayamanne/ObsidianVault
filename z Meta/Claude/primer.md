@@ -40,33 +40,17 @@ Current project status, what's in progress, what's next.
 
 **Named 15/05/2026. Pronounced "Spidy" — subtle Spider-Man reference.**
 
-### Brain system — BUILT ✓ (session 88, 20/05/2026)
+### Brain system — FULLY WORKING ✓ (session 89, 20/05/2026)
 
-**Memory reset done** — old brain wiped. New architecture:
 - `memory.py` — ChromaDB persistent vector DB + vault .md files
 - 4 types: fact, observation, reflection, connection
 - Each memory stored at `z Meta/SPIDy/brain/<type>/` in vault AND embedded in ChromaDB
 - SPIDy writes his own memories via `remember` tool
 - Every query fires ChromaDB search → matching nodes light up white on MemoryGraph (neurons)
-- `_extract_and_save` filter tightened — only saves explicit personal facts stated by the user. Not hallucinated traits, not conversation mechanics.
-
-**MemoryGraph** — shows SPIDy's brain (NOT Obsidian vault). Color-coded by type:
-- facts = red, observations = orange, reflections = blue, connections = green
-- Idle rings: faint orbit rings shown only for types that have nodes
-- Thinking rings: full atom orbit, only shown when 4+ nodes exist
-- Polls `/api/brain` every 10s
-
-**Autonomous connections** — live in `proactive.py`, fires every 600s when brain has 2+ memories. Picks 2-3 random memories, finds a connection with LLM, saves as `connection` node, fires neurons on graph.
-
-**Brain-filling questions** — in `brain.py`. When user says "ask me questions / fill your brain / what do you want to know", SPIDy generates one targeted question based on memory gaps. User's answer flows through `_async_remember` automatically.
-
-### Personality — WORKING ✓ (session 88)
-- soul.md loaded correctly, identity lock hardened
-- Knows name is Lakira (not Lakshmi) — hardcoded in `_IDENTITY_LOCK`
-- Banned phrases: "How can I assist you today?", "How can I help?", etc.
-- Max 2 sentences enforced
-- `_SOUL_PRIMER` removed (was causing "first time speaking" contradiction)
-- Modelfile rebuilt: `jarvis-brain` from `qwen3:8b`, `num_ctx 4096`, identity lock in SYSTEM
+- `_extract_and_save` — FIXED: dedup check was always false (load_memory() with no query returns ""). Fixed to load_memory(fact). Error handling fixed (was silently swallowed, now prints errors).
+- Vault + ChromaDB sync confirmed working. Orphaned vault files cleaned up.
+- Brain-fill questions working (_generate_brain_question)
+- Autonomous connections wired (proactive.py, 600s timer) — code verified, not yet tested live
 
 ### Current stack
 | Component | Choice |
@@ -77,30 +61,29 @@ Current project status, what's in progress, what's next.
 | TTS | Chatterbox Turbo (3.3s/sentence — ROCm GEMM issue, known) |
 | Memory | ChromaDB + vault at `z Meta/SPIDy/brain/` |
 
-### UI — NEXT 🔥
-- **Design direction agreed:** HUD-style + Apple glass hybrid. Black (#080808) + deep crimson (#C0001A)
-- **Stack:** Next.js + Tailwind + Framer Motion
-- **WHERE:** `/home/lakira/Documents/Projects/SPIDy/ui/`
-- UI revamp is the NEXT thing to build after brain is verified
+### UI — IN PROGRESS 🔥
+
+**Design direction: sleek glassmorphism — dark, translucent panels, smooth animations**
+
+**Session 89 UI changes (partial revamp — SCRAPPED, starting fresh):**
+- Removed corner Brackets, removed "SYSTEM //" headers from all panels
+- Rounded corners (14px) on all panels
+- New glass style: `rgba(13,13,17,0.38)` + `blur(28px)` + white border
+- 3px gradient stat bars
+- VoiceBar → pill shape (border-radius 50px)
+- StatusPill → proper pill (border-radius 9999px)
+- MemoryGraph: nodes 0.04→0.10, central core 0.1→0.13, bloom 1.4→0.4, orbit rings 0.06→0.15, idle breathing animation, fire flash white spike
+- Background: attempted radial gradient glows — not satisfying
+
+**NEXT: Full UI restart using `/frontend-design` skill**
+- Lakira scrapped the partial revamp and wants a clean redesign using the frontend-design skill
+- Design brief: sleek glass look, lots of translucency, smooth comfortable animations, everything flows
+- frontend-design skill installed at `~/.claude/skills/frontend-design/SKILL.md`
+- Start fresh next session with the skill active
 
 ### Still pending (small)
-- Verify `_async_remember` saves correctly after play/pause intent fix (re-test "go to the gym, play a game..." answer)
-- 8-item test list from session 85 still mostly untested (lower priority now)
-
-### Planned but not built
-- Background autonomous connections ✓ BUILT (session 88)
-- Proactive brain-filling questions ✓ BUILT (session 88)
-
-### Files changed this session (uncommitted)
-- `brain.py` — identity lock, soul primer removed, brain-fill, _async_remember filter, multi-step threshold 3
-- `tools.py` — _ABOUT_FILE dead code removed
-- `proactive.py` — autonomous connections trigger added
-- `intent.py` — play/pause patterns tightened (no longer triggers on "play a game")
-- `Modelfile` — rebuilt, num_ctx 4096, stronger identity lock
-- `memory.py` — new file (ChromaDB brain)
-- `ui/app/components/MemoryGraph.tsx` — brain polling, orbit ring fixes, idle rings
-- `ui/app/components/SystemPanel.tsx` — /api/vault → /api/brain
-- `ui/app/api/brain/route.ts` — new file
+- Autonomous connections test live (needs 10min wait + 2+ memories in ChromaDB)
+- MemoryGraph visual confirmation with multiple node types
 
 ### Full architecture doc
 `Programming/Personal Projects/Jarvis/Homelab & JARVIS Architecture.md`
@@ -122,6 +105,6 @@ Current project status, what's in progress, what's next.
 ---
 
 ## Priority Order
-1. **SPIDy UI revamp** — next session
+1. **SPIDy UI full redesign** — next session, use /frontend-design skill
 2. **GroundLink** — awaiting dad's feedback
-3. **SPIDy — remaining 8-item test list** — lower priority
+3. **SPIDy — autonomous connections live test** — lower priority

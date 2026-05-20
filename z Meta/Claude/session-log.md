@@ -1390,3 +1390,31 @@ Running log of every Claude session — what was built, changed, or decided.
 - Brain memory wipe is clean-slate design choice — SPIDy builds knowledge from real interactions only
 
 ### Next session: verify _async_remember saves correctly (re-test "go to the gym, play a game..." answer), then start UI revamp
+
+---
+
+## 2026-05-20 — Session 89 (Desktop, 01:39–02:20 BST)
+
+### Done
+- Picked up from session 88 exactly where it left off (memory filter debug)
+- Fixed `_async_remember` dedup bug: `load_memory()` with no query returns "" so dedup check was always False. Fixed to `load_memory(fact)`
+- Fixed silent error swallowing in `_extract_and_save`: `except Exception: pass` → `except Exception as e: print(...)`
+- Verified full memory pipeline live: filter fires, fact saved, dedup blocks second identical fact, ChromaDB = 1 node
+- Confirmed vault .md files write correctly alongside ChromaDB
+- Cleaned orphaned vault .md files (3 leftover from manual testing)
+- Confirmed brain-fill question generation working (_generate_brain_question)
+- Confirmed MemoryGraph shows 1 red node correctly — brain feature fully verified
+- Installed frontend-design skill from anthropics/claude-code GitHub repo → ~/.claude/skills/frontend-design/SKILL.md
+
+**UI partial revamp (v1 — scrapped):**
+- Removed Brackets corner ticks + "SYSTEM //" from all panels
+- Rounded corners, white glass border, 3px gradient stat bars
+- VoiceBar → pill, StatusPill → proper pill
+- MemoryGraph: nodes bigger, breathing animation, better fire flash, reduced bloom
+- Background gradient experiments (center glow, edge blobs) — Lakira not happy, wants fresh start
+
+### Decisions
+- UI partial revamp scrapped — starting fresh next session with /frontend-design skill
+- Brain system is fully done and verified
+
+### Next session: /frontend-design skill → full SPIDy UI redesign from scratch
