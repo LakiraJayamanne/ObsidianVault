@@ -2,6 +2,6 @@
 tags: [jarvis]
 ---
 
-This is a test note created by SPIDy tests.
+This is an EDITED test note created by SPIDy tests.
 
 - [x] Test task item
