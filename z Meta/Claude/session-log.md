@@ -1559,3 +1559,25 @@ Running log of every Claude session — what was built, changed, or decided.
 - Response latency (5-8s Ollama first sentence)
 - Proactive commentary (SPIDy surfaces things unprompted)
 - Memory surfacing in conversation
+
+---
+
+## 2026-05-20 — Session 95+96 (Desktop, ~20:00–21:30 BST)
+
+### Done
+- Ran customer/first-time-user agent critique: 17 live WS tests, structured feedback
+- Brain audit: found and deleted 4 corrupted "Coventry University" fact/observation nodes. Correct Leicester node already existed.
+- Social silence fix: _SOCIAL_RE in brain.py catches compliments/insults/acks before noise filter. Tight social system prompt for personality-driven response. "You're not the one with the algorithm." is the compliment response.
+- Tool output formatting: _format_stats() and _format_weather() in brain.py — natural speech instead of raw strings
+- Self-awareness fix: soul.md CAPABILITIES section with accurate can/cannot list. Explicitly states web search IS possible.
+- Round 2 test harness: 66 tests, 64/66 pass (2 test design issues, no real bugs)
+- Git commit: 807ac58
+
+### Decisions
+- Social responses ending with questions: intentional — SPIDy can ask, just like Claude does
+- Latency agent went off track (ran permissions audit instead). Will profile manually next session.
+
+### Next session
+- Response latency (5-8s first sentence)
+- Proactive commentary
+- Memory surfacing in conversation
