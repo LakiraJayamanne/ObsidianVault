@@ -61,29 +61,26 @@ Current project status, what's in progress, what's next.
 | TTS | Chatterbox Turbo (3.3s/sentence — ROCm GEMM issue, known) |
 | Memory | ChromaDB + vault at `z Meta/SPIDy/brain/` |
 
-### UI — IN PROGRESS 🔥
+### UI — DONE ✓ (session 90, 20/05/2026)
 
-**Design direction: sleek glassmorphism — dark, translucent panels, smooth animations**
+**Full redesign completed. Stack: Next.js, React, Framer Motion, Three.js**
 
-**Session 89 UI changes (partial revamp — SCRAPPED, starting fresh):**
-- Removed corner Brackets, removed "SYSTEM //" headers from all panels
-- Rounded corners (14px) on all panels
-- New glass style: `rgba(13,13,17,0.38)` + `blur(28px)` + white border
-- 3px gradient stat bars
-- VoiceBar → pill shape (border-radius 50px)
-- StatusPill → proper pill (border-radius 9999px)
-- MemoryGraph: nodes 0.04→0.10, central core 0.1→0.13, bloom 1.4→0.4, orbit rings 0.06→0.15, idle breathing animation, fire flash white spike
-- Background: attempted radial gradient glows — not satisfying
+**Design: dark glassmorphism, black & white accent, JetBrains Mono throughout**
 
-**NEXT: Full UI restart using `/frontend-design` skill**
-- Lakira scrapped the partial revamp and wants a clean redesign using the frontend-design skill
-- Design brief: sleek glass look, lots of translucency, smooth comfortable animations, everything flows
-- frontend-design skill installed at `~/.claude/skills/frontend-design/SKILL.md`
-- Start fresh next session with the skill active
+- Background: animated nebula breathing (CSS keyframes)
+- Panels: dark glass `rgba(10,10,12,0.54)`, left crimson→white accent bar for section labels, 4px stat bars with glowing leading edge
+- MemoryGraph: nodes white (#DEDEDE), TYPE_COLOR → white opacity variants, orbit rings white
+- StatusPill: dot/pulse/sequential-dots by mode, white glow
+- VoiceBar: idle dot → 16 animated waveform bars on listening/speaking
+- Terminal: scanline texture overlay
+- HealthPanel + SystemPanel: fully redesigned, large display numbers
+- TextChat: centered glass chat panel (640px), user bubbles right, SPIDy left with dot avatar, thinking indicator, top fade gradient, dims sidebars + graph to 15%
+- Toggle: `T` button next to VoiceBar, `⌥` dev controls
 
-### Still pending (small)
-- Autonomous connections test live (needs 10min wait + 2+ memories in ChromaDB)
-- MemoryGraph visual confirmation with multiple node types
+### Next up
+1. **Brain seeder script** — bulk-load `about-lakira.md`, `tech-setup.md`, `projects.md` from vault into ChromaDB as fact nodes. SPIDy goes from ~1 node to ~50 overnight.
+2. **Proactive web research** — SPIDy autonomously researches topics related to existing memories on a timer (similar to autonomous connections)
+3. **Autonomous connections live test** — needs 10min runtime + 2+ memories
 
 ### Full architecture doc
 `Programming/Personal Projects/Jarvis/Homelab & JARVIS Architecture.md`
@@ -105,6 +102,7 @@ Current project status, what's in progress, what's next.
 ---
 
 ## Priority Order
-1. **SPIDy UI full redesign** — next session, use /frontend-design skill
+1. **SPIDy brain seeder** — next task this session
 2. **GroundLink** — awaiting dad's feedback
-3. **SPIDy — autonomous connections live test** — lower priority
+3. **SPIDy proactive web research** — after seeder
+4. **SPIDy autonomous connections live test** — lower priority

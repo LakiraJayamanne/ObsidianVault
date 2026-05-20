@@ -1418,3 +1418,35 @@ Running log of every Claude session — what was built, changed, or decided.
 - Brain system is fully done and verified
 
 ### Next session: /frontend-design skill → full SPIDy UI redesign from scratch
+
+---
+
+## 2026-05-20 — Session 90 (Desktop, 02:25 BST / resumed ~12:30 BST)
+
+### Done
+- Full SPIDy UI redesign from scratch using /frontend-design skill
+  - Black & white color scheme (dropped crimson for all UI elements)
+  - JetBrains Mono throughout (Cormorant Garamond tried and removed per Lakira's preference)
+  - Animated nebula breathing background (CSS keyframes)
+  - Section labels: left white accent bar instead of bottom border
+  - 4px stat bars with glowing leading edge
+  - VoiceBar: idle dot → 16 waveform bars on listening/speaking (bar-pulse keyframe)
+  - StatusPill: thinking mode → 3 sequential dots instead of spinner
+  - Terminal: scanline texture overlay, brighter SPIDy lines
+  - MemoryGraph: CRIMSON → #DEDEDE, TYPE_COLOR → white opacity variants
+- TextChat component built (text mode panel)
+  - Centered 640px glass panel, left: calc(50% - 320px) (framer-motion transform fix)
+  - User bubbles right-aligned, SPIDy left with dot avatar
+  - Animated thinking dots (3-dot indicator)
+  - Top fade gradient
+  - Sidebars + 3D graph dim to 15% in text mode
+  - T button toggle next to VoiceBar
+- Backend confirmed live on :8765 WebSocket
+- SPIDy tested live — personality working, brain-fill questions firing, 1 memory node saved
+
+### Decisions
+- Cormorant Garamond serif dropped — Lakira prefers JetBrains Mono for everything
+- Proactive web research flagged as future feature (makes SPIDy feel more alive)
+- Brain seeder script planned: bulk-load about-lakira.md, tech-setup.md, projects.md into ChromaDB
+
+### Next session: build brain seeder script, then proactive web research
