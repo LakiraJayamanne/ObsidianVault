@@ -23,22 +23,15 @@ Current project status, what's in progress, what's next.
 
 **Named 15/05/2026. Pronounced "Spidy" — subtle Spider-Man reference.**
 
-### Session 97 — IN PROGRESS (20/05/2026, ~22:00+ BST)
+### Session 98 — COMPLETED (20/05/2026, ~23:00+ BST)
 
 #### Done this session
-- **Brain cleanup** — Deleted 13 bad observations (GroundLink contamination, Oxford OOP noise, duplicates) + 44 redundant connections. ChromaDB desynced (169 nodes vs 113 vault files after rm bypass). Fixed by running `memory.resync()` — removed 50 stale Chroma entries.
-- **Theme caps** — Built `_saturated_themes()` in proactive.py. `_THEME_CAP = 3`. Autonomous connections now get AVOID block telling LLM which themes are oversaturated. Dedup distance raised 0.30 → 0.40, shows last 25 existing connections (was 15).
-- **Latency fix** — Tool-routing call switched to `qwen3:1.7b` (was `jarvis-brain`). Routing decision is now fast.
-- **Memory surfacing** — Single ChromaDB search in brain.py (`n=6`). Hits injected into system prompt AND used for broadcast_neurons. `increment_referenced()` called after fire. Identity lock updated.
-- **memory.py rewrite** — Added `group`, `expires_at`, `referenced_count` fields. New functions: `_update_frontmatter`, `increment_referenced`, `expire_old`, `enforce_group3_cap`, `migrate_v2`. Group 3 auto-expiry 14 days, cap 60, promote at 3 references.
-- **Brain API route** — Updated `/api/brain` to return `group`, `expires_at`, `referenced_count` fields.
-- **Atom memory graph** — Full rewrite of MemoryGraph.tsx. Group 1 = nucleus (golden sphere), Group 2 = inner shells (2 rings: 18°, 40°), Group 3 = outer shells (3 rings: 13°, -45°, 64°). Dynamic ring spawning from circumference. Node decay opacity for group 3. Uniform ice-white nucleus. Removed candy colors. Fixed bloom blob (emissive 1.6→0.7). Sparse ring filter (`MIN_RING_FILL = 4`). Orbital animation via `orbitalAngles`/`orbitalSpeeds` refs in useFrame.
-
-#### Open bug (session ended before fix)
-- **Orbital nodes invisible** — Group 2/3 nodes not rendering on rings, all at [0,0,0] inside nucleus. Vault data confirmed correct (`group: 2`, `group: 3` in frontmatter). Bug is in MemoryGraph.tsx. Likely: `assignRingPositions` sets `positions[gi]` but `useFrame` orbital animation computes position from `nodeRingMap.get(i)` — if ringInfo exists and is correct, mesh should lerp to ring. Needs console.log debug to confirm `nodeRingMap` is populated. Alternatively, `positions[i]` returned from `buildLayout` may not be used for initial position (nodes render at pos before useFrame fires).
+- **Orbital node bug fixed** — Root cause: race condition. `useFrame` (RAF) was firing before `useEffect` could initialize `orbitalAngles`/`orbitalSpeeds`. First frame wrote `NaN` into the angles array. Old `=== undefined` guard never caught `NaN`, so nodes stayed permanently invisible. Fix: `useEffect` → `useLayoutEffect` (runs synchronously before first RAF) + condition `=== undefined` → `!isFinite(...)` to catch NaN too. File: `ui/app/components/MemoryGraph.tsx`.
+- **Lone node fix** — 2 G2 nodes overflowing ring 1 (capacity 35) to ring 2 had no visible ring because `MIN_RING_FILL = 4`. Lowered to `2`. Overflow rings now show.
+- **Atom graph working** — All 3 tiers render correctly: nucleus (G1, 61 nodes), inner shells (G2, 37 nodes), outer shells (G3, 44 nodes). Orbital animation live.
 
 ### Next up (priority order)
-1. **Fix orbital node bug** — Group 2/3 nodes invisible. Debug `nodeRingMap` population in useFrame or initial position setting in JSX.
+1. **Remodel thinking/listening/speaking modes** — Visual rework of these 3 states in the graph
 2. **Proactive commentary** — SPIDy surfaces things unprompted
 3. **Q13-style handling** — Big open questions should get sharp 2-sentence take
 4. **Screenshot/link intelligence** — Read image/URL, extract facts, save to brain

@@ -1608,3 +1608,19 @@ Running log of every Claude session — what was built, changed, or decided.
 - Fix orbital node rendering bug (group 2/3 invisible)
 - Proactive commentary
 - Q13-style sharp answers
+
+---
+
+## 2026-05-20 — Session 98 (Desktop, ~23:00+ BST)
+
+### Done
+- Fixed orbital node bug in MemoryGraph.tsx: race condition where useFrame (RAF) fired before useEffect initialized orbitalAngles/orbitalSpeeds. First frame wrote NaN. Old `=== undefined` guard missed NaN so nodes stayed invisible permanently. Fix: useEffect → useLayoutEffect + !isFinite() check.
+- Fixed lone node issue: 2 G2 overflow nodes had no ring line because MIN_RING_FILL=4. Lowered to 2.
+- Atom memory graph fully working: nucleus (61), inner shells (37), outer shells (44), all orbiting.
+
+### Decisions
+- useLayoutEffect is the right tool for initializing RAF-dependent state — runs before first animation frame, unlike useEffect
+- MIN_RING_FILL=2 chosen (not 1) to avoid single-node ring lines looking weird
+
+### Next session
+- Remodel thinking/listening/speaking visual modes in the graph
