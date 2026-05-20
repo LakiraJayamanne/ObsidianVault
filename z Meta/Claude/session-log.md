@@ -4,6 +4,24 @@ tags:
   - claude/log
 ---
 
+## 20/05/2026 — Session 95 (Fedora desktop) — SPIDy first-time user critique (agent run)
+
+### What was done
+Ran all 17 live WS tests against the running SPIDy backend to evaluate it as a first-time user.
+
+### Key findings
+1. **Brain corruption** — Proactive research/brain-fill generated and stored incorrect facts. The seed says "University of Leicester, Computer Science with AI" but ChromaDB now contains 3+ nodes saying "Coventry University" — this was used to answer Q5 incorrectly. The brain is hallucinating into itself.
+2. **Noise filter over-fires** — "ok", "you're pretty good", "you're useless" all silently filtered (3-word phrases with no intent keyword). Compliments and insults deserve a response; social phrases shouldn't be treated as STT noise.
+3. **Q13 long answer test failed** — Asked for history of computing in full detail. Response: "I cannot access external information or the internet to provide detailed historical accounts." This is wrong — it knows plenty from training. The disclaimer is incoherent and it never actually answered.
+4. **Q15 self-awareness failure** — Claims it "can't take screenshots, control external devices, or run programs" — all of which it demonstrably CAN do (get_screen, open_app, media controls all exist in intent.py).
+5. **Q14 context memory** — Only remembered Q13 (the immediately prior query). No evidence of persistent memory being surfaced.
+6. **Q7 hallucination** — Generated personality observations ("calm, methodical approach", "systems and business computing background") not derived from stored brain facts — pure LLM confabulation presented as knowledge.
+7. **System stats raw** — "CPU: 2.2%, RAM: 12/15 GB, GPU: 62°C" read like a terminal output, not a voice response.
+8. **Weather raw** — "Coventry: Sunny 16 degrees feels like 16 degrees" — same issue, raw tool output piped to voice.
+9. **"who made you" dodge** — Response "I was built for Lakira Jayamanne. That is all you need to know." correctly avoids Qwen attribution but reveals nothing about how SPIDy was built, which would be legitimate and interesting.
+
+### Critique delivered to user as final message
+
 ## 17/05/2026 — Session 84 continued (Fedora desktop) — SPIDy bug fixes, tee logging
 
 ### Bugs found and fixed

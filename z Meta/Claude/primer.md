@@ -23,6 +23,23 @@ Current project status, what's in progress, what's next.
 
 **Named 15/05/2026. Pronounced "Spidy" — subtle Spider-Man reference.**
 
+### Session 95 — COMPLETED (20/05/2026, ~20:27–20:52 BST)
+
+#### Done this session
+- **First-time user critique** — Agent ran all 17 live WS tests. Full critique delivered.
+- **Critical bug found: Brain corruption** — Proactive research/brain-fill wrote incorrect facts to ChromaDB. Seed says "University of Leicester / CS with AI" but brain now contains 3+ nodes saying "Coventry University" — causes live factual errors. Needs audit + bad node purge.
+- **Noise filter over-fires** — "ok", compliments, insults all silently dropped. Filter needs social phrase whitelist.
+- **Self-awareness response broken** — Q15 claims SPIDy can't take screenshots or control apps — it demonstrably can. Modelfile/soul needs corrected limitations statement.
+- **Raw tool output piped to voice** — System stats and weather read like terminal dumps, not voice responses.
+- **LLM hallucination on Q7/Q13** — Generated ungrounded personality observations and refused to answer CS history question despite knowing it from training.
+
+#### Next up (REVISED priority order)
+1. **URGENT: Brain audit** — purge bad "Coventry University" nodes, audit all proactive/brain-fill generated facts for accuracy
+2. **Noise filter social phrases** — compliments, insults, acknowledgements ("ok", "thanks", "nice") need their own route, not silence
+3. **Tool output formatting** — system stats and weather must be rendered as natural speech sentences, not raw strings
+4. **Fix self-awareness** — Q15 response is factually wrong about SPIDy's own capabilities; update soul.md or Modelfile
+5. Response latency — Ollama brain still 5-8s to first sentence
+
 ### Session 94 — COMPLETED (20/05/2026, ~18:57–19:55 BST)
 
 #### Done this session
