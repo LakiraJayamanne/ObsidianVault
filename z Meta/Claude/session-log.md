@@ -1366,3 +1366,27 @@ Running log of every Claude session — what was built, changed, or decided.
 - Lakira had to get his dad to help remove his shoes
 - Feet destroyed (soles — plantar fascia). Calves/shins fine.
 - Ended session: weetabix, shower, roll feet with water bottle, sleep.
+
+---
+
+## 2026-05-20 — Session 88 (Desktop, 00:37–01:29 BST)
+
+### Done
+- Recovered full context from auto-compacted chat via screenshots
+- Applied 3 pending fixes from checkpoint: orbit ring guard, SystemPanel → /api/brain, _ABOUT_FILE dead code removed from tools.py
+- Soul personality fixed: identity lock hardened, "Lakira" name hardcoded (was hallucinating "Lakshmi"), banned phrases added, _SOUL_PRIMER approach tried and removed (caused "first time speaking" contradiction)
+- Modelfile rebuilt: jarvis-brain from qwen3:8b, num_ctx 4096, identity lock baked in
+- Brain memory reset twice (junk from testing cleared). _async_remember filter tightened — only saves explicit personal facts the user stated, not hallucinated traits or conversation mechanics
+- Multi-step decomposition threshold raised 2→3 (single "also" no longer decomposes a greeting)
+- Built autonomous connections: proactive.py trigger, runs every 600s, picks 2-3 random memories, finds a connection, saves as connection node, fires neurons on graph
+- Built brain-filling questions: _BRAIN_FILL_RE in brain.py, generates one targeted question from memory gaps when user asks SPIDy to ask questions
+- Fixed play/pause media intent: `\bplay\b` was matching "play a game" — tightened to require standalone word or music-context
+- Workspace move keybind found: Super+Alt+[number] (Hyprland/Caelestia)
+
+### Decisions
+- UI revamp is next after brain is verified
+- soul.md "I'm just a program" and "How are you?" follow-up are fine — not violations
+- _SOUL_PRIMER removed entirely — causes more harm than good with conversational openers
+- Brain memory wipe is clean-slate design choice — SPIDy builds knowledge from real interactions only
+
+### Next session: verify _async_remember saves correctly (re-test "go to the gym, play a game..." answer), then start UI revamp
