@@ -19,50 +19,29 @@ Current project status, what's in progress, what's next.
 
 ---
 
-## SPID — Self-hosted Personal Intelligence Daemon 🔥
+## SPIDy — Self-hosted Personal Intelligence Daemon 🔥
 
 **Named 15/05/2026. Pronounced "Spidy" — subtle Spider-Man reference.**
 
-### Session 92 — COMPLETED (20/05/2026, ~14:21–15:15 BST)
+### Session 93 — COMPLETED (20/05/2026, ~17:50–18:55 BST)
 
 #### Done this session
-- **Brain graph — full tree layout** (core → cluster hubs → leaf nodes)
-  - Force simulation replaced with radial tree: goldenSphere for hubs (r=3.4), sub-spheres for nodes (r=1.1)
-  - Edges rendered as batched THREE.LineSegments (core→hub white, hub→node cluster-colored)
-  - Cluster hub meshes with labels + node count, colored per cluster
-  - SPIDY label on central core
-  - Per-node organic drift animation (no GC pressure)
-  - Camera pulled back to z=13
-- **No more 10-second simulation reset** — nodeIdKey memo, drift data stable across polls
-- **Performance fix** — pre-allocated scratch Vector3s (_s1, _s2), eliminated ~150 allocs/frame
-- **Silent text mode** — `_respond_silent()` in main.py, text queries show in chat without TTS
-- **OTHER cluster fix** — TYPE_CLUSTER fallback: connection→CONNECTIONS, observation→RESEARCH, reflection→HEADSPACE
-- **Gender fix** — deleted nodes b13ac518 ("Lakira is female") and 5b6d0c57 ("her dad"), added correct ones; identity lock + memory filter now explicitly say MALE
-- **Pronoun fix** — soul.md HARD RULES: always "you/your" when speaking to Lakira directly
-- **Web search fallback** — falls back to web_research() when DDG instant answers return nothing
-- **Games node updated** — 3ffe97eb → cc4706ef: Deadlock, The Finals, Crimson Desert
-- **Self-code modification** — 4 new tools in tools.py:
-  - `read_own_source(filename)` — read any source file
-  - `edit_soul(new_content)` — rewrite soul.md (validated, auto-backup)
-  - `set_config(key, value)` — tune humour/sarcasm/conversation_silence live
-  - `propose_code_change(filename, description, old, new)` — saves proposal to proposals/ for Lakira review
-- **Git commit**: 1263f88
+- **TTS swap: Chatterbox → Piper** — ~130ms/sentence vs 3-8s. Frees ~3GB VRAM for Ollama. Voice: en_GB-alan-medium.
+- **Soul file force-route** — `intent.py` now hard-routes "read/show your soul/brain/config/..." directly to `read_own_source`, bypassing LLM refusal entirely. `[fast]` log confirms it works.
+- **web_research URL fix** — DDG link extraction was broken (wrong anchor parser). Replaced with `uddg=` regex, matches proactive.py approach.
+- **Autonomy mode** — "do ur thing / research freely / ur free to" → says "On it." + immediately fires `_proactive_research()` in thread. No more passing phrase as a search query.
+- **Soul: AUTONOMY section** — explicit instruction that SPIDy has its own agenda, doesn't refuse or call things redundant, takes initiative when given space.
+- **Research: SKIP mechanism** — query generator now returns SKIP for physical object seeds (posters, decorations). Prevents wizard cat → lore research loops.
+- **Garbage node cleanup** — deleted 12 nodes total: 8 from last session (wizard cat x2, Glydde x2, Aβ seeding, brain metastasis, Brawl Stars x2) + 4 this session (wizard cat poster x2, bad connection, Cheeseball meme).
+- **Roadmap saved** — `Programming/Personal Projects/Jarvis/SPIDy Roadmap.md` in vault.
+- **Git commits**: a733f6f, a79d1b6, 9e87a26, 4f23d30, daec91d, 6ca7c21
 
 #### Current state of brain
-- 66 nodes total (IDENTITY, FITNESS, GAMING, MEDIA, EDUCATION, ROUTINE, TECH, PROJECTS, HEADSPACE, FAMILY, CONNECTIONS, RESEARCH)
-- Autonomous connections firing every 5min
-- Proactive research every 30min (some noise — Brawl Stars rankings, Yeat facts mixed with irrelevant medical/cat nodes)
+- 110 nodes (51 facts, 42 connections, 14 research observations + 3 new)
+- Autonomous connections firing every 5min (dedup working well)
+- Proactive research every 30min (now skips physical object seeds)
 - Soul tuning every 60min
-
-### Remaining / Next up
-1. **Clean research branch** — delete garbage nodes (Cheeseball wizard cat x2, Aβ seeding, brain metastasis). Tighten proactive_research query to stay on topic
-2. **Self-code mod testing** — try "read your soul file", "be funnier", "propose a change to yourself"
-3. **Fix "OTHER" cluster** — a few nodes may still be gray
-4. **Firing animation** — verify node flash is visible on voice queries
-5. **Proactive research quality** — currently finds irrelevant stuff, needs better seed→query logic
-
-### Full architecture doc
-`Programming/Personal Projects/Jarvis/Homelab & JARVIS Architecture.md`
+- All clusters rendering correctly in tree layout
 
 ### Current stack
 | Component | Choice |
@@ -70,13 +49,23 @@ Current project status, what's in progress, what's next.
 | Wake word | hey_jarvis_v0.1.onnx |
 | STT | Moonshine BASE (~300-500ms) |
 | Brain | qwen3:8b (jarvis-brain Modelfile) on RX 6700 |
-| TTS | Chatterbox Turbo (voice queries only) |
+| TTS | **Piper en_GB-alan-medium (~130ms, CPU)** |
 | Memory | ChromaDB + vault at `z Meta/SPIDy/brain/` |
 | UI | Next.js, React, Three.js, Framer Motion |
 
+### Next up (priority order)
+1. **Agent-based testing** — test harness + Claude subagents to rigorously test SPIDy systematically
+2. **Response latency** — Ollama brain still 5-8s to first sentence. Explore smaller fast model for casual replies
+3. **Duplicate connections** — 42 nodes, obvious redundancy. Needs dedup pass
+4. **"analyse ur systems"** — should actually read files + research improvements, not refuse
+5. **Proactive commentary** — SPIDy should surface things unprompted without being asked
+6. **Memory surfacing** — weave brain nodes into conversation naturally
+7. **Screenshot/link intelligence** — read image/URL, extract facts, save to brain
+8. See `SPIDy Roadmap.md` for full list
+
 ---
 
-## GroundLink Sri Lanka — DAD REVIEW IN PROGRESS 🔥 PRIORITY #1
+## GroundLink Sri Lanka — DAD REVIEW IN PROGRESS 🔥
 - **What it is:** SaaS platform for guide/driver/vehicle management in Sri Lankan inbound tourism
 - **Client:** TTC Sri Lanka (dad's company — laahiru@ttcsrilanka.com)
 - **Project path:** C:\Users\lakir\Documents\Projects\groundlink
@@ -91,6 +80,5 @@ Current project status, what's in progress, what's next.
 ---
 
 ## Priority Order
-1. **SPIDy research branch cleanup + proactive research quality**
-2. **SPIDy self-code mod testing**
-3. **GroundLink** — awaiting dad's feedback
+1. **SPIDy — agent testing + latency + autonomy improvements**
+2. **GroundLink** — awaiting dad's feedback

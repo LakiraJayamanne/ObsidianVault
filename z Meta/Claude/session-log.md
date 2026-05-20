@@ -1495,3 +1495,28 @@ Running log of every Claude session — what was built, changed, or decided.
 - Text mode stays silent by default — voice = TTS, text = chat only
 
 ### Next session: clean research branch garbage nodes, test self-code mod, verify firing animation
+
+---
+
+## 2026-05-20 — Session 93 (Desktop, ~17:50–18:55 BST)
+
+### Done
+- Swapped Chatterbox Turbo → Piper TTS (en_GB-alan-medium). ~130ms/sentence vs 3-8s. Frees ~3GB VRAM.
+- Fixed soul file read: intent.py force-routes "read/show your soul/brain/config" to read_own_source, bypassing LLM refusal
+- Fixed web_research URL extraction: DDG uddg= regex pattern (was using broken anchor parser)
+- Added autonomy mode: "do ur thing / research freely" → "On it." + fires proactive_research thread immediately
+- Added AUTONOMY section to soul.md — takes initiative, doesn't refuse, has own agenda
+- Added SKIP mechanism to proactive research — LLM returns SKIP for physical object seeds (wizard cat poster etc.)
+- Deleted 12 garbage nodes total across session
+- Saved SPIDy roadmap to vault (9 items, prioritised)
+
+### Decisions
+- Piper over Kokoro — faster, CPU-only, no GPU competition with Ollama
+- Intent force-routing is the right fix for LLM refusal — system prompt hints alone don't work with qwen3
+- SKIP mechanism preferred over hardcoded blacklist — more flexible
+
+### Next session
+- Agent-based testing harness for SPIDy
+- Response latency (Ollama brain 5-8s to first sentence)
+- Duplicate connection dedup
+- Proactive commentary (SPIDy surfaces things without being asked)
