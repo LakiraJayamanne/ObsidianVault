@@ -23,6 +23,21 @@ Current project status, what's in progress, what's next.
 
 **Named 15/05/2026. Pronounced "Spidy" — subtle Spider-Man reference.**
 
+### Session 94 — COMPLETED (20/05/2026, ~18:57–19:55 BST)
+
+#### Done this session
+- **Full test harness built** — 173 tests across 2 rounds: intent routing, noise filter, tool smoke tests, brain regex patterns, memory system, vault note tools, health data tools, multi-step decomposition, heartbeat logic, soul tuning, autonomous connections, proactive research, focus mode, end-to-end live WS tests.
+- **Bug: BRAIN_FILL_RE pattern gap** — "what would you like to ask" wasn't matching. Added `would you` + `like` variants. Fixed.
+- **Bug: Memory recall truncated at 80 tokens** — recall queries shared the tool-decision LLM call (80-token cap). Now streams directly with 300 tokens. Full uncut responses.
+- **Bug: Connection dedup used word overlap** — 60% word overlap missed semantic duplicates with synonyms (58% = miss). Switched to ChromaDB embedding distance < 0.30. Far more robust.
+- **Feat: Personality-driven autonomy responses** — soul tuning flagged "On it." as too generic. Now picks from 5 JARVIS-style lines with character.
+- **Git commits**: d2a0fd4, 6c64c98, d9fa6f2
+
+#### Current state of brain
+- ~115 nodes (facts + connections + observations — proactive research added 2 this session)
+- Soul self-wrote a tuning note: "do ur thing response could be more playful" → actioned
+- Dedup now uses semantic distance — more connections will be caught and skipped correctly
+
 ### Session 93 — COMPLETED (20/05/2026, ~17:50–18:55 BST)
 
 #### Done this session
@@ -54,14 +69,11 @@ Current project status, what's in progress, what's next.
 | UI | Next.js, React, Three.js, Framer Motion |
 
 ### Next up (priority order)
-1. **Agent-based testing** — test harness + Claude subagents to rigorously test SPIDy systematically
-2. **Response latency** — Ollama brain still 5-8s to first sentence. Explore smaller fast model for casual replies
-3. **Duplicate connections** — 42 nodes, obvious redundancy. Needs dedup pass
-4. **"analyse ur systems"** — should actually read files + research improvements, not refuse
-5. **Proactive commentary** — SPIDy should surface things unprompted without being asked
-6. **Memory surfacing** — weave brain nodes into conversation naturally
-7. **Screenshot/link intelligence** — read image/URL, extract facts, save to brain
-8. See `SPIDy Roadmap.md` for full list
+1. **Response latency** — Ollama brain still 5-8s to first sentence. Explore smaller fast model for casual replies
+2. **Proactive commentary** — SPIDy should surface things unprompted without being asked
+3. **Memory surfacing** — weave brain nodes into conversation naturally
+4. **Screenshot/link intelligence** — read image/URL, extract facts, save to brain
+5. See `SPIDy Roadmap.md` for full list
 
 ---
 

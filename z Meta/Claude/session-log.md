@@ -1520,3 +1520,24 @@ Running log of every Claude session — what was built, changed, or decided.
 - Response latency (Ollama brain 5-8s to first sentence)
 - Duplicate connection dedup
 - Proactive commentary (SPIDy surfaces things without being asked)
+
+---
+
+## 2026-05-20 — Session 94 (Desktop, ~18:57–19:55 BST)
+
+### Done
+- Built full SPIDy test harness: 173 tests across 2 rounds covering intent routing, noise filter, tool functions, brain regex patterns, ChromaDB memory, vault note tools, health data tools, multi-step decomposition, heartbeat gym split, soul tuning, autonomous connections, proactive research, focus mode, end-to-end live WS tests
+- Fixed BRAIN_FILL_RE: "what would you like to ask" wasn't matching — added `would you` + `like` variants
+- Fixed memory recall truncation: recall queries now stream with 300-token limit instead of sharing the 80-token tool-decision call
+- Fixed connection dedup: switched from 60% word overlap (missed synonyms) to ChromaDB embedding distance < 0.30
+- Actioned soul tuning note: autonomy responses now pick from 5 personality-driven JARVIS-style lines instead of flat "On it."
+- Git commits: d2a0fd4, 6c64c98, d9fa6f2
+
+### Decisions
+- Distance-based dedup threshold: 0.30 (catches near-duplicates, avoids false positives on genuinely different insights)
+- Autonomy pool: 5 lines, all ≤1 sentence, JARVIS-tone. Can expand later
+
+### Next session
+- Response latency (5-8s Ollama first sentence)
+- Proactive commentary (SPIDy surfaces things unprompted)
+- Memory surfacing in conversation
